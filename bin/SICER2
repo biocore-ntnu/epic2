@@ -41,15 +41,6 @@ parser.add_argument(
     nargs='+',
     help='''Control (input) file(s) in (b/gzipped) bed/bedpe format.''')
 
-parser.add_argument(
-    '--number-cores',
-    '-cpu',
-    required=False,
-    default=1,
-    type=int,
-    help=
-    '''Number of cpus to use. Can use at most one per chromosome. Default: 1.''')
-
 
 parser.add_argument('--genome',
                     '-gn',

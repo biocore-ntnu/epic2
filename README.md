@@ -13,8 +13,8 @@ SICER2 -t examples/test.bed -c examples/control.bed > results.txt
 
 ```
 usage: SICER2 [-h] --treatment TREATMENT [TREATMENT ...]
-              [--control CONTROL [CONTROL ...]] [--number-cores NUMBER_CORES]
-              [--genome GENOME] [--drop-duplicates] [--bin-size BIN_SIZE]
+              [--control CONTROL [CONTROL ...]] [--genome GENOME]
+              [--drop-duplicates] [--bin-size BIN_SIZE]
               [--gaps-allowed GAPS_ALLOWED] [--fragment-size FRAGMENT_SIZE]
               [--false-discovery-rate-cutoff FALSE_DISCOVERY_RATE_CUTOFF]
               [--effective-genome-fraction EFFECTIVE_GENOME_FRACTION]
@@ -30,9 +30,6 @@ optional arguments:
   --control CONTROL [CONTROL ...], -c CONTROL [CONTROL ...]
                         Control (input) file(s) in (b/gzipped) bed/bedpe
                         format.
-  --number-cores NUMBER_CORES, -cpu NUMBER_CORES
-                        Number of cpus to use. Can use at most one per
-                        chromosome. Default: 1.
   --genome GENOME, -gn GENOME
                         Which genome to analyze. Default: hg19. If
                         --chromsizes flag is given, --genome is not required.
