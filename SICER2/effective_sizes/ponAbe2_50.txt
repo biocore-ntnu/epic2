@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/ponAbe2.trimmed.fa
+Genome length:  3101929775
+Number unique 50-mers:  2540305036
+Effective genome size:  0.8189434385244908

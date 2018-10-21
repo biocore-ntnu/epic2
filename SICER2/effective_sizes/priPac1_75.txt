@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/priPac1.trimmed.fa
+Genome length:  174852139
+Number unique 75-mers:  134145705
+Effective genome size:  0.7671951042017279

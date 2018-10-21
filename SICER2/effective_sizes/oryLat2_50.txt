@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/oryLat2.trimmed.fa
+Genome length:  869000216
+Number unique 50-mers:  637677481
+Effective genome size:  0.7338058947041735

@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/oreNil2.trimmed.fa
+Genome length:  927696114
+Number unique 50-mers:  764505342
+Effective genome size:  0.8240902710087239

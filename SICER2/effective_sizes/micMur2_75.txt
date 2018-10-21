@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/micMur2.trimmed.fa
+Genome length:  2438804424
+Number unique 75-mers:  2309584830
+Effective genome size:  0.9470151879632641

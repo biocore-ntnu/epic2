@@ -1,0 +1,11 @@
+build/
+*deleteme*
+*.out
+*.swp
+*#*
+*egg*
+*.pyc
+*.c
+*pytest*
+# *.cpp
+*.html

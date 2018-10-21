@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/petMar1.trimmed.fa
+Genome length:  1027258967
+Number unique 36-mers:  622656741
+Effective genome size:  0.6061341502020687

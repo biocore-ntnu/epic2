@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/dm3.trimmed.fa
+Genome length:  168736537
+Number unique 100-mers:  124934023
+Effective genome size:  0.740408836291

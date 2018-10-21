@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/braFlo1.trimmed.fa
+Genome length:  926386587
+Number unique 75-mers:  691573009
+Effective genome size:  0.7465274418961336

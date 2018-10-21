@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/galVar1.trimmed.fa
+Genome length:  16748
+Number unique 36-mers:  16587
+Effective genome size:  0.990386911870074

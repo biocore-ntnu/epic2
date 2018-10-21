@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/echTel2.trimmed.fa
+Genome length:  2947024286
+Number unique 36-mers:  2459496942
+Effective genome size:  0.8345696211883882

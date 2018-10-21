@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/aquChr2.trimmed.fa
+Genome length:  1192725744
+Number unique 100-mers:  1173757167
+Effective genome size:  0.9840964470705681

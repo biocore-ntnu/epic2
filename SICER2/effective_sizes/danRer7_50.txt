@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/danRer7.trimmed.fa
+Genome length:  1357051643
+Number unique 50-mers:  1146516472
+Effective genome size:  0.8448583942357749

@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/equCab1.trimmed.fa
+Genome length:  2462493800
+Number unique 50-mers:  2322438922
+Effective genome size:  0.9431247794410691

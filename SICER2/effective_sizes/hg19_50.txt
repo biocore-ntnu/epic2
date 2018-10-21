@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/hg19.trimmed.fa
+Genome length:  3095693983
+Number unique 50-mers:  2671858539
+Effective genome size:  0.863088714089

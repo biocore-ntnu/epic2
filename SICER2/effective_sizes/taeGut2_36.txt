@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/taeGut2.trimmed.fa
+Genome length:  1021479793
+Number unique 36-mers:  951422258
+Effective genome size:  0.9314156427957846

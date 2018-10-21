@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/nomLeu3.trimmed.fa
+Genome length:  2795260045
+Number unique 36-mers:  2345263396
+Effective genome size:  0.8390143880155523

@@ -1,0 +1,163 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+
+from sys import argv
+import sys
+
+
+from SICER2.src.reads_to_bins import files_to_bin_counts
+from SICER2.src.statistics import compute_background_probabilities
+from SICER2.src.find_islands import find_islands, compute_fdr, write_islands
+from SICER2.src.genome_info import egl_and_chromsizes
+
+from collections import OrderedDict
+import argparse
+import os
+
+from epic.version import __version__
+
+parser = argparse.ArgumentParser(
+    description="""SICER2.
+
+(Visit github.com/endrebak/SICER2 for examples and help.)
+
+    """,
+    prog=os.path.basename(__file__))
+
+parser.add_argument(
+    '--treatment',
+    '-t',
+    required=True,
+    type=str,
+    nargs='+',
+    help='''Treatment (pull-down) file(s) in (b/gzipped) bed/bedpe format.''')
+
+parser.add_argument(
+    '--control',
+    '-c',
+    required=False,
+    type=str,
+    nargs='+',
+    help='''Control (input) file(s) in (b/gzipped) bed/bedpe format.''')
+
+parser.add_argument(
+    '--number-cores',
+    '-cpu',
+    required=False,
+    default=1,
+    type=int,
+    help=
+    '''Number of cpus to use. Can use at most one per chromosome. Default: 1.''')
+
+
+parser.add_argument('--genome',
+                    '-gn',
+                    required=False,
+                    default="hg19",
+                    type=str,
+                    help='''Which genome to analyze. Default: hg19. If --chromsizes flag is given, --genome is not required.''')
+
+parser.add_argument(
+    '--drop-duplicates',
+    '-d',
+    required=False,
+    default=True,
+    action='store_true',
+    help=
+    '''Keep reads mapping to the same position on the same strand within a library. Default is to remove all but the first duplicate.
+                   ''')
+
+parser.add_argument(
+    '--bin-size',
+    '-bin',
+    required=False,
+    default=200,
+    type=int,
+    help=
+    '''Size of the windows to scan the genome. WINDOW_SIZE is the smallest possible island. Default 200.
+                   ''')
+
+parser.add_argument(
+    '--gaps-allowed',
+    '-g',
+    required=False,
+    default=3,
+    type=int,
+    help=
+    '''This number is multiplied by the window size to determine the gap size. Must be an integer. Default: 3.
+                   ''')
+
+parser.add_argument(
+    '--fragment-size',
+    '-fs',
+    required=False,
+    default=150,
+    type=int,
+    help=
+    '''(Single end reads only) Size of the sequenced fragment. The center of the the fragment will be taken as half the fragment size. Default 150.
+                   ''')
+
+parser.add_argument(
+    '--false-discovery-rate-cutoff',
+    '-fdr',
+    required=False,
+    default=0.05,
+    type=float,
+    help=
+    '''Remove all islands with an FDR below cutoff. Default 0.05.
+                   ''')
+
+parser.add_argument(
+    '--effective-genome-fraction',
+    '-egf',
+    required=False,
+    type=float,
+    help=
+    '''Use a different effective genome fraction than the one included in epic. The default value depends on the genome and readlength, but is a number between 0 and 1.''')
+
+
+parser.add_argument(
+    '--chromsizes',
+    '-cs',
+    required=False,
+    type=str,
+    help=
+    '''Set the chromosome lengths yourself in a file with two columns: chromosome names and sizes. Useful to analyze custom genomes, assemblies or simulated data. Only chromosomes included in the file will be analyzed.''')
+
+
+def main():
+
+    args = vars(parser.parse_args())
+
+    effective_genome_length, chromsizes = egl_and_chromsizes(args)
+    args["chromsizes"] = chromsizes
+    args["effective_genome_size"] = effective_genome_length
+
+    c_bins_counts = files_to_bin_counts(args["treatment"], args, "ChIP")
+    chip_count = sum(sum(counts) for _, counts in c_bins_counts.values())
+
+    sys.stderr.write("\n  Valid ChIP reads: {}\n".format(chip_count))
+
+    score_threshold, island_enriched_threshold, average_window_readcount = compute_background_probabilities(
+        chip_count, args["bin_size"], effective_genome_length, args["gaps_allowed"])
+
+    sys.stderr.write("\nNumber of reads needed to consider an island enriched: {}\n".format(island_enriched_threshold + 1))
+
+    # print(average_window_readcount)
+    islands = find_islands(c_bins_counts, args["gaps_allowed"], args["bin_size"], score_threshold, island_enriched_threshold, average_window_readcount)
+
+    sys.stderr.write("\nNumber of islands found: {}\n\n".format(sum(len(i) for i in islands.values())))
+
+    if args["control"]:
+
+        b_bins_counts = files_to_bin_counts(args["control"], args, "Input")
+        background_count = sum(sum(counts) for _, counts in b_bins_counts.values())
+        sys.stderr.write("\n  Valid background reads: {}\n".format(background_count))
+
+        compute_fdr(islands, b_bins_counts, chip_count, background_count, effective_genome_length)
+    else:
+        write_islands(islands, average_window_readcount)
+
+
+main()

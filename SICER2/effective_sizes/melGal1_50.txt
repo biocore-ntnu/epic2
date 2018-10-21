@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/melGal1.trimmed.fa
+Genome length:  1040303787
+Number unique 50-mers:  904143170
+Effective genome size:  0.8691145618217383

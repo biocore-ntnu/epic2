@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/anoCar2.trimmed.fa
+Genome length:  1081661814
+Number unique 50-mers:  902578064
+Effective genome size:  0.834436468328538

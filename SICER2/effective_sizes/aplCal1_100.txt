@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/aplCal1.trimmed.fa
+Genome length:  14117
+Number unique 100-mers:  13783
+Effective genome size:  0.9763405822766876

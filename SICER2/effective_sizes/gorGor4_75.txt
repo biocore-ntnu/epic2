@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/gorGor4.trimmed.fa
+Genome length:  2934282754
+Number unique 75-mers:  2665907327
+Effective genome size:  0.9085379803176256

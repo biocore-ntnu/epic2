@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/dm6.trimmed.fa
+Genome length:  137567484
+Number unique 36-mers:  119706914
+Effective genome size:  0.870168665729

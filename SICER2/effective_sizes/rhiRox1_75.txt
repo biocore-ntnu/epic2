@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/rhiRox1.trimmed.fa
+Genome length:  2899552139
+Number unique 75-mers:  2732813253
+Effective genome size:  0.9424949516315629

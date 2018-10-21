@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/strPur1.trimmed.fa
+Genome length:  1096072416
+Number unique 100-mers:  727805766
+Effective genome size:  0.6640124825475036

@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/ce10.trimmed.fa
+Genome length:  100286070
+Number unique 50-mers:  95374150
+Effective genome size:  0.9510209144699757

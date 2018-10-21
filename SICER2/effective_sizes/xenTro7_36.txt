@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/xenTro7.trimmed.fa
+Genome length:  1437530879
+Number unique 36-mers:  1080478250
+Effective genome size:  0.7516208978770744

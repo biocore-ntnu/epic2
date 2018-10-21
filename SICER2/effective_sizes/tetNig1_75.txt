@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/tetNig1.trimmed.fa
+Genome length:  217338312
+Number unique 75-mers:  181606200
+Effective genome size:  0.8355922079674567

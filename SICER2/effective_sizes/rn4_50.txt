@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/rn4.trimmed.fa
+Genome length:  2794720086
+Number unique 50-mers:  2224764265
+Effective genome size:  0.796059782925967

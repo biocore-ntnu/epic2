@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/cavPor3.trimmed.fa
+Genome length:  16801
+Number unique 100-mers:  16495
+Effective genome size:  0.9817867984048568

@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/triMan1.trimmed.fa
+Genome length:  3103808406
+Number unique 36-mers:  2467183245
+Effective genome size:  0.7948890273738114

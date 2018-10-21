@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/macEug2.trimmed.fa
+Genome length:  3075184024
+Number unique 36-mers:  2365296605
+Effective genome size:  0.7691561176632856
