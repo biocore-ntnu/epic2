@@ -62,6 +62,9 @@ genome_map read_bed(char const* fileName)
 
 // #include <htslib/sam.h>
 // #include <htslib/hts.h>
+// #include <samtools/samtools.h>
+
+// #include <htslib/hts.h>
 // #include <seqan/bam_io.h>
 
 

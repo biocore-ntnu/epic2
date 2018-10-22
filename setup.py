@@ -5,11 +5,6 @@ from distutils.core import setup
 
 from setuptools import find_packages, Extension, Command
 from Cython.Build import cythonize
-
-compile_options = ["-Ofast", "-Wall", "-std=c++11"] #, "-frename-registers", "-funroll-loops"] #
-                   # -fprofile-generate
-                   #"-fopenmp", "-D_GLIBCXX_PARALLEL"]
-
 macros = []
 
 install_requires = ["scipy", "numpy", "natsort", "cython"]
@@ -25,9 +20,10 @@ except:
 if sys.version_info[0] == 2:
     install_requires.append("functools32")
 
-compile_options = ["-Ofast", "-Wall", "-std=c++11"] #, "-frename-registers", "-funroll-loops"] #
+compile_options = ["-Ofast", "-Wall", "-std=c++11", "-I/mnt/work/endrebak/software/anaconda/pkgs/htslib-1.9-hc238db4_4/include/", "-I/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam/include/"] #, "-frename-registers", "-funroll-loops"] #
                    # -fprofile-generate
                    #"-fopenmp", "-D_GLIBCXX_PARALLEL"]
+
 
 extensions = [Extension("SICER2.src.reads_to_bins",
                         ["SICER2/src/reads_to_bins.pyx"], language="c++", extra_compile_args=compile_options),

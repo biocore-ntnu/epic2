@@ -9,7 +9,9 @@
         "extra_compile_args": [
             "-Ofast",
             "-Wall",
-            "-std=c++11"
+            "-std=c++11",
+            "-I/mnt/work/endrebak/software/anaconda/pkgs/htslib-1.9-hc238db4_4/include/",
+            "-I/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam/include/"
         ],
         "include_dirs": [
             "./SICER2/src"
