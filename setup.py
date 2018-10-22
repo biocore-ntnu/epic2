@@ -35,6 +35,8 @@ extensions = [Extension("SICER2.src.reads_to_bins",
                         ["SICER2/src/statistics.pyx"], language="c++", extra_compile_args=compile_options),
               Extension("SICER2.src.find_islands",
                         ["SICER2/src/find_islands.pyx"], language="c++", extra_compile_args=compile_options),
+              Extension("SICER2.src.read_bam",
+                        ["SICER2/src/read_bam.pyx"], language="c++", extra_compile_args=compile_options),
               Extension("SICER2.src.genome_info",
                         ["SICER2/src/genome_info.pyx"], language="c++", extra_compile_args=compile_options)]
 

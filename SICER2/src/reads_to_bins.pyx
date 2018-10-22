@@ -10,6 +10,7 @@ import numpy as np
 
 from libc.stdint cimport uint32_t, uint16_t
 
+from SICER2.src.read_bam import read_bam
 
 from cython.operator import dereference
 from libcpp.algorithm cimport sort as stdsort
@@ -224,7 +225,12 @@ cpdef files_to_bin_counts(files, args, datatype):
 
         py_bytes = f.encode()
         c_string = py_bytes
-        cpp_tags = cr.read_bed(c_string) # add_reads_to_dict(f, set(args["chromsizes"].keys()))
+
+        if f.endswith(".bed"):
+            cpp_tags = cr.read_bed(c_string)
+        elif f.endswith(".bam") or f.endswith(".sam"):
+            cpp_tags = read_bam(f)
+
 
         it = cpp_tags.begin();
 

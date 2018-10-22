@@ -20,6 +20,7 @@
 //   }
 // };
 
+
 typedef std::vector<uint32_t> intvec;
 typedef std::pair <std::string, char> key;
 typedef std::map<key, intvec> genome_map;
@@ -58,3 +59,40 @@ genome_map read_bed(char const* fileName)
 
   return genome;
 }
+
+// #include <htslib/sam.h>
+// #include <htslib/hts.h>
+// #include <seqan/bam_io.h>
+
+
+// genome_map read_bam(char const* fileName)
+// {
+//   samFile *fp_in = hts_open(fileName, "r");
+// 	bam_hdr_t *bamHdr = sam_hdr_read(fp_in); //read header
+// 	bam1_t *aln = bam_init1(); //initialize an alignment
+//   std::uint32_t pos;
+//   std::uint32_t len;
+//   std::string chr;
+//   char forward = '+';
+//   char reverse = '-';
+//   key chrom_strand;
+//   genome_map genome;
+
+//   while(sam_read1(fp_in,bamHdr,aln) > 0){
+
+// 		pos = aln->core.pos + 1; //left most position of alignment in zero based coordianate (+1)
+// 		chr = std::string(bamHdr->target_name[aln->core.tid]); //contig name (chromosome)
+// 		len = aln->core.l_qseq; //length of the read.
+
+//     if (aln->core.flag & 0x10){ // reverse
+//       chrom_strand = std::make_pair(chr, reverse);
+//       genome[chrom_strand].push_back(pos + len);
+//     } else {
+//       chrom_strand = std::make_pair(chr, forward);
+//       genome[chrom_strand].push_back(pos);
+//     }
+
+//   }
+
+//   return genome;
+// }

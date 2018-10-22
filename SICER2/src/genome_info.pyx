@@ -2,6 +2,8 @@ from os.path import basename
 from natsort import natsorted
 from collections import OrderedDict
 
+from libc.stdint cimport uint32_t, uint16_t
+import numpy as np
 import sys
 from re import search, IGNORECASE
 import pkg_resources
@@ -27,32 +29,73 @@ def find_readlength(args):
     # type: (Namespace) -> int
     """Estimate length of reads based on 1000 first."""
 
-    from subprocess import check_output
-    import pandas as pd
-    from io import BytesIO
-    bed_file = args["treatment"][0]
+    # from subprocess import check_output
+    # import pandas as pd
+    # from io import BytesIO
+    _file = args["treatment"][0]
 
-    filereader = "cat "
-    if bed_file.endswith(".gz"):
-        filereader = "gzcat "
-    elif bed_file.endswith(".bz2"):
-        filereader = "bzgrep "
 
-    command = filereader + "{} | head -10000".format(bed_file)
-    output = check_output(command, shell=True)
+    arr = np.zeros(100, dtype=np.uint32)
 
-    df = pd.read_table(
-        BytesIO(output),
-        header=None,
-        usecols=[1, 2],
-        sep="\t",
-        names=["Start", "End"])
+    cdef:
+        int i = 0
+        uint32_t start
+        uint32_t end
 
-    readlengths = df.End - df.Start
-    mean_readlength = readlengths.mean()
-    median_readlength = readlengths.median()
-    max_readlength = readlengths.max()
-    min_readlength = readlengths.min()
+    if _file.endswith(".bed"):
+        for line in open(_file):
+            _start, _end = line.split()[1:3]
+            arr[i] = int(_end) - int(_start)
+            i += 1
+            if i == 100:
+                break
+
+    elif _file.endswith(".bam") or _file.endswith(".sam"):
+
+        import pysam
+
+        if _file.endswith(".bam"):
+            samfile = pysam.AlignmentFile(_file, "rb")
+        elif _file.endswith(".sam"):
+            samfile = pysam.AlignmentFile(_file, "r")
+
+        for a in samfile:
+            if a.alen == None: continue
+
+            arr[i] = a.alen
+            i += 1
+            if i == 100:
+                break
+
+        print(arr)
+
+
+    return get_closest_readlength(np.median(arr))
+
+
+    # filereader = "cat "
+    # if bed_file.endswith(".gz"):
+    #     filereader = "gzcat "
+    # elif bed_file.endswith(".bz2"):
+    #     filereader = "bzgrep "
+    # elif bed_file.endswith(".bam"):
+    #     filereader = "samtools view "
+
+    # command = filereader + "{} | head -10000".format(bed_file)
+    # output = check_output(command, shell=True)
+
+    # df = pd.read_table(
+    #     BytesIO(output),
+    #     header=None,
+    #     usecols=[1, 2],
+    #     sep="\t",
+    #     names=["Start", "End"])
+
+    # readlengths = df.End - df.Start
+    # mean_readlength = readlengths.mean()
+    # median_readlength = readlengths.median()
+    # max_readlength = readlengths.max()
+    # min_readlength = readlengths.min()
 
     # logging.info((
     #     "Used first 10000 reads of {} to estimate a median read length of {}\n"
@@ -60,7 +103,6 @@ def find_readlength(args):
     #         bed_file, median_readlength, mean_readlength, max_readlength,
     #         min_readlength))
 
-    return get_closest_readlength(median_readlength)
 
 
 
