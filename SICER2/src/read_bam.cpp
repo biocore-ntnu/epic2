@@ -3,19 +3,11 @@
 /* BEGIN: Cython Metadata
 {
     "distutils": {
-        "depends": [
-            "/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam/htslib_util.h",
-            "/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam/pysam_stream.h"
-        ],
+        "depends": [],
         "extra_compile_args": [
             "-Ofast",
             "-Wall",
-            "-std=c++11",
-            "-I/mnt/work/endrebak/software/anaconda/pkgs/htslib-1.9-hc238db4_4/include/",
-            "-I/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam/include/"
-        ],
-        "include_dirs": [
-            "/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam"
+            "-std=c++11"
         ],
         "language": "c++",
         "name": "SICER2.src.read_bam",
@@ -613,23 +605,6 @@ static CYTHON_INLINE float __PYX_NAN() {
 #include <vector>
 #include <string.h>
 #include <string>
-#include <stdlib.h>
-#include <stdio.h>
-#include <sys/types.h>
-#include "stdarg.h"
-#include "htslib/kstring.h"
-#include "htslib_util.h"
-#include "htslib/hfile.h"
-#include "htslib/bgzf.h"
-#include "htslib/hts.h"
-#include "htslib/sam.h"
-#include "htslib/faidx.h"
-#include "htslib/tbx.h"
-#include "htslib/vcf.h"
-#include "htslib/vcfutils.h"
-#include "htslib/cram.h"
-#include "pythread.h"
-#include "pysam_stream.h"
 #ifdef _OPENMP
 #include <omp.h>
 #endif /* _OPENMP */
@@ -834,160 +809,10 @@ static const char *__pyx_filename;
 
 static const char *__pyx_f[] = {
   "SICER2/src/read_bam.pyx",
-  "array.pxd",
   "stringsource",
-  "libchtslib.pxd",
-  "type.pxd",
-  "bool.pxd",
-  "complex.pxd",
-  "libcfaidx.pxd",
-  "libcalignmentfile.pxd",
-  "libcalignedsegment.pxd",
 };
 
 /*--- Type declarations ---*/
-#ifndef _ARRAYARRAY_H
-struct arrayobject;
-typedef struct arrayobject arrayobject;
-#endif
-struct __pyx_obj_5pysam_10libchtslib_HTSFile;
-struct __pyx_obj_5pysam_9libcfaidx_FastaFile;
-struct __pyx_obj_5pysam_9libcfaidx_FastqProxy;
-struct __pyx_obj_5pysam_9libcfaidx_FastxRecord;
-struct __pyx_obj_5pysam_9libcfaidx_FastxFile;
-struct __pyx_obj_5pysam_9libcfaidx_FastqFile;
-struct __pyx_obj_5pysam_9libcfaidx_Fastafile;
-struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentHeader;
-struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentFile;
-struct __pyx_obj_5pysam_17libcalignmentfile_PileupColumn;
-struct __pyx_obj_5pysam_17libcalignmentfile_PileupRead;
-struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRow;
-struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowRegion;
-struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowHead;
-struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowAll;
-struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowAllRefs;
-struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowSelection;
-struct __pyx_obj_5pysam_17libcalignmentfile_IteratorColumn;
-struct __pyx_obj_5pysam_17libcalignmentfile_IteratorColumnRegion;
-struct __pyx_obj_5pysam_17libcalignmentfile_IteratorColumnAllRefs;
-struct __pyx_obj_5pysam_17libcalignmentfile_IndexedReads;
-struct __pyx_obj_5pysam_18libcalignedsegment_AlignedSegment;
-struct __pyx_obj_5pysam_18libcalignedsegment_PileupColumn;
-struct __pyx_obj_5pysam_18libcalignedsegment_PileupRead;
-struct __pyx_opt_args_5pysam_9libcfaidx_10FastqProxy_get_quality_array;
-struct __pyx_opt_args_5pysam_9libcfaidx_11FastxRecord_get_quality_array;
-
-/* "pysam/libcfaidx.pxd":49
- *     cdef cython.str to_string(self)
- *     cdef cython.str tostring(self)
- *     cpdef array.array get_quality_array(self, int offset=*)             # <<<<<<<<<<<<<<
- * 
- * 
- */
-struct __pyx_opt_args_5pysam_9libcfaidx_10FastqProxy_get_quality_array {
-  int __pyx_n;
-  int offset;
-};
-
-/* "pysam/libcfaidx.pxd":59
- *     cdef cython.str to_string(self)
- *     cdef cython.str tostring(self)
- *     cpdef array.array get_quality_array(self, int offset=*)             # <<<<<<<<<<<<<<
- * 
- * cdef class FastxFile:
- */
-struct __pyx_opt_args_5pysam_9libcfaidx_11FastxRecord_get_quality_array {
-  int __pyx_n;
-  int offset;
-};
-struct __pyx_t_5pysam_17libcalignmentfile___iterdata;
-typedef struct __pyx_t_5pysam_17libcalignmentfile___iterdata __pyx_t_5pysam_17libcalignmentfile___iterdata;
-struct __pyx_opt_args_5pysam_17libcalignmentfile_14IteratorColumn__setup_iterator;
-
-/* "pysam/libcalignmentfile.pxd":24
- * # Utility types
- * 
- * ctypedef struct __iterdata:             # <<<<<<<<<<<<<<
- *     htsFile * htsfile
- *     bam_hdr_t * header
- */
-struct __pyx_t_5pysam_17libcalignmentfile___iterdata {
-  htsFile *htsfile;
-  bam_hdr_t *header;
-  hts_itr_t *iter;
-  faidx_t *fastafile;
-  int tid;
-  char *seq;
-  int seq_len;
-  int min_mapping_quality;
-  int flag_require;
-  int flag_filter;
-  int compute_baq;
-  int redo_baq;
-  int ignore_orphans;
-  int adjust_capq_threshold;
-};
-
-/* "pysam/libcalignmentfile.pxd":138
- *     cdef int cnext(self)
- *     cdef char * get_sequence(self)
- *     cdef _setup_iterator(self,             # <<<<<<<<<<<<<<
- *                          int tid,
- *                          int start,
- */
-struct __pyx_opt_args_5pysam_17libcalignmentfile_14IteratorColumn__setup_iterator {
-  int __pyx_n;
-  int multiple_iterators;
-};
-struct __pyx_opt_args_5pysam_18libcalignedsegment_14AlignedSegment_set_tag;
-struct __pyx_opt_args_5pysam_18libcalignedsegment_14AlignedSegment_get_tag;
-struct __pyx_opt_args_5pysam_18libcalignedsegment_14AlignedSegment_tostring;
-
-/* "pysam/libcalignedsegment.pxd":30
- * 
- * from pysam.libcalignmentfile cimport AlignmentFile, AlignmentHeader
- * ctypedef AlignmentFile AlignmentFile_t             # <<<<<<<<<<<<<<
- * 
- * 
- */
-typedef struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentFile *__pyx_t_5pysam_18libcalignedsegment_AlignmentFile_t;
-
-/* "pysam/libcalignedsegment.pxd":50
- *     # add an alignment tag with value to the AlignedSegment
- *     # an existing tag of the same name will be replaced.
- *     cpdef set_tag(self, tag, value, value_type=?, replace=?)             # <<<<<<<<<<<<<<
- * 
- *     # add an alignment tag with value to the AlignedSegment
- */
-struct __pyx_opt_args_5pysam_18libcalignedsegment_14AlignedSegment_set_tag {
-  int __pyx_n;
-  PyObject *value_type;
-  PyObject *replace;
-};
-
-/* "pysam/libcalignedsegment.pxd":54
- *     # add an alignment tag with value to the AlignedSegment
- *     # an existing tag of the same name will be replaced.
- *     cpdef get_tag(self, tag, with_value_type=?)             # <<<<<<<<<<<<<<
- * 
- *     # return true if tag exists
- */
-struct __pyx_opt_args_5pysam_18libcalignedsegment_14AlignedSegment_get_tag {
-  int __pyx_n;
-  PyObject *with_value_type;
-};
-
-/* "pysam/libcalignedsegment.pxd":63
- * 
- *     # returns a valid sam alignment string (deprecated)
- *     cpdef tostring(self, htsfile=*)             # <<<<<<<<<<<<<<
- * 
- * 
- */
-struct __pyx_opt_args_5pysam_18libcalignedsegment_14AlignedSegment_tostring {
-  int __pyx_n;
-  PyObject *htsfile;
-};
 
 /* "SICER2/src/read_bam.pyx":17
  *     pair[T,U] make_pair[T,U](T&,U&)
@@ -1033,649 +858,6 @@ typedef std::map<__pyx_t_6SICER2_3src_8read_bam_intkey,__pyx_t_6SICER2_3src_8rea
  * 
  */
 typedef std::map<__pyx_t_6SICER2_3src_8read_bam_key,__pyx_t_6SICER2_3src_8read_bam_intvec>  __pyx_t_6SICER2_3src_8read_bam_genome_map;
-
-/* "pysam/libchtslib.pxd":2590
- * 
- * 
- * cdef class HTSFile(object):             # <<<<<<<<<<<<<<
- *     cdef          htsFile *htsfile       # pointer to htsFile structure
- *     cdef          int64_t start_offset   # BGZF offset of first record
- */
-struct __pyx_obj_5pysam_10libchtslib_HTSFile {
-  PyObject_HEAD
-  struct __pyx_vtabstruct_5pysam_10libchtslib_HTSFile *__pyx_vtab;
-  htsFile *htsfile;
-  int64_t start_offset;
-  PyObject *filename;
-  PyObject *mode;
-  PyObject *threads;
-  PyObject *index_filename;
-  int is_stream;
-  int is_remote;
-  int duplicate_filehandle;
-};
-
-
-/* "pysam/libcfaidx.pxd":37
- *                     int * dret)
- * 
- * cdef class FastaFile:             # <<<<<<<<<<<<<<
- *     cdef bint is_remote
- *     cdef object _filename, _references, _lengths, reference2length
- */
-struct __pyx_obj_5pysam_9libcfaidx_FastaFile {
-  PyObject_HEAD
-  struct __pyx_vtabstruct_5pysam_9libcfaidx_FastaFile *__pyx_vtab;
-  int is_remote;
-  PyObject *_filename;
-  PyObject *_references;
-  PyObject *_lengths;
-  PyObject *reference2length;
-  faidx_t *fastafile;
-};
-
-
-/* "pysam/libcfaidx.pxd":45
- * 
- * 
- * cdef class FastqProxy:             # <<<<<<<<<<<<<<
- *     cdef kseq_t * _delegate
- *     cdef cython.str to_string(self)
- */
-struct __pyx_obj_5pysam_9libcfaidx_FastqProxy {
-  PyObject_HEAD
-  struct __pyx_vtabstruct_5pysam_9libcfaidx_FastqProxy *__pyx_vtab;
-  kseq_t *_delegate;
-};
-
-
-/* "pysam/libcfaidx.pxd":52
- * 
- * 
- * cdef class FastxRecord:             # <<<<<<<<<<<<<<
- *     """
- *     Python container for pysam.libcfaidx.FastqProxy with persistence.
- */
-struct __pyx_obj_5pysam_9libcfaidx_FastxRecord {
-  PyObject_HEAD
-  struct __pyx_vtabstruct_5pysam_9libcfaidx_FastxRecord *__pyx_vtab;
-  PyObject *comment;
-  PyObject *quality;
-  PyObject *sequence;
-  PyObject *name;
-};
-
-
-/* "pysam/libcfaidx.pxd":61
- *     cpdef array.array get_quality_array(self, int offset=*)
- * 
- * cdef class FastxFile:             # <<<<<<<<<<<<<<
- *     cdef object _filename
- *     cdef BGZF * fastqfile
- */
-struct __pyx_obj_5pysam_9libcfaidx_FastxFile {
-  PyObject_HEAD
-  struct __pyx_vtabstruct_5pysam_9libcfaidx_FastxFile *__pyx_vtab;
-  PyObject *_filename;
-  BGZF *fastqfile;
-  kseq_t *entry;
-  int persist;
-  int is_remote;
-};
-
-
-/* "pysam/libcfaidx.pxd":73
- * 
- * # Compatibility Layer for pysam 0.8.1
- * cdef class FastqFile(FastxFile):             # <<<<<<<<<<<<<<
- *     pass
- * 
- */
-struct __pyx_obj_5pysam_9libcfaidx_FastqFile {
-  struct __pyx_obj_5pysam_9libcfaidx_FastxFile __pyx_base;
-};
-
-
-/* "pysam/libcfaidx.pxd":78
- * 
- * # Compatibility Layer for pysam < 0.8
- * cdef class Fastafile(FastaFile):             # <<<<<<<<<<<<<<
- *     pass
- * 
- */
-struct __pyx_obj_5pysam_9libcfaidx_Fastafile {
-  struct __pyx_obj_5pysam_9libcfaidx_FastaFile __pyx_base;
-};
-
-
-/* "pysam/libcalignmentfile.pxd":41
- * 
- * 
- * cdef class AlignmentHeader(object):             # <<<<<<<<<<<<<<
- *     cdef bam_hdr_t *ptr
- * 
- */
-struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentHeader {
-  PyObject_HEAD
-  bam_hdr_t *ptr;
-};
-
-
-/* "pysam/libcalignmentfile.pxd":44
- *     cdef bam_hdr_t *ptr
- * 
- * cdef class AlignmentFile(HTSFile):             # <<<<<<<<<<<<<<
- *     cdef readonly object reference_filename
- *     cdef readonly AlignmentHeader header
- */
-struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentFile {
-  struct __pyx_obj_5pysam_10libchtslib_HTSFile __pyx_base;
-  PyObject *reference_filename;
-  struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentHeader *header;
-  hts_idx_t *index;
-  bam1_t *b;
-};
-
-
-/* "pysam/libcalignmentfile.pxd":61
- * 
- * 
- * cdef class PileupColumn:             # <<<<<<<<<<<<<<
- *     cdef bam_pileup1_t ** plp
- *     cdef int tid
- */
-struct __pyx_obj_5pysam_17libcalignmentfile_PileupColumn {
-  PyObject_HEAD
-  bam_pileup1_t **plp;
-  int tid;
-  int pos;
-  int n_pu;
-};
-
-
-/* "pysam/libcalignmentfile.pxd":68
- * 
- * 
- * cdef class PileupRead:             # <<<<<<<<<<<<<<
- *     cdef AlignedSegment _alignment
- *     cdef int32_t  _qpos
- */
-struct __pyx_obj_5pysam_17libcalignmentfile_PileupRead {
-  PyObject_HEAD
-  struct __pyx_obj_5pysam_18libcalignedsegment_AlignedSegment *_alignment;
-  int32_t _qpos;
-  int _indel;
-  int _level;
-  uint32_t _is_del;
-  uint32_t _is_head;
-  uint32_t _is_tail;
-  uint32_t _is_refskip;
-};
-
-
-/* "pysam/libcalignmentfile.pxd":79
- * 
- * 
- * cdef class IteratorRow:             # <<<<<<<<<<<<<<
- *     cdef int retval
- *     cdef bam1_t * b
- */
-struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRow {
-  PyObject_HEAD
-  int retval;
-  bam1_t *b;
-  struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentFile *samfile;
-  htsFile *htsfile;
-  hts_idx_t *index;
-  struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentHeader *header;
-  int owns_samfile;
-};
-
-
-/* "pysam/libcalignmentfile.pxd":89
- * 
- * 
- * cdef class IteratorRowRegion(IteratorRow):             # <<<<<<<<<<<<<<
- *     cdef hts_itr_t * iter
- *     cdef bam1_t * getCurrent(self)
- */
-struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowRegion {
-  struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRow __pyx_base;
-  struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorRowRegion *__pyx_vtab;
-  hts_itr_t *iter;
-};
-
-
-/* "pysam/libcalignmentfile.pxd":95
- * 
- * 
- * cdef class IteratorRowHead(IteratorRow):             # <<<<<<<<<<<<<<
- *     cdef int max_rows
- *     cdef int current_row
- */
-struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowHead {
-  struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRow __pyx_base;
-  struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorRowHead *__pyx_vtab;
-  int max_rows;
-  int current_row;
-};
-
-
-/* "pysam/libcalignmentfile.pxd":102
- * 
- * 
- * cdef class IteratorRowAll(IteratorRow):             # <<<<<<<<<<<<<<
- *     cdef bam1_t * getCurrent(self)
- *     cdef int cnext(self)
- */
-struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowAll {
-  struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRow __pyx_base;
-  struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorRowAll *__pyx_vtab;
-};
-
-
-/* "pysam/libcalignmentfile.pxd":107
- * 
- * 
- * cdef class IteratorRowAllRefs(IteratorRow):             # <<<<<<<<<<<<<<
- *     cdef int         tid
- *     cdef IteratorRowRegion rowiter
- */
-struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowAllRefs {
-  struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRow __pyx_base;
-  int tid;
-  struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowRegion *rowiter;
-};
-
-
-/* "pysam/libcalignmentfile.pxd":112
- * 
- * 
- * cdef class IteratorRowSelection(IteratorRow):             # <<<<<<<<<<<<<<
- *     cdef int current_pos
- *     cdef positions
- */
-struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowSelection {
-  struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRow __pyx_base;
-  struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorRowSelection *__pyx_vtab;
-  int current_pos;
-  PyObject *positions;
-};
-
-
-/* "pysam/libcalignmentfile.pxd":119
- * 
- * 
- * cdef class IteratorColumn:             # <<<<<<<<<<<<<<
- * 
- *     # result of the last plbuf_push
- */
-struct __pyx_obj_5pysam_17libcalignmentfile_IteratorColumn {
-  PyObject_HEAD
-  struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorColumn *__pyx_vtab;
-  struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowRegion *iter;
-  int tid;
-  int pos;
-  int n_plp;
-  uint32_t min_base_quality;
-  bam_pileup1_t *plp;
-  bam_mplp_t pileup_iter;
-  __pyx_t_5pysam_17libcalignmentfile___iterdata iterdata;
-  struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentFile *samfile;
-  struct __pyx_obj_5pysam_9libcfaidx_FastaFile *fastafile;
-  PyObject *stepper;
-  int max_depth;
-  int ignore_overlaps;
-};
-
-
-/* "pysam/libcalignmentfile.pxd":150
- * 
- * 
- * cdef class IteratorColumnRegion(IteratorColumn):             # <<<<<<<<<<<<<<
- *     cdef int start
- *     cdef int stop
- */
-struct __pyx_obj_5pysam_17libcalignmentfile_IteratorColumnRegion {
-  struct __pyx_obj_5pysam_17libcalignmentfile_IteratorColumn __pyx_base;
-  int start;
-  int stop;
-  int truncate;
-};
-
-
-/* "pysam/libcalignmentfile.pxd":156
- * 
- * 
- * cdef class IteratorColumnAllRefs(IteratorColumn):             # <<<<<<<<<<<<<<
- *     pass
- * 
- */
-struct __pyx_obj_5pysam_17libcalignmentfile_IteratorColumnAllRefs {
-  struct __pyx_obj_5pysam_17libcalignmentfile_IteratorColumn __pyx_base;
-};
-
-
-/* "pysam/libcalignmentfile.pxd":160
- * 
- * 
- * cdef class IndexedReads:             # <<<<<<<<<<<<<<
- *     cdef AlignmentFile samfile
- *     cdef htsFile * htsfile
- */
-struct __pyx_obj_5pysam_17libcalignmentfile_IndexedReads {
-  PyObject_HEAD
-  struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentFile *samfile;
-  htsFile *htsfile;
-  PyObject *index;
-  int owns_samfile;
-  struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentHeader *header;
-};
-
-
-/* "pysam/libcalignedsegment.pxd":34
- * 
- * # Note: need to declare all C fields and methods here
- * cdef class AlignedSegment:             # <<<<<<<<<<<<<<
- * 
- *     # object that this AlignedSegment represents
- */
-struct __pyx_obj_5pysam_18libcalignedsegment_AlignedSegment {
-  PyObject_HEAD
-  struct __pyx_vtabstruct_5pysam_18libcalignedsegment_AlignedSegment *__pyx_vtab;
-  bam1_t *_delegate;
-  struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentHeader *header;
-  PyObject *cache_query_qualities;
-  PyObject *cache_query_alignment_qualities;
-  PyObject *cache_query_sequence;
-  PyObject *cache_query_alignment_sequence;
-};
-
-
-/* "pysam/libcalignedsegment.pxd":66
- * 
- * 
- * cdef class PileupColumn:             # <<<<<<<<<<<<<<
- *     cdef bam_pileup1_t ** plp
- *     cdef int tid
- */
-struct __pyx_obj_5pysam_18libcalignedsegment_PileupColumn {
-  PyObject_HEAD
-  bam_pileup1_t **plp;
-  int tid;
-  int pos;
-  int n_pu;
-  struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentHeader *header;
-  uint32_t min_base_quality;
-  uint8_t *buf;
-  char *reference_sequence;
-};
-
-
-/* "pysam/libcalignedsegment.pxd":76
- *     cdef char * reference_sequence
- * 
- * cdef class PileupRead:             # <<<<<<<<<<<<<<
- *     cdef int32_t  _qpos
- *     cdef AlignedSegment _alignment
- */
-struct __pyx_obj_5pysam_18libcalignedsegment_PileupRead {
-  PyObject_HEAD
-  int32_t _qpos;
-  struct __pyx_obj_5pysam_18libcalignedsegment_AlignedSegment *_alignment;
-  int _indel;
-  int _level;
-  uint32_t _is_del;
-  uint32_t _is_head;
-  uint32_t _is_tail;
-  uint32_t _is_refskip;
-};
-
-
-
-/* "pysam/libchtslib.pxd":2590
- * 
- * 
- * cdef class HTSFile(object):             # <<<<<<<<<<<<<<
- *     cdef          htsFile *htsfile       # pointer to htsFile structure
- *     cdef          int64_t start_offset   # BGZF offset of first record
- */
-
-struct __pyx_vtabstruct_5pysam_10libchtslib_HTSFile {
-  htsFile *(*_open_htsfile)(struct __pyx_obj_5pysam_10libchtslib_HTSFile *);
-};
-static struct __pyx_vtabstruct_5pysam_10libchtslib_HTSFile *__pyx_vtabptr_5pysam_10libchtslib_HTSFile;
-
-
-/* "pysam/libcfaidx.pxd":37
- *                     int * dret)
- * 
- * cdef class FastaFile:             # <<<<<<<<<<<<<<
- *     cdef bint is_remote
- *     cdef object _filename, _references, _lengths, reference2length
- */
-
-struct __pyx_vtabstruct_5pysam_9libcfaidx_FastaFile {
-  char *(*_fetch)(struct __pyx_obj_5pysam_9libcfaidx_FastaFile *, char *, int, int, int *);
-};
-static struct __pyx_vtabstruct_5pysam_9libcfaidx_FastaFile *__pyx_vtabptr_5pysam_9libcfaidx_FastaFile;
-
-
-/* "pysam/libcfaidx.pxd":45
- * 
- * 
- * cdef class FastqProxy:             # <<<<<<<<<<<<<<
- *     cdef kseq_t * _delegate
- *     cdef cython.str to_string(self)
- */
-
-struct __pyx_vtabstruct_5pysam_9libcfaidx_FastqProxy {
-  PyObject *(*to_string)(struct __pyx_obj_5pysam_9libcfaidx_FastqProxy *);
-  PyObject *(*tostring)(struct __pyx_obj_5pysam_9libcfaidx_FastqProxy *);
-  arrayobject *(*get_quality_array)(struct __pyx_obj_5pysam_9libcfaidx_FastqProxy *, int __pyx_skip_dispatch, struct __pyx_opt_args_5pysam_9libcfaidx_10FastqProxy_get_quality_array *__pyx_optional_args);
-};
-static struct __pyx_vtabstruct_5pysam_9libcfaidx_FastqProxy *__pyx_vtabptr_5pysam_9libcfaidx_FastqProxy;
-
-
-/* "pysam/libcfaidx.pxd":52
- * 
- * 
- * cdef class FastxRecord:             # <<<<<<<<<<<<<<
- *     """
- *     Python container for pysam.libcfaidx.FastqProxy with persistence.
- */
-
-struct __pyx_vtabstruct_5pysam_9libcfaidx_FastxRecord {
-  PyObject *(*to_string)(struct __pyx_obj_5pysam_9libcfaidx_FastxRecord *);
-  PyObject *(*tostring)(struct __pyx_obj_5pysam_9libcfaidx_FastxRecord *);
-  arrayobject *(*get_quality_array)(struct __pyx_obj_5pysam_9libcfaidx_FastxRecord *, int __pyx_skip_dispatch, struct __pyx_opt_args_5pysam_9libcfaidx_11FastxRecord_get_quality_array *__pyx_optional_args);
-};
-static struct __pyx_vtabstruct_5pysam_9libcfaidx_FastxRecord *__pyx_vtabptr_5pysam_9libcfaidx_FastxRecord;
-
-
-/* "pysam/libcfaidx.pxd":61
- *     cpdef array.array get_quality_array(self, int offset=*)
- * 
- * cdef class FastxFile:             # <<<<<<<<<<<<<<
- *     cdef object _filename
- *     cdef BGZF * fastqfile
- */
-
-struct __pyx_vtabstruct_5pysam_9libcfaidx_FastxFile {
-  kseq_t *(*getCurrent)(struct __pyx_obj_5pysam_9libcfaidx_FastxFile *);
-  int (*cnext)(struct __pyx_obj_5pysam_9libcfaidx_FastxFile *);
-};
-static struct __pyx_vtabstruct_5pysam_9libcfaidx_FastxFile *__pyx_vtabptr_5pysam_9libcfaidx_FastxFile;
-
-
-/* "pysam/libcfaidx.pxd":73
- * 
- * # Compatibility Layer for pysam 0.8.1
- * cdef class FastqFile(FastxFile):             # <<<<<<<<<<<<<<
- *     pass
- * 
- */
-
-struct __pyx_vtabstruct_5pysam_9libcfaidx_FastqFile {
-  struct __pyx_vtabstruct_5pysam_9libcfaidx_FastxFile __pyx_base;
-};
-static struct __pyx_vtabstruct_5pysam_9libcfaidx_FastqFile *__pyx_vtabptr_5pysam_9libcfaidx_FastqFile;
-
-
-/* "pysam/libcfaidx.pxd":78
- * 
- * # Compatibility Layer for pysam < 0.8
- * cdef class Fastafile(FastaFile):             # <<<<<<<<<<<<<<
- *     pass
- * 
- */
-
-struct __pyx_vtabstruct_5pysam_9libcfaidx_Fastafile {
-  struct __pyx_vtabstruct_5pysam_9libcfaidx_FastaFile __pyx_base;
-};
-static struct __pyx_vtabstruct_5pysam_9libcfaidx_Fastafile *__pyx_vtabptr_5pysam_9libcfaidx_Fastafile;
-
-
-/* "pysam/libcalignmentfile.pxd":44
- *     cdef bam_hdr_t *ptr
- * 
- * cdef class AlignmentFile(HTSFile):             # <<<<<<<<<<<<<<
- *     cdef readonly object reference_filename
- *     cdef readonly AlignmentHeader header
- */
-
-struct __pyx_vtabstruct_5pysam_17libcalignmentfile_AlignmentFile {
-  struct __pyx_vtabstruct_5pysam_10libchtslib_HTSFile __pyx_base;
-  bam1_t *(*getCurrent)(struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentFile *);
-  int (*cnext)(struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentFile *);
-  int (*write)(struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentFile *, struct __pyx_obj_5pysam_18libcalignedsegment_AlignedSegment *, int __pyx_skip_dispatch);
-};
-static struct __pyx_vtabstruct_5pysam_17libcalignmentfile_AlignmentFile *__pyx_vtabptr_5pysam_17libcalignmentfile_AlignmentFile;
-
-
-/* "pysam/libcalignmentfile.pxd":89
- * 
- * 
- * cdef class IteratorRowRegion(IteratorRow):             # <<<<<<<<<<<<<<
- *     cdef hts_itr_t * iter
- *     cdef bam1_t * getCurrent(self)
- */
-
-struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorRowRegion {
-  bam1_t *(*getCurrent)(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowRegion *);
-  int (*cnext)(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowRegion *);
-};
-static struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorRowRegion *__pyx_vtabptr_5pysam_17libcalignmentfile_IteratorRowRegion;
-
-
-/* "pysam/libcalignmentfile.pxd":95
- * 
- * 
- * cdef class IteratorRowHead(IteratorRow):             # <<<<<<<<<<<<<<
- *     cdef int max_rows
- *     cdef int current_row
- */
-
-struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorRowHead {
-  bam1_t *(*getCurrent)(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowHead *);
-  int (*cnext)(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowHead *);
-};
-static struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorRowHead *__pyx_vtabptr_5pysam_17libcalignmentfile_IteratorRowHead;
-
-
-/* "pysam/libcalignmentfile.pxd":102
- * 
- * 
- * cdef class IteratorRowAll(IteratorRow):             # <<<<<<<<<<<<<<
- *     cdef bam1_t * getCurrent(self)
- *     cdef int cnext(self)
- */
-
-struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorRowAll {
-  bam1_t *(*getCurrent)(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowAll *);
-  int (*cnext)(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowAll *);
-};
-static struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorRowAll *__pyx_vtabptr_5pysam_17libcalignmentfile_IteratorRowAll;
-
-
-/* "pysam/libcalignmentfile.pxd":112
- * 
- * 
- * cdef class IteratorRowSelection(IteratorRow):             # <<<<<<<<<<<<<<
- *     cdef int current_pos
- *     cdef positions
- */
-
-struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorRowSelection {
-  bam1_t *(*getCurrent)(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowSelection *);
-  int (*cnext)(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowSelection *);
-};
-static struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorRowSelection *__pyx_vtabptr_5pysam_17libcalignmentfile_IteratorRowSelection;
-
-
-/* "pysam/libcalignmentfile.pxd":119
- * 
- * 
- * cdef class IteratorColumn:             # <<<<<<<<<<<<<<
- * 
- *     # result of the last plbuf_push
- */
-
-struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorColumn {
-  int (*cnext)(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorColumn *);
-  char *(*get_sequence)(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorColumn *);
-  PyObject *(*_setup_iterator)(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorColumn *, int, int, int, struct __pyx_opt_args_5pysam_17libcalignmentfile_14IteratorColumn__setup_iterator *__pyx_optional_args);
-  PyObject *(*reset)(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorColumn *, PyObject *, PyObject *, PyObject *);
-  PyObject *(*_free_pileup_iter)(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorColumn *);
-  char *(*getSequence)(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorColumn *);
-};
-static struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorColumn *__pyx_vtabptr_5pysam_17libcalignmentfile_IteratorColumn;
-
-
-/* "pysam/libcalignmentfile.pxd":150
- * 
- * 
- * cdef class IteratorColumnRegion(IteratorColumn):             # <<<<<<<<<<<<<<
- *     cdef int start
- *     cdef int stop
- */
-
-struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorColumnRegion {
-  struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorColumn __pyx_base;
-};
-static struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorColumnRegion *__pyx_vtabptr_5pysam_17libcalignmentfile_IteratorColumnRegion;
-
-
-/* "pysam/libcalignmentfile.pxd":156
- * 
- * 
- * cdef class IteratorColumnAllRefs(IteratorColumn):             # <<<<<<<<<<<<<<
- *     pass
- * 
- */
-
-struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorColumnAllRefs {
-  struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorColumn __pyx_base;
-};
-static struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorColumnAllRefs *__pyx_vtabptr_5pysam_17libcalignmentfile_IteratorColumnAllRefs;
-
-
-/* "pysam/libcalignedsegment.pxd":34
- * 
- * # Note: need to declare all C fields and methods here
- * cdef class AlignedSegment:             # <<<<<<<<<<<<<<
- * 
- *     # object that this AlignedSegment represents
- */
-
-struct __pyx_vtabstruct_5pysam_18libcalignedsegment_AlignedSegment {
-  PyObject *(*set_tag)(struct __pyx_obj_5pysam_18libcalignedsegment_AlignedSegment *, PyObject *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_5pysam_18libcalignedsegment_14AlignedSegment_set_tag *__pyx_optional_args);
-  PyObject *(*get_tag)(struct __pyx_obj_5pysam_18libcalignedsegment_AlignedSegment *, PyObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_5pysam_18libcalignedsegment_14AlignedSegment_get_tag *__pyx_optional_args);
-  PyObject *(*has_tag)(struct __pyx_obj_5pysam_18libcalignedsegment_AlignedSegment *, PyObject *, int __pyx_skip_dispatch);
-  PyObject *(*to_string)(struct __pyx_obj_5pysam_18libcalignedsegment_AlignedSegment *, int __pyx_skip_dispatch);
-  PyObject *(*tostring)(struct __pyx_obj_5pysam_18libcalignedsegment_AlignedSegment *, int __pyx_skip_dispatch, struct __pyx_opt_args_5pysam_18libcalignedsegment_14AlignedSegment_tostring *__pyx_optional_args);
-};
-static struct __pyx_vtabstruct_5pysam_18libcalignedsegment_AlignedSegment *__pyx_vtabptr_5pysam_18libcalignedsegment_AlignedSegment;
 
 /* --- Runtime support code (head) --- */
 /* Refnanny.proto */
@@ -1751,13 +933,6 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject
 /* GetBuiltinName.proto */
 static PyObject *__Pyx_GetBuiltinName(PyObject *name);
 
-/* PyObjectCall.proto */
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw);
-#else
-#define __Pyx_PyObject_Call(func, arg, kw) PyObject_Call(func, arg, kw)
-#endif
-
 /* GetModuleGlobalName.proto */
 static CYTHON_INLINE PyObject *__Pyx_GetModuleGlobalName(PyObject *name);
 
@@ -1779,8 +954,12 @@ static CYTHON_INLINE PyObject *__Pyx_PyCFunction_FastCall(PyObject *func, PyObje
 #define __Pyx_PyCFunction_FastCall(func, args, nargs)  (assert(0), NULL)
 #endif
 
-/* ExtTypeTest.proto */
-static CYTHON_INLINE int __Pyx_TypeTest(PyObject *obj, PyTypeObject *type);
+/* PyObjectCall.proto */
+#if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw);
+#else
+#define __Pyx_PyObject_Call(func, arg, kw) PyObject_Call(func, arg, kw)
+#endif
 
 /* PyObjectCallMethO.proto */
 #if CYTHON_COMPILING_IN_CPYTHON
@@ -1822,9 +1001,6 @@ static CYTHON_INLINE int __Pyx_ListComp_Append(PyObject* list, PyObject* x) {
 #else
 #define __Pyx_ListComp_Append(L,x) PyList_Append(L,x)
 #endif
-
-/* GetVTable.proto */
-static void* __Pyx_GetVtable(PyObject *dict);
 
 /* Import.proto */
 static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level);
@@ -1945,121 +1121,6 @@ static CYTHON_INLINE PyObject* __Pyx_PyInt_From_char(char value);
 /* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_uint32_t(uint32_t value);
 
-/* ArrayAPI.proto */
-#ifndef _ARRAYARRAY_H
-#define _ARRAYARRAY_H
-typedef struct arraydescr {
-    int typecode;
-    int itemsize;
-    PyObject * (*getitem)(struct arrayobject *, Py_ssize_t);
-    int (*setitem)(struct arrayobject *, Py_ssize_t, PyObject *);
-#if PY_MAJOR_VERSION >= 3
-    char *formats;
-#endif
-} arraydescr;
-struct arrayobject {
-    PyObject_HEAD
-    Py_ssize_t ob_size;
-    union {
-        char *ob_item;
-        float *as_floats;
-        double *as_doubles;
-        int *as_ints;
-        unsigned int *as_uints;
-        unsigned char *as_uchars;
-        signed char *as_schars;
-        char *as_chars;
-        unsigned long *as_ulongs;
-        long *as_longs;
-#if PY_MAJOR_VERSION >= 3
-        unsigned long long *as_ulonglongs;
-        long long *as_longlongs;
-#endif
-        short *as_shorts;
-        unsigned short *as_ushorts;
-        Py_UNICODE *as_pyunicodes;
-        void *as_voidptr;
-    } data;
-    Py_ssize_t allocated;
-    struct arraydescr *ob_descr;
-    PyObject *weakreflist;
-#if PY_MAJOR_VERSION >= 3
-        int ob_exports;
-#endif
-};
-#ifndef NO_NEWARRAY_INLINE
-static CYTHON_INLINE PyObject * newarrayobject(PyTypeObject *type, Py_ssize_t size,
-    struct arraydescr *descr) {
-    arrayobject *op;
-    size_t nbytes;
-    if (size < 0) {
-        PyErr_BadInternalCall();
-        return NULL;
-    }
-    nbytes = size * descr->itemsize;
-    if (nbytes / descr->itemsize != (size_t)size) {
-        return PyErr_NoMemory();
-    }
-    op = (arrayobject *) type->tp_alloc(type, 0);
-    if (op == NULL) {
-        return NULL;
-    }
-    op->ob_descr = descr;
-    op->allocated = size;
-    op->weakreflist = NULL;
-    op->ob_size = size;
-    if (size <= 0) {
-        op->data.ob_item = NULL;
-    }
-    else {
-        op->data.ob_item = PyMem_NEW(char, nbytes);
-        if (op->data.ob_item == NULL) {
-            Py_DECREF(op);
-            return PyErr_NoMemory();
-        }
-    }
-    return (PyObject *) op;
-}
-#else
-PyObject* newarrayobject(PyTypeObject *type, Py_ssize_t size,
-    struct arraydescr *descr);
-#endif
-static CYTHON_INLINE int resize(arrayobject *self, Py_ssize_t n) {
-    void *items = (void*) self->data.ob_item;
-    PyMem_Resize(items, char, (size_t)(n * self->ob_descr->itemsize));
-    if (items == NULL) {
-        PyErr_NoMemory();
-        return -1;
-    }
-    self->data.ob_item = (char*) items;
-    self->ob_size = n;
-    self->allocated = n;
-    return 0;
-}
-static CYTHON_INLINE int resize_smart(arrayobject *self, Py_ssize_t n) {
-    void *items = (void*) self->data.ob_item;
-    Py_ssize_t newsize;
-    if (n < self->allocated && n*4 > self->allocated) {
-        self->ob_size = n;
-        return 0;
-    }
-    newsize = n + (n / 2) + 1;
-    if (newsize <= n) {
-        PyErr_NoMemory();
-        return -1;
-    }
-    PyMem_Resize(items, char, (size_t)(newsize * self->ob_descr->itemsize));
-    if (items == NULL) {
-        PyErr_NoMemory();
-        return -1;
-    }
-    self->data.ob_item = (char*) items;
-    self->ob_size = n;
-    self->allocated = newsize;
-    return 0;
-}
-#endif
-
 /* CIntFromPy.proto */
 static CYTHON_INLINE uint32_t __Pyx_PyInt_As_uint32_t(PyObject *);
 
@@ -2094,21 +1155,6 @@ static CYTHON_INLINE int __Pyx_PyErr_GivenExceptionMatches2(PyObject *err, PyObj
 /* CheckBinaryVersion.proto */
 static int __Pyx_check_binary_version(void);
 
-/* PyIdentifierFromString.proto */
-#if !defined(__Pyx_PyIdentifier_FromString)
-#if PY_MAJOR_VERSION < 3
-  #define __Pyx_PyIdentifier_FromString(s) PyString_FromString(s)
-#else
-  #define __Pyx_PyIdentifier_FromString(s) PyUnicode_FromString(s)
-#endif
-#endif
-
-/* ModuleImport.proto */
-static PyObject *__Pyx_ImportModule(const char *name);
-
-/* TypeImport.proto */
-static PyTypeObject *__Pyx_ImportType(const char *module_name, const char *class_name, size_t size, int strict);
-
 /* InitStrings.proto */
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
@@ -2131,131 +1177,6 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 /* Module declarations from 'libcpp.pair' */
 
-/* Module declarations from 'libc.stdlib' */
-
-/* Module declarations from 'libc.stdio' */
-
-/* Module declarations from 'posix.types' */
-
-/* Module declarations from 'pysam.libchtslib' */
-static PyTypeObject *__pyx_ptype_5pysam_10libchtslib_HTSFile = 0;
-
-/* Module declarations from 'cython' */
-
-/* Module declarations from 'cpython.version' */
-
-/* Module declarations from '__builtin__' */
-
-/* Module declarations from 'cpython.type' */
-static PyTypeObject *__pyx_ptype_7cpython_4type_type = 0;
-
-/* Module declarations from 'cpython.object' */
-
-/* Module declarations from 'cpython.ref' */
-
-/* Module declarations from 'cpython.exc' */
-
-/* Module declarations from 'cpython.module' */
-
-/* Module declarations from 'cpython.mem' */
-
-/* Module declarations from 'cpython.tuple' */
-
-/* Module declarations from 'cpython.list' */
-
-/* Module declarations from 'cpython.sequence' */
-
-/* Module declarations from 'cpython.mapping' */
-
-/* Module declarations from 'cpython.iterator' */
-
-/* Module declarations from 'cpython.number' */
-
-/* Module declarations from 'cpython.int' */
-
-/* Module declarations from '__builtin__' */
-
-/* Module declarations from 'cpython.bool' */
-static PyTypeObject *__pyx_ptype_7cpython_4bool_bool = 0;
-
-/* Module declarations from 'cpython.long' */
-
-/* Module declarations from 'cpython.float' */
-
-/* Module declarations from '__builtin__' */
-
-/* Module declarations from 'cpython.complex' */
-static PyTypeObject *__pyx_ptype_7cpython_7complex_complex = 0;
-
-/* Module declarations from 'cpython.string' */
-
-/* Module declarations from 'cpython.unicode' */
-
-/* Module declarations from 'cpython.dict' */
-
-/* Module declarations from 'cpython.instance' */
-
-/* Module declarations from 'cpython.function' */
-
-/* Module declarations from 'cpython.method' */
-
-/* Module declarations from 'cpython.weakref' */
-
-/* Module declarations from 'cpython.getargs' */
-
-/* Module declarations from 'cpython.pythread' */
-
-/* Module declarations from 'cpython.pystate' */
-
-/* Module declarations from 'cpython.cobject' */
-
-/* Module declarations from 'cpython.oldbuffer' */
-
-/* Module declarations from 'cpython.set' */
-
-/* Module declarations from 'cpython.buffer' */
-
-/* Module declarations from 'cpython.bytes' */
-
-/* Module declarations from 'cpython.pycapsule' */
-
-/* Module declarations from 'cpython' */
-
-/* Module declarations from 'array' */
-
-/* Module declarations from 'cpython.array' */
-static PyTypeObject *__pyx_ptype_7cpython_5array_array = 0;
-static CYTHON_INLINE int __pyx_f_7cpython_5array_extend_buffer(arrayobject *, char *, Py_ssize_t); /*proto*/
-
-/* Module declarations from 'pysam.libcfaidx' */
-static PyTypeObject *__pyx_ptype_5pysam_9libcfaidx_FastaFile = 0;
-static PyTypeObject *__pyx_ptype_5pysam_9libcfaidx_FastqProxy = 0;
-static PyTypeObject *__pyx_ptype_5pysam_9libcfaidx_FastxRecord = 0;
-static PyTypeObject *__pyx_ptype_5pysam_9libcfaidx_FastxFile = 0;
-static PyTypeObject *__pyx_ptype_5pysam_9libcfaidx_FastqFile = 0;
-static PyTypeObject *__pyx_ptype_5pysam_9libcfaidx_Fastafile = 0;
-
-/* Module declarations from 'pysam.libcalignmentfile' */
-static PyTypeObject *__pyx_ptype_5pysam_17libcalignmentfile_AlignmentHeader = 0;
-static PyTypeObject *__pyx_ptype_5pysam_17libcalignmentfile_AlignmentFile = 0;
-static PyTypeObject *__pyx_ptype_5pysam_17libcalignmentfile_PileupColumn = 0;
-static PyTypeObject *__pyx_ptype_5pysam_17libcalignmentfile_PileupRead = 0;
-static PyTypeObject *__pyx_ptype_5pysam_17libcalignmentfile_IteratorRow = 0;
-static PyTypeObject *__pyx_ptype_5pysam_17libcalignmentfile_IteratorRowRegion = 0;
-static PyTypeObject *__pyx_ptype_5pysam_17libcalignmentfile_IteratorRowHead = 0;
-static PyTypeObject *__pyx_ptype_5pysam_17libcalignmentfile_IteratorRowAll = 0;
-static PyTypeObject *__pyx_ptype_5pysam_17libcalignmentfile_IteratorRowAllRefs = 0;
-static PyTypeObject *__pyx_ptype_5pysam_17libcalignmentfile_IteratorRowSelection = 0;
-static PyTypeObject *__pyx_ptype_5pysam_17libcalignmentfile_IteratorColumn = 0;
-static PyTypeObject *__pyx_ptype_5pysam_17libcalignmentfile_IteratorColumnRegion = 0;
-static PyTypeObject *__pyx_ptype_5pysam_17libcalignmentfile_IteratorColumnAllRefs = 0;
-static PyTypeObject *__pyx_ptype_5pysam_17libcalignmentfile_IndexedReads = 0;
-
-/* Module declarations from 'pysam.libcalignedsegment' */
-static PyTypeObject *__pyx_ptype_5pysam_18libcalignedsegment_AlignedSegment = 0;
-static PyTypeObject *__pyx_ptype_5pysam_18libcalignedsegment_PileupColumn = 0;
-static PyTypeObject *__pyx_ptype_5pysam_18libcalignedsegment_PileupRead = 0;
-
 /* Module declarations from 'SICER2.src.read_bam' */
 static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *, int __pyx_skip_dispatch); /*proto*/
 static std::string __pyx_convert_string_from_py_std__in_string(PyObject *); /*proto*/
@@ -2273,12 +1194,9 @@ int __pyx_module_is_main_SICER2__src__read_bam = 0;
 
 /* Implementation of 'SICER2.src.read_bam' */
 static PyObject *__pyx_builtin_chr;
-static PyObject *__pyx_builtin_MemoryError;
 static PyObject *__pyx_builtin_range;
-static const char __pyx_k_r[] = "r";
-static const char __pyx_k__3[] = "+";
+static const char __pyx_k__2[] = "+";
 static const char __pyx_k_rb[] = "rb";
-static const char __pyx_k_bam[] = ".bam";
 static const char __pyx_k_chr[] = "chr";
 static const char __pyx_k_alen[] = "alen";
 static const char __pyx_k_flag[] = "flag";
@@ -2289,30 +1207,22 @@ static const char __pyx_k_range[] = "range";
 static const char __pyx_k_utf_8[] = "utf-8";
 static const char __pyx_k_encode[] = "encode";
 static const char __pyx_k_import[] = "__import__";
-static const char __pyx_k_endswith[] = "endswith";
-static const char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
-static const char __pyx_k_MemoryError[] = "MemoryError";
 static const char __pyx_k_reference_id[] = "reference_id";
 static const char __pyx_k_AlignmentFile[] = "AlignmentFile";
 static const char __pyx_k_reference_start[] = "reference_start";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_get_reference_name[] = "get_reference_name";
 static PyObject *__pyx_n_s_AlignmentFile;
-static PyObject *__pyx_n_s_MemoryError;
-static PyObject *__pyx_kp_s__3;
+static PyObject *__pyx_kp_s__2;
 static PyObject *__pyx_n_s_alen;
-static PyObject *__pyx_kp_s_bam;
 static PyObject *__pyx_n_s_chr;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_encode;
-static PyObject *__pyx_n_s_endswith;
 static PyObject *__pyx_n_s_flag;
 static PyObject *__pyx_n_s_get_reference_name;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_pysam;
-static PyObject *__pyx_n_s_pyx_vtable;
-static PyObject *__pyx_n_s_r;
 static PyObject *__pyx_n_s_range;
 static PyObject *__pyx_n_s_rb;
 static PyObject *__pyx_n_s_reference_id;
@@ -2320,13 +1230,10 @@ static PyObject *__pyx_n_s_reference_start;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_kp_s_utf_8;
 static PyObject *__pyx_pf_6SICER2_3src_8read_bam_read_bam(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_filename); /* proto */
-static int __pyx_pf_7cpython_5array_5array___getbuffer__(arrayobject *__pyx_v_self, Py_buffer *__pyx_v_info, CYTHON_UNUSED int __pyx_v_flags); /* proto */
-static void __pyx_pf_7cpython_5array_5array_2__releasebuffer__(CYTHON_UNUSED arrayobject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
 static PyObject *__pyx_tuple_;
-static PyObject *__pyx_tuple__2;
 /* Late includes */
 
-/* "SICER2/src/read_bam.pyx":43
+/* "SICER2/src/read_bam.pyx":44
  * #     int64_t flag
  * 
  * cpdef read_bam(filename):             # <<<<<<<<<<<<<<
@@ -2348,21 +1255,21 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
   __pyx_t_6SICER2_3src_8read_bam_key __pyx_v_chrom_strand_fixed;
   __pyx_t_6SICER2_3src_8read_bam_genome_map_int __pyx_v_genome;
   __pyx_t_6SICER2_3src_8read_bam_genome_map __pyx_v_genome_fixed;
-  struct __pyx_obj_5pysam_18libcalignedsegment_AlignedSegment *__pyx_v_a = 0;
   PyObject *__pyx_v_samfile = NULL;
+  PyObject *__pyx_v_a = NULL;
   long __pyx_v_is_reverse;
   std::map<__pyx_t_6SICER2_3src_8read_bam_intkey,__pyx_t_6SICER2_3src_8read_bam_intvec> ::iterator __pyx_v_it;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
-  int __pyx_t_3;
-  PyObject *__pyx_t_4 = NULL;
-  int __pyx_t_5;
-  PyObject *__pyx_t_6 = NULL;
-  Py_ssize_t __pyx_t_7;
-  PyObject *(*__pyx_t_8)(PyObject *);
-  uint32_t __pyx_t_9;
+  PyObject *__pyx_t_3 = NULL;
+  int __pyx_t_4;
+  PyObject *__pyx_t_5 = NULL;
+  Py_ssize_t __pyx_t_6;
+  PyObject *(*__pyx_t_7)(PyObject *);
+  uint32_t __pyx_t_8;
+  int __pyx_t_9;
   int __pyx_t_10;
   int32_t __pyx_t_11;
   PyObject *__pyx_t_12 = NULL;
@@ -2371,7 +1278,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
   __pyx_t_6SICER2_3src_8read_bam_intvec __pyx_t_15;
   __Pyx_RefNannySetupContext("read_bam", 0);
 
-  /* "SICER2/src/read_bam.pyx":51
+  /* "SICER2/src/read_bam.pyx":52
  *         int32_t length
  *         uint32_t is_strand
  *         char forward = "+"             # <<<<<<<<<<<<<<
@@ -2380,7 +1287,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
  */
   __pyx_v_forward = '+';
 
-  /* "SICER2/src/read_bam.pyx":52
+  /* "SICER2/src/read_bam.pyx":53
  *         uint32_t is_strand
  *         char forward = "+"
  *         char reverse = "-"             # <<<<<<<<<<<<<<
@@ -2390,155 +1297,66 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
   __pyx_v_reverse = '-';
 
   /* "SICER2/src/read_bam.pyx":63
- *         AlignedSegment a
+ *         genome_map genome_fixed
  * 
- *     if filename.endswith(".bam"):             # <<<<<<<<<<<<<<
- *         samfile = pysam.AlignmentFile(filename, "rb")
- *     else:
+ *     samfile = pysam.AlignmentFile(filename, "rb")             # <<<<<<<<<<<<<<
+ * 
+ * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_filename, __pyx_n_s_endswith); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 63, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_pysam); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 63, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_AlignmentFile); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 63, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__pyx_t_3) {
-
-    /* "SICER2/src/read_bam.pyx":64
- * 
- *     if filename.endswith(".bam"):
- *         samfile = pysam.AlignmentFile(filename, "rb")             # <<<<<<<<<<<<<<
- *     else:
- *         samfile = pysam.AlignmentFile(filename, "r")
- */
-    __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_pysam); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 64, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_AlignmentFile); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = NULL;
-    __pyx_t_5 = 0;
-    if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
-      __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_4);
-      if (likely(__pyx_t_1)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-        __Pyx_INCREF(__pyx_t_1);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_4, function);
-        __pyx_t_5 = 1;
-      }
+  __pyx_t_2 = NULL;
+  __pyx_t_4 = 0;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_3);
+    if (likely(__pyx_t_2)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_2);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_3, function);
+      __pyx_t_4 = 1;
     }
-    #if CYTHON_FAST_PYCALL
-    if (PyFunction_Check(__pyx_t_4)) {
-      PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_v_filename, __pyx_n_s_rb};
-      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
-      __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __Pyx_GOTREF(__pyx_t_2);
-    } else
-    #endif
-    #if CYTHON_FAST_PYCCALL
-    if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
-      PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_v_filename, __pyx_n_s_rb};
-      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
-      __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __Pyx_GOTREF(__pyx_t_2);
-    } else
-    #endif
-    {
-      __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 64, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      if (__pyx_t_1) {
-        __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_1); __pyx_t_1 = NULL;
-      }
-      __Pyx_INCREF(__pyx_v_filename);
-      __Pyx_GIVEREF(__pyx_v_filename);
-      PyTuple_SET_ITEM(__pyx_t_6, 0+__pyx_t_5, __pyx_v_filename);
-      __Pyx_INCREF(__pyx_n_s_rb);
-      __Pyx_GIVEREF(__pyx_n_s_rb);
-      PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_5, __pyx_n_s_rb);
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    }
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_v_samfile = __pyx_t_2;
-    __pyx_t_2 = 0;
-
-    /* "SICER2/src/read_bam.pyx":63
- *         AlignedSegment a
- * 
- *     if filename.endswith(".bam"):             # <<<<<<<<<<<<<<
- *         samfile = pysam.AlignmentFile(filename, "rb")
- *     else:
- */
-    goto __pyx_L3;
   }
+  #if CYTHON_FAST_PYCALL
+  if (PyFunction_Check(__pyx_t_3)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_filename, __pyx_n_s_rb};
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_GOTREF(__pyx_t_1);
+  } else
+  #endif
+  #if CYTHON_FAST_PYCCALL
+  if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_filename, __pyx_n_s_rb};
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_GOTREF(__pyx_t_1);
+  } else
+  #endif
+  {
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 63, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    if (__pyx_t_2) {
+      __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2); __pyx_t_2 = NULL;
+    }
+    __Pyx_INCREF(__pyx_v_filename);
+    __Pyx_GIVEREF(__pyx_v_filename);
+    PyTuple_SET_ITEM(__pyx_t_5, 0+__pyx_t_4, __pyx_v_filename);
+    __Pyx_INCREF(__pyx_n_s_rb);
+    __Pyx_GIVEREF(__pyx_n_s_rb);
+    PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_n_s_rb);
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  }
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_v_samfile = __pyx_t_1;
+  __pyx_t_1 = 0;
 
   /* "SICER2/src/read_bam.pyx":66
- *         samfile = pysam.AlignmentFile(filename, "rb")
- *     else:
- *         samfile = pysam.AlignmentFile(filename, "r")             # <<<<<<<<<<<<<<
- * 
- * 
- */
-  /*else*/ {
-    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_pysam); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 66, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_AlignmentFile); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 66, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = NULL;
-    __pyx_t_5 = 0;
-    if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
-      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_6);
-      if (likely(__pyx_t_4)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
-        __Pyx_INCREF(__pyx_t_4);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_6, function);
-        __pyx_t_5 = 1;
-      }
-    }
-    #if CYTHON_FAST_PYCALL
-    if (PyFunction_Check(__pyx_t_6)) {
-      PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_filename, __pyx_n_s_r};
-      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __Pyx_GOTREF(__pyx_t_2);
-    } else
-    #endif
-    #if CYTHON_FAST_PYCCALL
-    if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
-      PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_filename, __pyx_n_s_r};
-      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __Pyx_GOTREF(__pyx_t_2);
-    } else
-    #endif
-    {
-      __pyx_t_1 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-      if (__pyx_t_4) {
-        __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_4); __pyx_t_4 = NULL;
-      }
-      __Pyx_INCREF(__pyx_v_filename);
-      __Pyx_GIVEREF(__pyx_v_filename);
-      PyTuple_SET_ITEM(__pyx_t_1, 0+__pyx_t_5, __pyx_v_filename);
-      __Pyx_INCREF(__pyx_n_s_r);
-      __Pyx_GIVEREF(__pyx_n_s_r);
-      PyTuple_SET_ITEM(__pyx_t_1, 1+__pyx_t_5, __pyx_n_s_r);
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    }
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_v_samfile = __pyx_t_2;
-    __pyx_t_2 = 0;
-  }
-  __pyx_L3:;
-
-  /* "SICER2/src/read_bam.pyx":69
  * 
  * 
  *     for a in samfile:             # <<<<<<<<<<<<<<
@@ -2546,62 +1364,61 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
  * 
  */
   if (likely(PyList_CheckExact(__pyx_v_samfile)) || PyTuple_CheckExact(__pyx_v_samfile)) {
-    __pyx_t_2 = __pyx_v_samfile; __Pyx_INCREF(__pyx_t_2); __pyx_t_7 = 0;
-    __pyx_t_8 = NULL;
+    __pyx_t_1 = __pyx_v_samfile; __Pyx_INCREF(__pyx_t_1); __pyx_t_6 = 0;
+    __pyx_t_7 = NULL;
   } else {
-    __pyx_t_7 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_v_samfile); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 69, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_8 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 69, __pyx_L1_error)
+    __pyx_t_6 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_samfile); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_7 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 66, __pyx_L1_error)
   }
   for (;;) {
-    if (likely(!__pyx_t_8)) {
-      if (likely(PyList_CheckExact(__pyx_t_2))) {
-        if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_2)) break;
+    if (likely(!__pyx_t_7)) {
+      if (likely(PyList_CheckExact(__pyx_t_1))) {
+        if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_6 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_6); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 69, __pyx_L1_error)
+        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_6); __Pyx_INCREF(__pyx_t_3); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 66, __pyx_L1_error)
         #else
-        __pyx_t_6 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 69, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_6);
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 66, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
         #endif
       } else {
-        if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
+        if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_6 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_6); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 69, __pyx_L1_error)
+        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_6); __Pyx_INCREF(__pyx_t_3); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 66, __pyx_L1_error)
         #else
-        __pyx_t_6 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 69, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_6);
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 66, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
         #endif
       }
     } else {
-      __pyx_t_6 = __pyx_t_8(__pyx_t_2);
-      if (unlikely(!__pyx_t_6)) {
+      __pyx_t_3 = __pyx_t_7(__pyx_t_1);
+      if (unlikely(!__pyx_t_3)) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 69, __pyx_L1_error)
+          else __PYX_ERR(0, 66, __pyx_L1_error)
         }
         break;
       }
-      __Pyx_GOTREF(__pyx_t_6);
+      __Pyx_GOTREF(__pyx_t_3);
     }
-    if (!(likely(((__pyx_t_6) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_6, __pyx_ptype_5pysam_18libcalignedsegment_AlignedSegment))))) __PYX_ERR(0, 69, __pyx_L1_error)
-    __Pyx_XDECREF_SET(__pyx_v_a, ((struct __pyx_obj_5pysam_18libcalignedsegment_AlignedSegment *)__pyx_t_6));
-    __pyx_t_6 = 0;
+    __Pyx_XDECREF_SET(__pyx_v_a, __pyx_t_3);
+    __pyx_t_3 = 0;
 
-    /* "SICER2/src/read_bam.pyx":70
+    /* "SICER2/src/read_bam.pyx":67
  * 
  *     for a in samfile:
  *         flag = a.flag             # <<<<<<<<<<<<<<
  * 
  *         # https://broadinstitute.github.io/picard/explain-flags.html
  */
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_a), __pyx_n_s_flag); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 70, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_9 = __Pyx_PyInt_As_uint32_t(__pyx_t_6); if (unlikely((__pyx_t_9 == ((uint32_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 70, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_v_flag = __pyx_t_9;
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_a, __pyx_n_s_flag); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_8 = __Pyx_PyInt_As_uint32_t(__pyx_t_3); if (unlikely((__pyx_t_8 == ((uint32_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 67, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_v_flag = __pyx_t_8;
 
-    /* "SICER2/src/read_bam.pyx":73
+    /* "SICER2/src/read_bam.pyx":70
  * 
  *         # https://broadinstitute.github.io/picard/explain-flags.html
  *         if flag & 0x4 or flag & 0x200 or flag & 0x400:             # <<<<<<<<<<<<<<
@@ -2611,30 +1428,30 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     __pyx_t_10 = ((__pyx_v_flag & 0x4) != 0);
     if (!__pyx_t_10) {
     } else {
-      __pyx_t_3 = __pyx_t_10;
-      goto __pyx_L7_bool_binop_done;
+      __pyx_t_9 = __pyx_t_10;
+      goto __pyx_L6_bool_binop_done;
     }
     __pyx_t_10 = ((__pyx_v_flag & 0x200) != 0);
     if (!__pyx_t_10) {
     } else {
-      __pyx_t_3 = __pyx_t_10;
-      goto __pyx_L7_bool_binop_done;
+      __pyx_t_9 = __pyx_t_10;
+      goto __pyx_L6_bool_binop_done;
     }
     __pyx_t_10 = ((__pyx_v_flag & 0x400) != 0);
-    __pyx_t_3 = __pyx_t_10;
-    __pyx_L7_bool_binop_done:;
-    if (__pyx_t_3) {
+    __pyx_t_9 = __pyx_t_10;
+    __pyx_L6_bool_binop_done:;
+    if (__pyx_t_9) {
 
-      /* "SICER2/src/read_bam.pyx":74
+      /* "SICER2/src/read_bam.pyx":71
  *         # https://broadinstitute.github.io/picard/explain-flags.html
  *         if flag & 0x4 or flag & 0x200 or flag & 0x400:
  *             continue             # <<<<<<<<<<<<<<
  * 
  *         is_reverse = flag & 0x10
  */
-      goto __pyx_L4_continue;
+      goto __pyx_L3_continue;
 
-      /* "SICER2/src/read_bam.pyx":73
+      /* "SICER2/src/read_bam.pyx":70
  * 
  *         # https://broadinstitute.github.io/picard/explain-flags.html
  *         if flag & 0x4 or flag & 0x200 or flag & 0x400:             # <<<<<<<<<<<<<<
@@ -2643,7 +1460,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
  */
     }
 
-    /* "SICER2/src/read_bam.pyx":76
+    /* "SICER2/src/read_bam.pyx":73
  *             continue
  * 
  *         is_reverse = flag & 0x10             # <<<<<<<<<<<<<<
@@ -2652,39 +1469,39 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
  */
     __pyx_v_is_reverse = (__pyx_v_flag & 0x10);
 
-    /* "SICER2/src/read_bam.pyx":78
+    /* "SICER2/src/read_bam.pyx":75
  *         is_reverse = flag & 0x10
  * 
  *         start = a.reference_start             # <<<<<<<<<<<<<<
  * 
  *         end = start + a.alen
  */
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_a), __pyx_n_s_reference_start); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 78, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_11 = __Pyx_PyInt_As_int32_t(__pyx_t_6); if (unlikely((__pyx_t_11 == ((int32_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 78, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_a, __pyx_n_s_reference_start); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 75, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_11 = __Pyx_PyInt_As_int32_t(__pyx_t_3); if (unlikely((__pyx_t_11 == ((int32_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 75, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_start = __pyx_t_11;
 
-    /* "SICER2/src/read_bam.pyx":80
+    /* "SICER2/src/read_bam.pyx":77
  *         start = a.reference_start
  * 
  *         end = start + a.alen             # <<<<<<<<<<<<<<
  * 
  *         if start < 0 or end < 0:
  */
-    __pyx_t_6 = __Pyx_PyInt_From_int32_t(__pyx_v_start); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 80, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_a), __pyx_n_s_alen); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = PyNumber_Add(__pyx_t_6, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 80, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_11 = __Pyx_PyInt_As_int32_t(__pyx_t_4); if (unlikely((__pyx_t_11 == ((int32_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __pyx_t_3 = __Pyx_PyInt_From_int32_t(__pyx_v_start); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 77, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_a, __pyx_n_s_alen); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 77, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_2 = PyNumber_Add(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 77, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_11 = __Pyx_PyInt_As_int32_t(__pyx_t_2); if (unlikely((__pyx_t_11 == ((int32_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 77, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_end = __pyx_t_11;
 
-    /* "SICER2/src/read_bam.pyx":82
+    /* "SICER2/src/read_bam.pyx":79
  *         end = start + a.alen
  * 
  *         if start < 0 or end < 0:             # <<<<<<<<<<<<<<
@@ -2694,24 +1511,24 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     __pyx_t_10 = ((__pyx_v_start < 0) != 0);
     if (!__pyx_t_10) {
     } else {
-      __pyx_t_3 = __pyx_t_10;
-      goto __pyx_L11_bool_binop_done;
+      __pyx_t_9 = __pyx_t_10;
+      goto __pyx_L10_bool_binop_done;
     }
     __pyx_t_10 = ((__pyx_v_end < 0) != 0);
-    __pyx_t_3 = __pyx_t_10;
-    __pyx_L11_bool_binop_done:;
-    if (__pyx_t_3) {
+    __pyx_t_9 = __pyx_t_10;
+    __pyx_L10_bool_binop_done:;
+    if (__pyx_t_9) {
 
-      /* "SICER2/src/read_bam.pyx":83
+      /* "SICER2/src/read_bam.pyx":80
  * 
  *         if start < 0 or end < 0:
  *             continue             # <<<<<<<<<<<<<<
  * 
  *         chromosome_id = a.reference_id
  */
-      goto __pyx_L4_continue;
+      goto __pyx_L3_continue;
 
-      /* "SICER2/src/read_bam.pyx":82
+      /* "SICER2/src/read_bam.pyx":79
  *         end = start + a.alen
  * 
  *         if start < 0 or end < 0:             # <<<<<<<<<<<<<<
@@ -2720,30 +1537,30 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
  */
     }
 
-    /* "SICER2/src/read_bam.pyx":85
+    /* "SICER2/src/read_bam.pyx":82
  *             continue
  * 
  *         chromosome_id = a.reference_id             # <<<<<<<<<<<<<<
  *         if is_reverse:
  *             chrom_strand = make_pair(<int>chromosome_id, <char>reverse)
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_a), __pyx_n_s_reference_id); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 85, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 85, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_v_chromosome_id = __pyx_t_5;
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_a, __pyx_n_s_reference_id); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 82, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 82, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_v_chromosome_id = __pyx_t_4;
 
-    /* "SICER2/src/read_bam.pyx":86
+    /* "SICER2/src/read_bam.pyx":83
  * 
  *         chromosome_id = a.reference_id
  *         if is_reverse:             # <<<<<<<<<<<<<<
  *             chrom_strand = make_pair(<int>chromosome_id, <char>reverse)
  *             genome[chrom_strand].push_back(end + 1)
  */
-    __pyx_t_3 = (__pyx_v_is_reverse != 0);
-    if (__pyx_t_3) {
+    __pyx_t_9 = (__pyx_v_is_reverse != 0);
+    if (__pyx_t_9) {
 
-      /* "SICER2/src/read_bam.pyx":87
+      /* "SICER2/src/read_bam.pyx":84
  *         chromosome_id = a.reference_id
  *         if is_reverse:
  *             chrom_strand = make_pair(<int>chromosome_id, <char>reverse)             # <<<<<<<<<<<<<<
@@ -2752,7 +1569,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
  */
       __pyx_v_chrom_strand = std::make_pair<int,char>(((int)__pyx_v_chromosome_id), ((char)__pyx_v_reverse));
 
-      /* "SICER2/src/read_bam.pyx":88
+      /* "SICER2/src/read_bam.pyx":85
  *         if is_reverse:
  *             chrom_strand = make_pair(<int>chromosome_id, <char>reverse)
  *             genome[chrom_strand].push_back(end + 1)             # <<<<<<<<<<<<<<
@@ -2763,20 +1580,20 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
         (__pyx_v_genome[__pyx_v_chrom_strand]).push_back((__pyx_v_end + 1));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 88, __pyx_L1_error)
+        __PYX_ERR(0, 85, __pyx_L1_error)
       }
 
-      /* "SICER2/src/read_bam.pyx":86
+      /* "SICER2/src/read_bam.pyx":83
  * 
  *         chromosome_id = a.reference_id
  *         if is_reverse:             # <<<<<<<<<<<<<<
  *             chrom_strand = make_pair(<int>chromosome_id, <char>reverse)
  *             genome[chrom_strand].push_back(end + 1)
  */
-      goto __pyx_L13;
+      goto __pyx_L12;
     }
 
-    /* "SICER2/src/read_bam.pyx":90
+    /* "SICER2/src/read_bam.pyx":87
  *             genome[chrom_strand].push_back(end + 1)
  *         else:
  *             chrom_strand = make_pair(<int>chromosome_id, <char>forward)             # <<<<<<<<<<<<<<
@@ -2786,7 +1603,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     /*else*/ {
       __pyx_v_chrom_strand = std::make_pair<int,char>(((int)__pyx_v_chromosome_id), ((char)__pyx_v_forward));
 
-      /* "SICER2/src/read_bam.pyx":91
+      /* "SICER2/src/read_bam.pyx":88
  *         else:
  *             chrom_strand = make_pair(<int>chromosome_id, <char>forward)
  *             genome[chrom_strand].push_back(start + 1)             # <<<<<<<<<<<<<<
@@ -2797,23 +1614,23 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
         (__pyx_v_genome[__pyx_v_chrom_strand]).push_back((__pyx_v_start + 1));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 91, __pyx_L1_error)
+        __PYX_ERR(0, 88, __pyx_L1_error)
       }
     }
-    __pyx_L13:;
+    __pyx_L12:;
 
-    /* "SICER2/src/read_bam.pyx":69
+    /* "SICER2/src/read_bam.pyx":66
  * 
  * 
  *     for a in samfile:             # <<<<<<<<<<<<<<
  *         flag = a.flag
  * 
  */
-    __pyx_L4_continue:;
+    __pyx_L3_continue:;
   }
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SICER2/src/read_bam.pyx":94
+  /* "SICER2/src/read_bam.pyx":91
  * 
  * 
  *     it = genome.begin();             # <<<<<<<<<<<<<<
@@ -2822,7 +1639,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
  */
   __pyx_v_it = __pyx_v_genome.begin();
 
-  /* "SICER2/src/read_bam.pyx":96
+  /* "SICER2/src/read_bam.pyx":93
  *     it = genome.begin();
  * 
  *     while (it != genome.end()):             # <<<<<<<<<<<<<<
@@ -2830,87 +1647,87 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
  *         chromosome = samfile.get_reference_name(chromosome_id).encode("utf-8")
  */
   while (1) {
-    __pyx_t_3 = ((__pyx_v_it != __pyx_v_genome.end()) != 0);
-    if (!__pyx_t_3) break;
+    __pyx_t_9 = ((__pyx_v_it != __pyx_v_genome.end()) != 0);
+    if (!__pyx_t_9) break;
 
-    /* "SICER2/src/read_bam.pyx":97
+    /* "SICER2/src/read_bam.pyx":94
  * 
  *     while (it != genome.end()):
  *         chromosome_id = dereference(it).first.first             # <<<<<<<<<<<<<<
  *         chromosome = samfile.get_reference_name(chromosome_id).encode("utf-8")
  * 
  */
-    __pyx_t_5 = (*__pyx_v_it).first.first;
-    __pyx_v_chromosome_id = __pyx_t_5;
+    __pyx_t_4 = (*__pyx_v_it).first.first;
+    __pyx_v_chromosome_id = __pyx_t_4;
 
-    /* "SICER2/src/read_bam.pyx":98
+    /* "SICER2/src/read_bam.pyx":95
  *     while (it != genome.end()):
  *         chromosome_id = dereference(it).first.first
  *         chromosome = samfile.get_reference_name(chromosome_id).encode("utf-8")             # <<<<<<<<<<<<<<
  * 
  *         strand = dereference(it).first.second
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_samfile, __pyx_n_s_get_reference_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 98, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_chromosome_id); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = NULL;
-    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
-      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_4);
-      if (likely(__pyx_t_6)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-        __Pyx_INCREF(__pyx_t_6);
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_samfile, __pyx_n_s_get_reference_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_chromosome_id); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 95, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_3 = NULL;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+      if (likely(__pyx_t_3)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+        __Pyx_INCREF(__pyx_t_3);
         __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_4, function);
+        __Pyx_DECREF_SET(__pyx_t_2, function);
       }
     }
-    if (!__pyx_t_6) {
-      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 98, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __Pyx_GOTREF(__pyx_t_2);
+    if (!__pyx_t_3) {
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      __Pyx_GOTREF(__pyx_t_1);
     } else {
       #if CYTHON_FAST_PYCALL
-      if (PyFunction_Check(__pyx_t_4)) {
-        PyObject *__pyx_temp[2] = {__pyx_t_6, __pyx_t_1};
-        __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 98, __pyx_L1_error)
-        __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __Pyx_GOTREF(__pyx_t_2);
-        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      if (PyFunction_Check(__pyx_t_2)) {
+        PyObject *__pyx_temp[2] = {__pyx_t_3, __pyx_t_5};
+        __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
+        __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+        __Pyx_GOTREF(__pyx_t_1);
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       } else
       #endif
       #if CYTHON_FAST_PYCCALL
-      if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
-        PyObject *__pyx_temp[2] = {__pyx_t_6, __pyx_t_1};
-        __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 98, __pyx_L1_error)
-        __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __Pyx_GOTREF(__pyx_t_2);
-        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
+        PyObject *__pyx_temp[2] = {__pyx_t_3, __pyx_t_5};
+        __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
+        __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+        __Pyx_GOTREF(__pyx_t_1);
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       } else
       #endif
       {
-        __pyx_t_12 = PyTuple_New(1+1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 98, __pyx_L1_error)
+        __pyx_t_12 = PyTuple_New(1+1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 95, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_6); __pyx_t_6 = NULL;
-        __Pyx_GIVEREF(__pyx_t_1);
-        PyTuple_SET_ITEM(__pyx_t_12, 0+1, __pyx_t_1);
-        __pyx_t_1 = 0;
-        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_12, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 98, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
+        __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_3); __pyx_t_3 = NULL;
+        __Pyx_GIVEREF(__pyx_t_5);
+        PyTuple_SET_ITEM(__pyx_t_12, 0+1, __pyx_t_5);
+        __pyx_t_5 = 0;
+        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_12, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       }
     }
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_encode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 98, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 98, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_encode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_13 = __pyx_convert_string_from_py_std__in_string(__pyx_t_2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 98, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_13 = __pyx_convert_string_from_py_std__in_string(__pyx_t_1); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 95, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_chromosome = __pyx_t_13;
 
-    /* "SICER2/src/read_bam.pyx":100
+    /* "SICER2/src/read_bam.pyx":97
  *         chromosome = samfile.get_reference_name(chromosome_id).encode("utf-8")
  * 
  *         strand = dereference(it).first.second             # <<<<<<<<<<<<<<
@@ -2920,23 +1737,23 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     __pyx_t_14 = (*__pyx_v_it).first.second;
     __pyx_v_strand = __pyx_t_14;
 
-    /* "SICER2/src/read_bam.pyx":102
+    /* "SICER2/src/read_bam.pyx":99
  *         strand = dereference(it).first.second
  * 
  *         if chr(strand) == "+":             # <<<<<<<<<<<<<<
  *             chrom_strand_fixed = make_pair(<string>chromosome, <char>forward)
  *             genome_fixed[chrom_strand_fixed] = dereference(it).second
  */
-    __pyx_t_2 = __Pyx_PyInt_From_char(__pyx_v_strand); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 102, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_char(__pyx_v_strand); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 99, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 99, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_chr, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 102, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_9 = (__Pyx_PyString_Equals(__pyx_t_2, __pyx_kp_s__2, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 99, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_3 = (__Pyx_PyString_Equals(__pyx_t_4, __pyx_kp_s__3, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 102, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (__pyx_t_3) {
+    if (__pyx_t_9) {
 
-      /* "SICER2/src/read_bam.pyx":103
+      /* "SICER2/src/read_bam.pyx":100
  * 
  *         if chr(strand) == "+":
  *             chrom_strand_fixed = make_pair(<string>chromosome, <char>forward)             # <<<<<<<<<<<<<<
@@ -2945,7 +1762,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
  */
       __pyx_v_chrom_strand_fixed = std::make_pair<std::string,char>(((std::string)__pyx_v_chromosome), ((char)__pyx_v_forward));
 
-      /* "SICER2/src/read_bam.pyx":104
+      /* "SICER2/src/read_bam.pyx":101
  *         if chr(strand) == "+":
  *             chrom_strand_fixed = make_pair(<string>chromosome, <char>forward)
  *             genome_fixed[chrom_strand_fixed] = dereference(it).second             # <<<<<<<<<<<<<<
@@ -2955,17 +1772,17 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
       __pyx_t_15 = (*__pyx_v_it).second;
       (__pyx_v_genome_fixed[__pyx_v_chrom_strand_fixed]) = __pyx_t_15;
 
-      /* "SICER2/src/read_bam.pyx":102
+      /* "SICER2/src/read_bam.pyx":99
  *         strand = dereference(it).first.second
  * 
  *         if chr(strand) == "+":             # <<<<<<<<<<<<<<
  *             chrom_strand_fixed = make_pair(<string>chromosome, <char>forward)
  *             genome_fixed[chrom_strand_fixed] = dereference(it).second
  */
-      goto __pyx_L16;
+      goto __pyx_L15;
     }
 
-    /* "SICER2/src/read_bam.pyx":106
+    /* "SICER2/src/read_bam.pyx":103
  *             genome_fixed[chrom_strand_fixed] = dereference(it).second
  *         else:
  *             chrom_strand_fixed = make_pair(<string>chromosome, <char>reverse)             # <<<<<<<<<<<<<<
@@ -2975,7 +1792,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     /*else*/ {
       __pyx_v_chrom_strand_fixed = std::make_pair<std::string,char>(((std::string)__pyx_v_chromosome), ((char)__pyx_v_reverse));
 
-      /* "SICER2/src/read_bam.pyx":107
+      /* "SICER2/src/read_bam.pyx":104
  *         else:
  *             chrom_strand_fixed = make_pair(<string>chromosome, <char>reverse)
  *             genome_fixed[chrom_strand_fixed] = dereference(it).second             # <<<<<<<<<<<<<<
@@ -2985,9 +1802,9 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
       __pyx_t_15 = (*__pyx_v_it).second;
       (__pyx_v_genome_fixed[__pyx_v_chrom_strand_fixed]) = __pyx_t_15;
     }
-    __pyx_L16:;
+    __pyx_L15:;
 
-    /* "SICER2/src/read_bam.pyx":109
+    /* "SICER2/src/read_bam.pyx":106
  *             genome_fixed[chrom_strand_fixed] = dereference(it).second
  * 
  *         postincrement(it)             # <<<<<<<<<<<<<<
@@ -2997,19 +1814,19 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     (void)((__pyx_v_it++));
   }
 
-  /* "SICER2/src/read_bam.pyx":111
+  /* "SICER2/src/read_bam.pyx":108
  *         postincrement(it)
  * 
  *     return genome_fixed             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key______pyx_t_6SICER2_3src_8read_bam_intvec(__pyx_v_genome_fixed); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 111, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_r = __pyx_t_4;
-  __pyx_t_4 = 0;
+  __pyx_t_2 = __pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key______pyx_t_6SICER2_3src_8read_bam_intvec(__pyx_v_genome_fixed); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "SICER2/src/read_bam.pyx":43
+  /* "SICER2/src/read_bam.pyx":44
  * #     int64_t flag
  * 
  * cpdef read_bam(filename):             # <<<<<<<<<<<<<<
@@ -3021,14 +1838,14 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_12);
   __Pyx_AddTraceback("SICER2.src.read_bam.read_bam", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
-  __Pyx_XDECREF((PyObject *)__pyx_v_a);
   __Pyx_XDECREF(__pyx_v_samfile);
+  __Pyx_XDECREF(__pyx_v_a);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -3053,7 +1870,7 @@ static PyObject *__pyx_pf_6SICER2_3src_8read_bam_read_bam(CYTHON_UNUSED PyObject
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("read_bam", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6SICER2_3src_8read_bam_read_bam(__pyx_v_filename, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_6SICER2_3src_8read_bam_read_bam(__pyx_v_filename, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3068,642 +1885,6 @@ static PyObject *__pyx_pf_6SICER2_3src_8read_bam_read_bam(CYTHON_UNUSED PyObject
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
-}
-
-/* "array.pxd":93
- *             __data_union data
- * 
- *         def __getbuffer__(self, Py_buffer* info, int flags):             # <<<<<<<<<<<<<<
- *             # This implementation of getbuffer is geared towards Cython
- *             # requirements, and does not yet fulfill the PEP.
- */
-
-/* Python wrapper */
-static CYTHON_UNUSED int __pyx_pw_7cpython_5array_5array_1__getbuffer__(PyObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /*proto*/
-static CYTHON_UNUSED int __pyx_pw_7cpython_5array_5array_1__getbuffer__(PyObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags) {
-  int __pyx_r;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__getbuffer__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_7cpython_5array_5array___getbuffer__(((arrayobject *)__pyx_v_self), ((Py_buffer *)__pyx_v_info), ((int)__pyx_v_flags));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static int __pyx_pf_7cpython_5array_5array___getbuffer__(arrayobject *__pyx_v_self, Py_buffer *__pyx_v_info, CYTHON_UNUSED int __pyx_v_flags) {
-  PyObject *__pyx_v_item_count = NULL;
-  int __pyx_r;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  char *__pyx_t_2;
-  int __pyx_t_3;
-  PyObject *__pyx_t_4 = NULL;
-  Py_ssize_t __pyx_t_5;
-  int __pyx_t_6;
-  if (__pyx_v_info == NULL) {
-    PyErr_SetString(PyExc_BufferError, "PyObject_GetBuffer: view==NULL argument is obsolete");
-    return -1;
-  }
-  __Pyx_RefNannySetupContext("__getbuffer__", 0);
-  __pyx_v_info->obj = Py_None; __Pyx_INCREF(Py_None);
-  __Pyx_GIVEREF(__pyx_v_info->obj);
-
-  /* "array.pxd":98
- *             # In particular strided access is always provided regardless
- *             # of flags
- *             item_count = Py_SIZE(self)             # <<<<<<<<<<<<<<
- * 
- *             info.suboffsets = NULL
- */
-  __pyx_t_1 = PyInt_FromSsize_t(Py_SIZE(((PyObject *)__pyx_v_self))); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 98, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_item_count = __pyx_t_1;
-  __pyx_t_1 = 0;
-
-  /* "array.pxd":100
- *             item_count = Py_SIZE(self)
- * 
- *             info.suboffsets = NULL             # <<<<<<<<<<<<<<
- *             info.buf = self.data.as_chars
- *             info.readonly = 0
- */
-  __pyx_v_info->suboffsets = NULL;
-
-  /* "array.pxd":101
- * 
- *             info.suboffsets = NULL
- *             info.buf = self.data.as_chars             # <<<<<<<<<<<<<<
- *             info.readonly = 0
- *             info.ndim = 1
- */
-  __pyx_t_2 = __pyx_v_self->data.as_chars;
-  __pyx_v_info->buf = __pyx_t_2;
-
-  /* "array.pxd":102
- *             info.suboffsets = NULL
- *             info.buf = self.data.as_chars
- *             info.readonly = 0             # <<<<<<<<<<<<<<
- *             info.ndim = 1
- *             info.itemsize = self.ob_descr.itemsize   # e.g. sizeof(float)
- */
-  __pyx_v_info->readonly = 0;
-
-  /* "array.pxd":103
- *             info.buf = self.data.as_chars
- *             info.readonly = 0
- *             info.ndim = 1             # <<<<<<<<<<<<<<
- *             info.itemsize = self.ob_descr.itemsize   # e.g. sizeof(float)
- *             info.len = info.itemsize * item_count
- */
-  __pyx_v_info->ndim = 1;
-
-  /* "array.pxd":104
- *             info.readonly = 0
- *             info.ndim = 1
- *             info.itemsize = self.ob_descr.itemsize   # e.g. sizeof(float)             # <<<<<<<<<<<<<<
- *             info.len = info.itemsize * item_count
- * 
- */
-  __pyx_t_3 = __pyx_v_self->ob_descr->itemsize;
-  __pyx_v_info->itemsize = __pyx_t_3;
-
-  /* "array.pxd":105
- *             info.ndim = 1
- *             info.itemsize = self.ob_descr.itemsize   # e.g. sizeof(float)
- *             info.len = info.itemsize * item_count             # <<<<<<<<<<<<<<
- * 
- *             info.shape = <Py_ssize_t*> PyObject_Malloc(sizeof(Py_ssize_t) + 2)
- */
-  __pyx_t_1 = PyInt_FromSsize_t(__pyx_v_info->itemsize); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 105, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = PyNumber_Multiply(__pyx_t_1, __pyx_v_item_count); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 105, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_5 = __Pyx_PyIndex_AsSsize_t(__pyx_t_4); if (unlikely((__pyx_t_5 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(1, 105, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_v_info->len = __pyx_t_5;
-
-  /* "array.pxd":107
- *             info.len = info.itemsize * item_count
- * 
- *             info.shape = <Py_ssize_t*> PyObject_Malloc(sizeof(Py_ssize_t) + 2)             # <<<<<<<<<<<<<<
- *             if not info.shape:
- *                 raise MemoryError()
- */
-  __pyx_v_info->shape = ((Py_ssize_t *)PyObject_Malloc(((sizeof(Py_ssize_t)) + 2)));
-
-  /* "array.pxd":108
- * 
- *             info.shape = <Py_ssize_t*> PyObject_Malloc(sizeof(Py_ssize_t) + 2)
- *             if not info.shape:             # <<<<<<<<<<<<<<
- *                 raise MemoryError()
- *             info.shape[0] = item_count      # constant regardless of resizing
- */
-  __pyx_t_6 = ((!(__pyx_v_info->shape != 0)) != 0);
-  if (unlikely(__pyx_t_6)) {
-
-    /* "array.pxd":109
- *             info.shape = <Py_ssize_t*> PyObject_Malloc(sizeof(Py_ssize_t) + 2)
- *             if not info.shape:
- *                 raise MemoryError()             # <<<<<<<<<<<<<<
- *             info.shape[0] = item_count      # constant regardless of resizing
- *             info.strides = &info.itemsize
- */
-    PyErr_NoMemory(); __PYX_ERR(1, 109, __pyx_L1_error)
-
-    /* "array.pxd":108
- * 
- *             info.shape = <Py_ssize_t*> PyObject_Malloc(sizeof(Py_ssize_t) + 2)
- *             if not info.shape:             # <<<<<<<<<<<<<<
- *                 raise MemoryError()
- *             info.shape[0] = item_count      # constant regardless of resizing
- */
-  }
-
-  /* "array.pxd":110
- *             if not info.shape:
- *                 raise MemoryError()
- *             info.shape[0] = item_count      # constant regardless of resizing             # <<<<<<<<<<<<<<
- *             info.strides = &info.itemsize
- * 
- */
-  __pyx_t_5 = __Pyx_PyIndex_AsSsize_t(__pyx_v_item_count); if (unlikely((__pyx_t_5 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(1, 110, __pyx_L1_error)
-  (__pyx_v_info->shape[0]) = __pyx_t_5;
-
-  /* "array.pxd":111
- *                 raise MemoryError()
- *             info.shape[0] = item_count      # constant regardless of resizing
- *             info.strides = &info.itemsize             # <<<<<<<<<<<<<<
- * 
- *             info.format = <char*> (info.shape + 1)
- */
-  __pyx_v_info->strides = (&__pyx_v_info->itemsize);
-
-  /* "array.pxd":113
- *             info.strides = &info.itemsize
- * 
- *             info.format = <char*> (info.shape + 1)             # <<<<<<<<<<<<<<
- *             info.format[0] = self.ob_descr.typecode
- *             info.format[1] = 0
- */
-  __pyx_v_info->format = ((char *)(__pyx_v_info->shape + 1));
-
-  /* "array.pxd":114
- * 
- *             info.format = <char*> (info.shape + 1)
- *             info.format[0] = self.ob_descr.typecode             # <<<<<<<<<<<<<<
- *             info.format[1] = 0
- *             info.obj = self
- */
-  __pyx_t_3 = __pyx_v_self->ob_descr->typecode;
-  (__pyx_v_info->format[0]) = __pyx_t_3;
-
-  /* "array.pxd":115
- *             info.format = <char*> (info.shape + 1)
- *             info.format[0] = self.ob_descr.typecode
- *             info.format[1] = 0             # <<<<<<<<<<<<<<
- *             info.obj = self
- * 
- */
-  (__pyx_v_info->format[1]) = 0;
-
-  /* "array.pxd":116
- *             info.format[0] = self.ob_descr.typecode
- *             info.format[1] = 0
- *             info.obj = self             # <<<<<<<<<<<<<<
- * 
- *         def __releasebuffer__(self, Py_buffer* info):
- */
-  __Pyx_INCREF(((PyObject *)__pyx_v_self));
-  __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
-  __Pyx_GOTREF(__pyx_v_info->obj);
-  __Pyx_DECREF(__pyx_v_info->obj);
-  __pyx_v_info->obj = ((PyObject *)__pyx_v_self);
-
-  /* "array.pxd":93
- *             __data_union data
- * 
- *         def __getbuffer__(self, Py_buffer* info, int flags):             # <<<<<<<<<<<<<<
- *             # This implementation of getbuffer is geared towards Cython
- *             # requirements, and does not yet fulfill the PEP.
- */
-
-  /* function exit code */
-  __pyx_r = 0;
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("cpython.array.array.__getbuffer__", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = -1;
-  if (__pyx_v_info->obj != NULL) {
-    __Pyx_GOTREF(__pyx_v_info->obj);
-    __Pyx_DECREF(__pyx_v_info->obj); __pyx_v_info->obj = 0;
-  }
-  goto __pyx_L2;
-  __pyx_L0:;
-  if (__pyx_v_info->obj == Py_None) {
-    __Pyx_GOTREF(__pyx_v_info->obj);
-    __Pyx_DECREF(__pyx_v_info->obj); __pyx_v_info->obj = 0;
-  }
-  __pyx_L2:;
-  __Pyx_XDECREF(__pyx_v_item_count);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "array.pxd":118
- *             info.obj = self
- * 
- *         def __releasebuffer__(self, Py_buffer* info):             # <<<<<<<<<<<<<<
- *             PyObject_Free(info.shape)
- * 
- */
-
-/* Python wrapper */
-static CYTHON_UNUSED void __pyx_pw_7cpython_5array_5array_3__releasebuffer__(PyObject *__pyx_v_self, Py_buffer *__pyx_v_info); /*proto*/
-static CYTHON_UNUSED void __pyx_pw_7cpython_5array_5array_3__releasebuffer__(PyObject *__pyx_v_self, Py_buffer *__pyx_v_info) {
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__releasebuffer__ (wrapper)", 0);
-  __pyx_pf_7cpython_5array_5array_2__releasebuffer__(((arrayobject *)__pyx_v_self), ((Py_buffer *)__pyx_v_info));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-}
-
-static void __pyx_pf_7cpython_5array_5array_2__releasebuffer__(CYTHON_UNUSED arrayobject *__pyx_v_self, Py_buffer *__pyx_v_info) {
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__releasebuffer__", 0);
-
-  /* "array.pxd":119
- * 
- *         def __releasebuffer__(self, Py_buffer* info):
- *             PyObject_Free(info.shape)             # <<<<<<<<<<<<<<
- * 
- *     array newarrayobject(PyTypeObject* type, Py_ssize_t size, arraydescr *descr)
- */
-  PyObject_Free(__pyx_v_info->shape);
-
-  /* "array.pxd":118
- *             info.obj = self
- * 
- *         def __releasebuffer__(self, Py_buffer* info):             # <<<<<<<<<<<<<<
- *             PyObject_Free(info.shape)
- * 
- */
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-}
-
-/* "array.pxd":130
- * 
- * 
- * cdef inline array clone(array template, Py_ssize_t length, bint zero):             # <<<<<<<<<<<<<<
- *     """ fast creation of a new array, given a template array.
- *     type will be same as template.
- */
-
-static CYTHON_INLINE arrayobject *__pyx_f_7cpython_5array_clone(arrayobject *__pyx_v_template, Py_ssize_t __pyx_v_length, int __pyx_v_zero) {
-  arrayobject *__pyx_v_op = NULL;
-  arrayobject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  int __pyx_t_2;
-  int __pyx_t_3;
-  int __pyx_t_4;
-  __Pyx_RefNannySetupContext("clone", 0);
-
-  /* "array.pxd":134
- *     type will be same as template.
- *     if zero is true, new array will be initialized with zeroes."""
- *     op = newarrayobject(Py_TYPE(template), length, template.ob_descr)             # <<<<<<<<<<<<<<
- *     if zero and op is not None:
- *         memset(op.data.as_chars, 0, length * op.ob_descr.itemsize)
- */
-  __pyx_t_1 = ((PyObject *)newarrayobject(Py_TYPE(((PyObject *)__pyx_v_template)), __pyx_v_length, __pyx_v_template->ob_descr)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 134, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_op = ((arrayobject *)__pyx_t_1);
-  __pyx_t_1 = 0;
-
-  /* "array.pxd":135
- *     if zero is true, new array will be initialized with zeroes."""
- *     op = newarrayobject(Py_TYPE(template), length, template.ob_descr)
- *     if zero and op is not None:             # <<<<<<<<<<<<<<
- *         memset(op.data.as_chars, 0, length * op.ob_descr.itemsize)
- *     return op
- */
-  __pyx_t_3 = (__pyx_v_zero != 0);
-  if (__pyx_t_3) {
-  } else {
-    __pyx_t_2 = __pyx_t_3;
-    goto __pyx_L4_bool_binop_done;
-  }
-  __pyx_t_3 = (((PyObject *)__pyx_v_op) != Py_None);
-  __pyx_t_4 = (__pyx_t_3 != 0);
-  __pyx_t_2 = __pyx_t_4;
-  __pyx_L4_bool_binop_done:;
-  if (__pyx_t_2) {
-
-    /* "array.pxd":136
- *     op = newarrayobject(Py_TYPE(template), length, template.ob_descr)
- *     if zero and op is not None:
- *         memset(op.data.as_chars, 0, length * op.ob_descr.itemsize)             # <<<<<<<<<<<<<<
- *     return op
- * 
- */
-    (void)(memset(__pyx_v_op->data.as_chars, 0, (__pyx_v_length * __pyx_v_op->ob_descr->itemsize)));
-
-    /* "array.pxd":135
- *     if zero is true, new array will be initialized with zeroes."""
- *     op = newarrayobject(Py_TYPE(template), length, template.ob_descr)
- *     if zero and op is not None:             # <<<<<<<<<<<<<<
- *         memset(op.data.as_chars, 0, length * op.ob_descr.itemsize)
- *     return op
- */
-  }
-
-  /* "array.pxd":137
- *     if zero and op is not None:
- *         memset(op.data.as_chars, 0, length * op.ob_descr.itemsize)
- *     return op             # <<<<<<<<<<<<<<
- * 
- * cdef inline array copy(array self):
- */
-  __Pyx_XDECREF(((PyObject *)__pyx_r));
-  __Pyx_INCREF(((PyObject *)__pyx_v_op));
-  __pyx_r = __pyx_v_op;
-  goto __pyx_L0;
-
-  /* "array.pxd":130
- * 
- * 
- * cdef inline array clone(array template, Py_ssize_t length, bint zero):             # <<<<<<<<<<<<<<
- *     """ fast creation of a new array, given a template array.
- *     type will be same as template.
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("cpython.array.clone", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = 0;
-  __pyx_L0:;
-  __Pyx_XDECREF((PyObject *)__pyx_v_op);
-  __Pyx_XGIVEREF((PyObject *)__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "array.pxd":139
- *     return op
- * 
- * cdef inline array copy(array self):             # <<<<<<<<<<<<<<
- *     """ make a copy of an array. """
- *     op = newarrayobject(Py_TYPE(self), Py_SIZE(self), self.ob_descr)
- */
-
-static CYTHON_INLINE arrayobject *__pyx_f_7cpython_5array_copy(arrayobject *__pyx_v_self) {
-  arrayobject *__pyx_v_op = NULL;
-  arrayobject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  __Pyx_RefNannySetupContext("copy", 0);
-
-  /* "array.pxd":141
- * cdef inline array copy(array self):
- *     """ make a copy of an array. """
- *     op = newarrayobject(Py_TYPE(self), Py_SIZE(self), self.ob_descr)             # <<<<<<<<<<<<<<
- *     memcpy(op.data.as_chars, self.data.as_chars, Py_SIZE(op) * op.ob_descr.itemsize)
- *     return op
- */
-  __pyx_t_1 = ((PyObject *)newarrayobject(Py_TYPE(((PyObject *)__pyx_v_self)), Py_SIZE(((PyObject *)__pyx_v_self)), __pyx_v_self->ob_descr)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 141, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_op = ((arrayobject *)__pyx_t_1);
-  __pyx_t_1 = 0;
-
-  /* "array.pxd":142
- *     """ make a copy of an array. """
- *     op = newarrayobject(Py_TYPE(self), Py_SIZE(self), self.ob_descr)
- *     memcpy(op.data.as_chars, self.data.as_chars, Py_SIZE(op) * op.ob_descr.itemsize)             # <<<<<<<<<<<<<<
- *     return op
- * 
- */
-  (void)(memcpy(__pyx_v_op->data.as_chars, __pyx_v_self->data.as_chars, (Py_SIZE(((PyObject *)__pyx_v_op)) * __pyx_v_op->ob_descr->itemsize)));
-
-  /* "array.pxd":143
- *     op = newarrayobject(Py_TYPE(self), Py_SIZE(self), self.ob_descr)
- *     memcpy(op.data.as_chars, self.data.as_chars, Py_SIZE(op) * op.ob_descr.itemsize)
- *     return op             # <<<<<<<<<<<<<<
- * 
- * cdef inline int extend_buffer(array self, char* stuff, Py_ssize_t n) except -1:
- */
-  __Pyx_XDECREF(((PyObject *)__pyx_r));
-  __Pyx_INCREF(((PyObject *)__pyx_v_op));
-  __pyx_r = __pyx_v_op;
-  goto __pyx_L0;
-
-  /* "array.pxd":139
- *     return op
- * 
- * cdef inline array copy(array self):             # <<<<<<<<<<<<<<
- *     """ make a copy of an array. """
- *     op = newarrayobject(Py_TYPE(self), Py_SIZE(self), self.ob_descr)
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("cpython.array.copy", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = 0;
-  __pyx_L0:;
-  __Pyx_XDECREF((PyObject *)__pyx_v_op);
-  __Pyx_XGIVEREF((PyObject *)__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "array.pxd":145
- *     return op
- * 
- * cdef inline int extend_buffer(array self, char* stuff, Py_ssize_t n) except -1:             # <<<<<<<<<<<<<<
- *     """ efficient appending of new stuff of same type
- *     (e.g. of same array type)
- */
-
-static CYTHON_INLINE int __pyx_f_7cpython_5array_extend_buffer(arrayobject *__pyx_v_self, char *__pyx_v_stuff, Py_ssize_t __pyx_v_n) {
-  Py_ssize_t __pyx_v_itemsize;
-  Py_ssize_t __pyx_v_origsize;
-  int __pyx_r;
-  __Pyx_RefNannyDeclarations
-  int __pyx_t_1;
-  __Pyx_RefNannySetupContext("extend_buffer", 0);
-
-  /* "array.pxd":149
- *     (e.g. of same array type)
- *     n: number of elements (not number of bytes!) """
- *     cdef Py_ssize_t itemsize = self.ob_descr.itemsize             # <<<<<<<<<<<<<<
- *     cdef Py_ssize_t origsize = Py_SIZE(self)
- *     resize_smart(self, origsize + n)
- */
-  __pyx_t_1 = __pyx_v_self->ob_descr->itemsize;
-  __pyx_v_itemsize = __pyx_t_1;
-
-  /* "array.pxd":150
- *     n: number of elements (not number of bytes!) """
- *     cdef Py_ssize_t itemsize = self.ob_descr.itemsize
- *     cdef Py_ssize_t origsize = Py_SIZE(self)             # <<<<<<<<<<<<<<
- *     resize_smart(self, origsize + n)
- *     memcpy(self.data.as_chars + origsize * itemsize, stuff, n * itemsize)
- */
-  __pyx_v_origsize = Py_SIZE(((PyObject *)__pyx_v_self));
-
-  /* "array.pxd":151
- *     cdef Py_ssize_t itemsize = self.ob_descr.itemsize
- *     cdef Py_ssize_t origsize = Py_SIZE(self)
- *     resize_smart(self, origsize + n)             # <<<<<<<<<<<<<<
- *     memcpy(self.data.as_chars + origsize * itemsize, stuff, n * itemsize)
- *     return 0
- */
-  __pyx_t_1 = resize_smart(__pyx_v_self, (__pyx_v_origsize + __pyx_v_n)); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(1, 151, __pyx_L1_error)
-
-  /* "array.pxd":152
- *     cdef Py_ssize_t origsize = Py_SIZE(self)
- *     resize_smart(self, origsize + n)
- *     memcpy(self.data.as_chars + origsize * itemsize, stuff, n * itemsize)             # <<<<<<<<<<<<<<
- *     return 0
- * 
- */
-  (void)(memcpy((__pyx_v_self->data.as_chars + (__pyx_v_origsize * __pyx_v_itemsize)), __pyx_v_stuff, (__pyx_v_n * __pyx_v_itemsize)));
-
-  /* "array.pxd":153
- *     resize_smart(self, origsize + n)
- *     memcpy(self.data.as_chars + origsize * itemsize, stuff, n * itemsize)
- *     return 0             # <<<<<<<<<<<<<<
- * 
- * cdef inline int extend(array self, array other) except -1:
- */
-  __pyx_r = 0;
-  goto __pyx_L0;
-
-  /* "array.pxd":145
- *     return op
- * 
- * cdef inline int extend_buffer(array self, char* stuff, Py_ssize_t n) except -1:             # <<<<<<<<<<<<<<
- *     """ efficient appending of new stuff of same type
- *     (e.g. of same array type)
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_AddTraceback("cpython.array.extend_buffer", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = -1;
-  __pyx_L0:;
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "array.pxd":155
- *     return 0
- * 
- * cdef inline int extend(array self, array other) except -1:             # <<<<<<<<<<<<<<
- *     """ extend array with data from another array; types must match. """
- *     if self.ob_descr.typecode != other.ob_descr.typecode:
- */
-
-static CYTHON_INLINE int __pyx_f_7cpython_5array_extend(arrayobject *__pyx_v_self, arrayobject *__pyx_v_other) {
-  int __pyx_r;
-  __Pyx_RefNannyDeclarations
-  int __pyx_t_1;
-  int __pyx_t_2;
-  __Pyx_RefNannySetupContext("extend", 0);
-
-  /* "array.pxd":157
- * cdef inline int extend(array self, array other) except -1:
- *     """ extend array with data from another array; types must match. """
- *     if self.ob_descr.typecode != other.ob_descr.typecode:             # <<<<<<<<<<<<<<
- *         PyErr_BadArgument()
- *     return extend_buffer(self, other.data.as_chars, Py_SIZE(other))
- */
-  __pyx_t_1 = ((__pyx_v_self->ob_descr->typecode != __pyx_v_other->ob_descr->typecode) != 0);
-  if (__pyx_t_1) {
-
-    /* "array.pxd":158
- *     """ extend array with data from another array; types must match. """
- *     if self.ob_descr.typecode != other.ob_descr.typecode:
- *         PyErr_BadArgument()             # <<<<<<<<<<<<<<
- *     return extend_buffer(self, other.data.as_chars, Py_SIZE(other))
- * 
- */
-    __pyx_t_2 = PyErr_BadArgument(); if (unlikely(__pyx_t_2 == ((int)0))) __PYX_ERR(1, 158, __pyx_L1_error)
-
-    /* "array.pxd":157
- * cdef inline int extend(array self, array other) except -1:
- *     """ extend array with data from another array; types must match. """
- *     if self.ob_descr.typecode != other.ob_descr.typecode:             # <<<<<<<<<<<<<<
- *         PyErr_BadArgument()
- *     return extend_buffer(self, other.data.as_chars, Py_SIZE(other))
- */
-  }
-
-  /* "array.pxd":159
- *     if self.ob_descr.typecode != other.ob_descr.typecode:
- *         PyErr_BadArgument()
- *     return extend_buffer(self, other.data.as_chars, Py_SIZE(other))             # <<<<<<<<<<<<<<
- * 
- * cdef inline void zero(array self):
- */
-  __pyx_t_2 = __pyx_f_7cpython_5array_extend_buffer(__pyx_v_self, __pyx_v_other->data.as_chars, Py_SIZE(((PyObject *)__pyx_v_other))); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(1, 159, __pyx_L1_error)
-  __pyx_r = __pyx_t_2;
-  goto __pyx_L0;
-
-  /* "array.pxd":155
- *     return 0
- * 
- * cdef inline int extend(array self, array other) except -1:             # <<<<<<<<<<<<<<
- *     """ extend array with data from another array; types must match. """
- *     if self.ob_descr.typecode != other.ob_descr.typecode:
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_AddTraceback("cpython.array.extend", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = -1;
-  __pyx_L0:;
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "array.pxd":161
- *     return extend_buffer(self, other.data.as_chars, Py_SIZE(other))
- * 
- * cdef inline void zero(array self):             # <<<<<<<<<<<<<<
- *     """ set all elements of array to zero. """
- *     memset(self.data.as_chars, 0, Py_SIZE(self) * self.ob_descr.itemsize)
- */
-
-static CYTHON_INLINE void __pyx_f_7cpython_5array_zero(arrayobject *__pyx_v_self) {
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("zero", 0);
-
-  /* "array.pxd":163
- * cdef inline void zero(array self):
- *     """ set all elements of array to zero. """
- *     memset(self.data.as_chars, 0, Py_SIZE(self) * self.ob_descr.itemsize)             # <<<<<<<<<<<<<<
- */
-  (void)(memset(__pyx_v_self->data.as_chars, 0, (Py_SIZE(((PyObject *)__pyx_v_self)) * __pyx_v_self->ob_descr->itemsize)));
-
-  /* "array.pxd":161
- *     return extend_buffer(self, other.data.as_chars, Py_SIZE(other))
- * 
- * cdef inline void zero(array self):             # <<<<<<<<<<<<<<
- *     """ set all elements of array to zero. """
- *     memset(self.data.as_chars, 0, Py_SIZE(self) * self.ob_descr.itemsize)
- */
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
 }
 
 /* "string.from_py":13
@@ -3729,7 +1910,7 @@ static std::string __pyx_convert_string_from_py_std__in_string(PyObject *__pyx_v
  *     return string(data, length)
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_AsStringAndSize(__pyx_v_o, (&__pyx_v_length)); if (unlikely(__pyx_t_1 == ((char const *)NULL))) __PYX_ERR(2, 15, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_AsStringAndSize(__pyx_v_o, (&__pyx_v_length)); if (unlikely(__pyx_t_1 == ((char const *)NULL))) __PYX_ERR(1, 15, __pyx_L1_error)
   __pyx_v_data = __pyx_t_1;
 
   /* "string.from_py":16
@@ -3781,7 +1962,7 @@ static CYTHON_INLINE PyObject *__pyx_convert_PyObject_string_to_py_std__in_strin
  *     cdef object __Pyx_PyUnicode_FromStringAndSize(const char*, size_t)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 32, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 32, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3828,7 +2009,7 @@ static CYTHON_INLINE PyObject *__pyx_convert_PyUnicode_string_to_py_std__in_stri
  *     cdef object __Pyx_PyStr_FromStringAndSize(const char*, size_t)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyUnicode_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 38, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyUnicode_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3875,7 +2056,7 @@ static CYTHON_INLINE PyObject *__pyx_convert_PyStr_string_to_py_std__in_string(s
  *     cdef object __Pyx_PyBytes_FromStringAndSize(const char*, size_t)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyStr_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 44, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyStr_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3922,7 +2103,7 @@ static CYTHON_INLINE PyObject *__pyx_convert_PyBytes_string_to_py_std__in_string
  *     cdef object __Pyx_PyByteArray_FromStringAndSize(const char*, size_t)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 50, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 50, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3968,7 +2149,7 @@ static CYTHON_INLINE PyObject *__pyx_convert_PyByteArray_string_to_py_std__in_st
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyByteArray_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 56, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyByteArray_FromStringAndSize(__pyx_v_s.data(), __pyx_v_s.size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4017,11 +2198,11 @@ static PyObject *__pyx_convert_pair_to_py_std_3a__3a_string____char(std::pair<st
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_PyBytes_string_to_py_std__in_string(__pyx_v_p.first); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 159, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_PyBytes_string_to_py_std__in_string(__pyx_v_p.first); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 159, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_From_char(__pyx_v_p.second); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 159, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_char(__pyx_v_p.second); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 159, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 159, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 159, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
@@ -4081,15 +2262,15 @@ static PyObject *__pyx_convert_vector_to_py_uint32_t(const std::vector<uint32_t>
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 61, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 61, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = __pyx_v_v.size();
   __pyx_t_3 = __pyx_t_2;
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_i = __pyx_t_4;
-    __pyx_t_5 = __Pyx_PyInt_From_uint32_t((__pyx_v_v[__pyx_v_i])); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 61, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_From_uint32_t((__pyx_v_v[__pyx_v_i])); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 61, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_5))) __PYX_ERR(2, 61, __pyx_L1_error)
+    if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_5))) __PYX_ERR(1, 61, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __pyx_r = __pyx_t_1;
@@ -4142,7 +2323,7 @@ static PyObject *__pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key_____
  *     cdef const map[X,Y].value_type *key_value
  *     cdef map[X,Y].const_iterator iter = s.begin()
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 202, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 202, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_o = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
@@ -4183,11 +2364,11 @@ static PyObject *__pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key_____
  *         cython.operator.preincrement(iter)
  *     return o
  */
-    __pyx_t_1 = __pyx_convert_vector_to_py_uint32_t(__pyx_v_key_value->second); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 207, __pyx_L1_error)
+    __pyx_t_1 = __pyx_convert_vector_to_py_uint32_t(__pyx_v_key_value->second); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 207, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __pyx_convert_pair_to_py_std_3a__3a_string____char(__pyx_v_key_value->first); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 207, __pyx_L1_error)
+    __pyx_t_3 = __pyx_convert_pair_to_py_std_3a__3a_string____char(__pyx_v_key_value->first); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 207, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    if (unlikely(PyDict_SetItem(__pyx_v_o, __pyx_t_3, __pyx_t_1) < 0)) __PYX_ERR(2, 207, __pyx_L1_error)
+    if (unlikely(PyDict_SetItem(__pyx_v_o, __pyx_t_3, __pyx_t_1) < 0)) __PYX_ERR(1, 207, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
@@ -4273,21 +2454,16 @@ static struct PyModuleDef __pyx_moduledef = {
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_AlignmentFile, __pyx_k_AlignmentFile, sizeof(__pyx_k_AlignmentFile), 0, 0, 1, 1},
-  {&__pyx_n_s_MemoryError, __pyx_k_MemoryError, sizeof(__pyx_k_MemoryError), 0, 0, 1, 1},
-  {&__pyx_kp_s__3, __pyx_k__3, sizeof(__pyx_k__3), 0, 0, 1, 0},
+  {&__pyx_kp_s__2, __pyx_k__2, sizeof(__pyx_k__2), 0, 0, 1, 0},
   {&__pyx_n_s_alen, __pyx_k_alen, sizeof(__pyx_k_alen), 0, 0, 1, 1},
-  {&__pyx_kp_s_bam, __pyx_k_bam, sizeof(__pyx_k_bam), 0, 0, 1, 0},
   {&__pyx_n_s_chr, __pyx_k_chr, sizeof(__pyx_k_chr), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_encode, __pyx_k_encode, sizeof(__pyx_k_encode), 0, 0, 1, 1},
-  {&__pyx_n_s_endswith, __pyx_k_endswith, sizeof(__pyx_k_endswith), 0, 0, 1, 1},
   {&__pyx_n_s_flag, __pyx_k_flag, sizeof(__pyx_k_flag), 0, 0, 1, 1},
   {&__pyx_n_s_get_reference_name, __pyx_k_get_reference_name, sizeof(__pyx_k_get_reference_name), 0, 0, 1, 1},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_pysam, __pyx_k_pysam, sizeof(__pyx_k_pysam), 0, 0, 1, 1},
-  {&__pyx_n_s_pyx_vtable, __pyx_k_pyx_vtable, sizeof(__pyx_k_pyx_vtable), 0, 0, 1, 1},
-  {&__pyx_n_s_r, __pyx_k_r, sizeof(__pyx_k_r), 0, 0, 1, 1},
   {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
   {&__pyx_n_s_rb, __pyx_k_rb, sizeof(__pyx_k_rb), 0, 0, 1, 1},
   {&__pyx_n_s_reference_id, __pyx_k_reference_id, sizeof(__pyx_k_reference_id), 0, 0, 1, 1},
@@ -4297,9 +2473,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_chr = __Pyx_GetBuiltinName(__pyx_n_s_chr); if (!__pyx_builtin_chr) __PYX_ERR(0, 102, __pyx_L1_error)
-  __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(1, 109, __pyx_L1_error)
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(2, 61, __pyx_L1_error)
+  __pyx_builtin_chr = __Pyx_GetBuiltinName(__pyx_n_s_chr); if (!__pyx_builtin_chr) __PYX_ERR(0, 99, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(1, 61, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -4309,27 +2484,16 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "SICER2/src/read_bam.pyx":63
- *         AlignedSegment a
- * 
- *     if filename.endswith(".bam"):             # <<<<<<<<<<<<<<
- *         samfile = pysam.AlignmentFile(filename, "rb")
- *     else:
- */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_bam); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 63, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple_);
-  __Pyx_GIVEREF(__pyx_tuple_);
-
-  /* "SICER2/src/read_bam.pyx":98
+  /* "SICER2/src/read_bam.pyx":95
  *     while (it != genome.end()):
  *         chromosome_id = dereference(it).first.first
  *         chromosome = samfile.get_reference_name(chromosome_id).encode("utf-8")             # <<<<<<<<<<<<<<
  * 
  *         strand = dereference(it).first.second
  */
-  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 98, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__2);
-  __Pyx_GIVEREF(__pyx_tuple__2);
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple_);
+  __Pyx_GIVEREF(__pyx_tuple_);
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -4388,61 +2552,8 @@ static int __Pyx_modinit_type_import_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_import_code", 0);
   /*--- Type import code ---*/
-  __pyx_ptype_5pysam_10libchtslib_HTSFile = __Pyx_ImportType("pysam.libchtslib", "HTSFile", sizeof(struct __pyx_obj_5pysam_10libchtslib_HTSFile), 1); if (unlikely(!__pyx_ptype_5pysam_10libchtslib_HTSFile)) __PYX_ERR(3, 2590, __pyx_L1_error)
-  __pyx_vtabptr_5pysam_10libchtslib_HTSFile = (struct __pyx_vtabstruct_5pysam_10libchtslib_HTSFile*)__Pyx_GetVtable(__pyx_ptype_5pysam_10libchtslib_HTSFile->tp_dict); if (unlikely(!__pyx_vtabptr_5pysam_10libchtslib_HTSFile)) __PYX_ERR(3, 2590, __pyx_L1_error)
-  __pyx_ptype_7cpython_4type_type = __Pyx_ImportType(__Pyx_BUILTIN_MODULE_NAME, "type", 
-  #if defined(PYPY_VERSION_NUM) && PYPY_VERSION_NUM < 0x050B0000
-  sizeof(PyTypeObject),
-  #else
-  sizeof(PyHeapTypeObject),
-  #endif
-  0); if (unlikely(!__pyx_ptype_7cpython_4type_type)) __PYX_ERR(4, 9, __pyx_L1_error)
-  __pyx_ptype_7cpython_4bool_bool = __Pyx_ImportType(__Pyx_BUILTIN_MODULE_NAME, "bool", sizeof(PyBoolObject), 0); if (unlikely(!__pyx_ptype_7cpython_4bool_bool)) __PYX_ERR(5, 8, __pyx_L1_error)
-  __pyx_ptype_7cpython_7complex_complex = __Pyx_ImportType(__Pyx_BUILTIN_MODULE_NAME, "complex", sizeof(PyComplexObject), 0); if (unlikely(!__pyx_ptype_7cpython_7complex_complex)) __PYX_ERR(6, 15, __pyx_L1_error)
-  __pyx_ptype_7cpython_5array_array = __Pyx_ImportType("array", "array", sizeof(arrayobject), 0); if (unlikely(!__pyx_ptype_7cpython_5array_array)) __PYX_ERR(1, 58, __pyx_L1_error)
-  __pyx_ptype_5pysam_9libcfaidx_FastaFile = __Pyx_ImportType("pysam.libcfaidx", "FastaFile", sizeof(struct __pyx_obj_5pysam_9libcfaidx_FastaFile), 1); if (unlikely(!__pyx_ptype_5pysam_9libcfaidx_FastaFile)) __PYX_ERR(7, 37, __pyx_L1_error)
-  __pyx_vtabptr_5pysam_9libcfaidx_FastaFile = (struct __pyx_vtabstruct_5pysam_9libcfaidx_FastaFile*)__Pyx_GetVtable(__pyx_ptype_5pysam_9libcfaidx_FastaFile->tp_dict); if (unlikely(!__pyx_vtabptr_5pysam_9libcfaidx_FastaFile)) __PYX_ERR(7, 37, __pyx_L1_error)
-  __pyx_ptype_5pysam_9libcfaidx_FastqProxy = __Pyx_ImportType("pysam.libcfaidx", "FastqProxy", sizeof(struct __pyx_obj_5pysam_9libcfaidx_FastqProxy), 1); if (unlikely(!__pyx_ptype_5pysam_9libcfaidx_FastqProxy)) __PYX_ERR(7, 45, __pyx_L1_error)
-  __pyx_vtabptr_5pysam_9libcfaidx_FastqProxy = (struct __pyx_vtabstruct_5pysam_9libcfaidx_FastqProxy*)__Pyx_GetVtable(__pyx_ptype_5pysam_9libcfaidx_FastqProxy->tp_dict); if (unlikely(!__pyx_vtabptr_5pysam_9libcfaidx_FastqProxy)) __PYX_ERR(7, 45, __pyx_L1_error)
-  __pyx_ptype_5pysam_9libcfaidx_FastxRecord = __Pyx_ImportType("pysam.libcfaidx", "FastxRecord", sizeof(struct __pyx_obj_5pysam_9libcfaidx_FastxRecord), 1); if (unlikely(!__pyx_ptype_5pysam_9libcfaidx_FastxRecord)) __PYX_ERR(7, 52, __pyx_L1_error)
-  __pyx_vtabptr_5pysam_9libcfaidx_FastxRecord = (struct __pyx_vtabstruct_5pysam_9libcfaidx_FastxRecord*)__Pyx_GetVtable(__pyx_ptype_5pysam_9libcfaidx_FastxRecord->tp_dict); if (unlikely(!__pyx_vtabptr_5pysam_9libcfaidx_FastxRecord)) __PYX_ERR(7, 52, __pyx_L1_error)
-  __pyx_ptype_5pysam_9libcfaidx_FastxFile = __Pyx_ImportType("pysam.libcfaidx", "FastxFile", sizeof(struct __pyx_obj_5pysam_9libcfaidx_FastxFile), 1); if (unlikely(!__pyx_ptype_5pysam_9libcfaidx_FastxFile)) __PYX_ERR(7, 61, __pyx_L1_error)
-  __pyx_vtabptr_5pysam_9libcfaidx_FastxFile = (struct __pyx_vtabstruct_5pysam_9libcfaidx_FastxFile*)__Pyx_GetVtable(__pyx_ptype_5pysam_9libcfaidx_FastxFile->tp_dict); if (unlikely(!__pyx_vtabptr_5pysam_9libcfaidx_FastxFile)) __PYX_ERR(7, 61, __pyx_L1_error)
-  __pyx_ptype_5pysam_9libcfaidx_FastqFile = __Pyx_ImportType("pysam.libcfaidx", "FastqFile", sizeof(struct __pyx_obj_5pysam_9libcfaidx_FastqFile), 1); if (unlikely(!__pyx_ptype_5pysam_9libcfaidx_FastqFile)) __PYX_ERR(7, 73, __pyx_L1_error)
-  __pyx_vtabptr_5pysam_9libcfaidx_FastqFile = (struct __pyx_vtabstruct_5pysam_9libcfaidx_FastqFile*)__Pyx_GetVtable(__pyx_ptype_5pysam_9libcfaidx_FastqFile->tp_dict); if (unlikely(!__pyx_vtabptr_5pysam_9libcfaidx_FastqFile)) __PYX_ERR(7, 73, __pyx_L1_error)
-  __pyx_ptype_5pysam_9libcfaidx_Fastafile = __Pyx_ImportType("pysam.libcfaidx", "Fastafile", sizeof(struct __pyx_obj_5pysam_9libcfaidx_Fastafile), 1); if (unlikely(!__pyx_ptype_5pysam_9libcfaidx_Fastafile)) __PYX_ERR(7, 78, __pyx_L1_error)
-  __pyx_vtabptr_5pysam_9libcfaidx_Fastafile = (struct __pyx_vtabstruct_5pysam_9libcfaidx_Fastafile*)__Pyx_GetVtable(__pyx_ptype_5pysam_9libcfaidx_Fastafile->tp_dict); if (unlikely(!__pyx_vtabptr_5pysam_9libcfaidx_Fastafile)) __PYX_ERR(7, 78, __pyx_L1_error)
-  __pyx_ptype_5pysam_17libcalignmentfile_AlignmentHeader = __Pyx_ImportType("pysam.libcalignmentfile", "AlignmentHeader", sizeof(struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentHeader), 1); if (unlikely(!__pyx_ptype_5pysam_17libcalignmentfile_AlignmentHeader)) __PYX_ERR(8, 41, __pyx_L1_error)
-  __pyx_ptype_5pysam_17libcalignmentfile_AlignmentFile = __Pyx_ImportType("pysam.libcalignmentfile", "AlignmentFile", sizeof(struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentFile), 1); if (unlikely(!__pyx_ptype_5pysam_17libcalignmentfile_AlignmentFile)) __PYX_ERR(8, 44, __pyx_L1_error)
-  __pyx_vtabptr_5pysam_17libcalignmentfile_AlignmentFile = (struct __pyx_vtabstruct_5pysam_17libcalignmentfile_AlignmentFile*)__Pyx_GetVtable(__pyx_ptype_5pysam_17libcalignmentfile_AlignmentFile->tp_dict); if (unlikely(!__pyx_vtabptr_5pysam_17libcalignmentfile_AlignmentFile)) __PYX_ERR(8, 44, __pyx_L1_error)
-  __pyx_ptype_5pysam_17libcalignmentfile_PileupColumn = __Pyx_ImportType("pysam.libcalignmentfile", "PileupColumn", sizeof(struct __pyx_obj_5pysam_17libcalignmentfile_PileupColumn), 1); if (unlikely(!__pyx_ptype_5pysam_17libcalignmentfile_PileupColumn)) __PYX_ERR(8, 61, __pyx_L1_error)
-  __pyx_ptype_5pysam_17libcalignmentfile_PileupRead = __Pyx_ImportType("pysam.libcalignmentfile", "PileupRead", sizeof(struct __pyx_obj_5pysam_17libcalignmentfile_PileupRead), 1); if (unlikely(!__pyx_ptype_5pysam_17libcalignmentfile_PileupRead)) __PYX_ERR(8, 68, __pyx_L1_error)
-  __pyx_ptype_5pysam_17libcalignmentfile_IteratorRow = __Pyx_ImportType("pysam.libcalignmentfile", "IteratorRow", sizeof(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRow), 1); if (unlikely(!__pyx_ptype_5pysam_17libcalignmentfile_IteratorRow)) __PYX_ERR(8, 79, __pyx_L1_error)
-  __pyx_ptype_5pysam_17libcalignmentfile_IteratorRowRegion = __Pyx_ImportType("pysam.libcalignmentfile", "IteratorRowRegion", sizeof(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowRegion), 1); if (unlikely(!__pyx_ptype_5pysam_17libcalignmentfile_IteratorRowRegion)) __PYX_ERR(8, 89, __pyx_L1_error)
-  __pyx_vtabptr_5pysam_17libcalignmentfile_IteratorRowRegion = (struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorRowRegion*)__Pyx_GetVtable(__pyx_ptype_5pysam_17libcalignmentfile_IteratorRowRegion->tp_dict); if (unlikely(!__pyx_vtabptr_5pysam_17libcalignmentfile_IteratorRowRegion)) __PYX_ERR(8, 89, __pyx_L1_error)
-  __pyx_ptype_5pysam_17libcalignmentfile_IteratorRowHead = __Pyx_ImportType("pysam.libcalignmentfile", "IteratorRowHead", sizeof(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowHead), 1); if (unlikely(!__pyx_ptype_5pysam_17libcalignmentfile_IteratorRowHead)) __PYX_ERR(8, 95, __pyx_L1_error)
-  __pyx_vtabptr_5pysam_17libcalignmentfile_IteratorRowHead = (struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorRowHead*)__Pyx_GetVtable(__pyx_ptype_5pysam_17libcalignmentfile_IteratorRowHead->tp_dict); if (unlikely(!__pyx_vtabptr_5pysam_17libcalignmentfile_IteratorRowHead)) __PYX_ERR(8, 95, __pyx_L1_error)
-  __pyx_ptype_5pysam_17libcalignmentfile_IteratorRowAll = __Pyx_ImportType("pysam.libcalignmentfile", "IteratorRowAll", sizeof(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowAll), 1); if (unlikely(!__pyx_ptype_5pysam_17libcalignmentfile_IteratorRowAll)) __PYX_ERR(8, 102, __pyx_L1_error)
-  __pyx_vtabptr_5pysam_17libcalignmentfile_IteratorRowAll = (struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorRowAll*)__Pyx_GetVtable(__pyx_ptype_5pysam_17libcalignmentfile_IteratorRowAll->tp_dict); if (unlikely(!__pyx_vtabptr_5pysam_17libcalignmentfile_IteratorRowAll)) __PYX_ERR(8, 102, __pyx_L1_error)
-  __pyx_ptype_5pysam_17libcalignmentfile_IteratorRowAllRefs = __Pyx_ImportType("pysam.libcalignmentfile", "IteratorRowAllRefs", sizeof(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowAllRefs), 1); if (unlikely(!__pyx_ptype_5pysam_17libcalignmentfile_IteratorRowAllRefs)) __PYX_ERR(8, 107, __pyx_L1_error)
-  __pyx_ptype_5pysam_17libcalignmentfile_IteratorRowSelection = __Pyx_ImportType("pysam.libcalignmentfile", "IteratorRowSelection", sizeof(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorRowSelection), 1); if (unlikely(!__pyx_ptype_5pysam_17libcalignmentfile_IteratorRowSelection)) __PYX_ERR(8, 112, __pyx_L1_error)
-  __pyx_vtabptr_5pysam_17libcalignmentfile_IteratorRowSelection = (struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorRowSelection*)__Pyx_GetVtable(__pyx_ptype_5pysam_17libcalignmentfile_IteratorRowSelection->tp_dict); if (unlikely(!__pyx_vtabptr_5pysam_17libcalignmentfile_IteratorRowSelection)) __PYX_ERR(8, 112, __pyx_L1_error)
-  __pyx_ptype_5pysam_17libcalignmentfile_IteratorColumn = __Pyx_ImportType("pysam.libcalignmentfile", "IteratorColumn", sizeof(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorColumn), 1); if (unlikely(!__pyx_ptype_5pysam_17libcalignmentfile_IteratorColumn)) __PYX_ERR(8, 119, __pyx_L1_error)
-  __pyx_vtabptr_5pysam_17libcalignmentfile_IteratorColumn = (struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorColumn*)__Pyx_GetVtable(__pyx_ptype_5pysam_17libcalignmentfile_IteratorColumn->tp_dict); if (unlikely(!__pyx_vtabptr_5pysam_17libcalignmentfile_IteratorColumn)) __PYX_ERR(8, 119, __pyx_L1_error)
-  __pyx_ptype_5pysam_17libcalignmentfile_IteratorColumnRegion = __Pyx_ImportType("pysam.libcalignmentfile", "IteratorColumnRegion", sizeof(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorColumnRegion), 1); if (unlikely(!__pyx_ptype_5pysam_17libcalignmentfile_IteratorColumnRegion)) __PYX_ERR(8, 150, __pyx_L1_error)
-  __pyx_vtabptr_5pysam_17libcalignmentfile_IteratorColumnRegion = (struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorColumnRegion*)__Pyx_GetVtable(__pyx_ptype_5pysam_17libcalignmentfile_IteratorColumnRegion->tp_dict); if (unlikely(!__pyx_vtabptr_5pysam_17libcalignmentfile_IteratorColumnRegion)) __PYX_ERR(8, 150, __pyx_L1_error)
-  __pyx_ptype_5pysam_17libcalignmentfile_IteratorColumnAllRefs = __Pyx_ImportType("pysam.libcalignmentfile", "IteratorColumnAllRefs", sizeof(struct __pyx_obj_5pysam_17libcalignmentfile_IteratorColumnAllRefs), 1); if (unlikely(!__pyx_ptype_5pysam_17libcalignmentfile_IteratorColumnAllRefs)) __PYX_ERR(8, 156, __pyx_L1_error)
-  __pyx_vtabptr_5pysam_17libcalignmentfile_IteratorColumnAllRefs = (struct __pyx_vtabstruct_5pysam_17libcalignmentfile_IteratorColumnAllRefs*)__Pyx_GetVtable(__pyx_ptype_5pysam_17libcalignmentfile_IteratorColumnAllRefs->tp_dict); if (unlikely(!__pyx_vtabptr_5pysam_17libcalignmentfile_IteratorColumnAllRefs)) __PYX_ERR(8, 156, __pyx_L1_error)
-  __pyx_ptype_5pysam_17libcalignmentfile_IndexedReads = __Pyx_ImportType("pysam.libcalignmentfile", "IndexedReads", sizeof(struct __pyx_obj_5pysam_17libcalignmentfile_IndexedReads), 1); if (unlikely(!__pyx_ptype_5pysam_17libcalignmentfile_IndexedReads)) __PYX_ERR(8, 160, __pyx_L1_error)
-  __pyx_ptype_5pysam_18libcalignedsegment_AlignedSegment = __Pyx_ImportType("pysam.libcalignedsegment", "AlignedSegment", sizeof(struct __pyx_obj_5pysam_18libcalignedsegment_AlignedSegment), 1); if (unlikely(!__pyx_ptype_5pysam_18libcalignedsegment_AlignedSegment)) __PYX_ERR(9, 34, __pyx_L1_error)
-  __pyx_vtabptr_5pysam_18libcalignedsegment_AlignedSegment = (struct __pyx_vtabstruct_5pysam_18libcalignedsegment_AlignedSegment*)__Pyx_GetVtable(__pyx_ptype_5pysam_18libcalignedsegment_AlignedSegment->tp_dict); if (unlikely(!__pyx_vtabptr_5pysam_18libcalignedsegment_AlignedSegment)) __PYX_ERR(9, 34, __pyx_L1_error)
-  __pyx_ptype_5pysam_18libcalignedsegment_PileupColumn = __Pyx_ImportType("pysam.libcalignedsegment", "PileupColumn", sizeof(struct __pyx_obj_5pysam_18libcalignedsegment_PileupColumn), 1); if (unlikely(!__pyx_ptype_5pysam_18libcalignedsegment_PileupColumn)) __PYX_ERR(9, 66, __pyx_L1_error)
-  __pyx_ptype_5pysam_18libcalignedsegment_PileupRead = __Pyx_ImportType("pysam.libcalignedsegment", "PileupRead", sizeof(struct __pyx_obj_5pysam_18libcalignedsegment_PileupRead), 1); if (unlikely(!__pyx_ptype_5pysam_18libcalignedsegment_PileupRead)) __PYX_ERR(9, 76, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
-  __pyx_L1_error:;
-  __Pyx_RefNannyFinishContext();
-  return -1;
 }
 
 static int __Pyx_modinit_variable_import_code(void) {
@@ -4626,7 +2737,7 @@ if (!__Pyx_RefNanny) {
   (void)__Pyx_modinit_variable_export_code();
   (void)__Pyx_modinit_function_export_code();
   (void)__Pyx_modinit_type_init_code();
-  if (unlikely(__Pyx_modinit_type_import_code() != 0)) goto __pyx_L1_error;
+  (void)__Pyx_modinit_type_import_code();
   (void)__Pyx_modinit_variable_import_code();
   (void)__Pyx_modinit_function_import_code();
   /*--- Execution code ---*/
@@ -4734,26 +2845,6 @@ static PyObject *__Pyx_GetBuiltinName(PyObject *name) {
     }
     return result;
 }
-
-/* PyObjectCall */
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw) {
-    PyObject *result;
-    ternaryfunc call = func->ob_type->tp_call;
-    if (unlikely(!call))
-        return PyObject_Call(func, arg, kw);
-    if (unlikely(Py_EnterRecursiveCall((char*)" while calling a Python object")))
-        return NULL;
-    result = (*call)(func, arg, kw);
-    Py_LeaveRecursiveCall();
-    if (unlikely(!result) && unlikely(!PyErr_Occurred())) {
-        PyErr_SetString(
-            PyExc_SystemError,
-            "NULL result without error in PyObject_Call");
-    }
-    return result;
-}
-#endif
 
 /* GetModuleGlobalName */
 static CYTHON_INLINE PyObject *__Pyx_GetModuleGlobalName(PyObject *name) {
@@ -4925,18 +3016,25 @@ static CYTHON_INLINE PyObject * __Pyx_PyCFunction_FastCall(PyObject *func_obj, P
 }
 #endif
 
-/* ExtTypeTest */
-    static CYTHON_INLINE int __Pyx_TypeTest(PyObject *obj, PyTypeObject *type) {
-    if (unlikely(!type)) {
-        PyErr_SetString(PyExc_SystemError, "Missing type object");
-        return 0;
+/* PyObjectCall */
+    #if CYTHON_COMPILING_IN_CPYTHON
+static CYTHON_INLINE PyObject* __Pyx_PyObject_Call(PyObject *func, PyObject *arg, PyObject *kw) {
+    PyObject *result;
+    ternaryfunc call = func->ob_type->tp_call;
+    if (unlikely(!call))
+        return PyObject_Call(func, arg, kw);
+    if (unlikely(Py_EnterRecursiveCall((char*)" while calling a Python object")))
+        return NULL;
+    result = (*call)(func, arg, kw);
+    Py_LeaveRecursiveCall();
+    if (unlikely(!result) && unlikely(!PyErr_Occurred())) {
+        PyErr_SetString(
+            PyExc_SystemError,
+            "NULL result without error in PyObject_Call");
     }
-    if (likely(__Pyx_TypeCheck(obj, type)))
-        return 1;
-    PyErr_Format(PyExc_TypeError, "Cannot convert %.200s to %.200s",
-                 Py_TYPE(obj)->tp_name, type->tp_name);
-    return 0;
+    return result;
 }
+#endif
 
 /* PyObjectCallMethO */
     #if CYTHON_COMPILING_IN_CPYTHON
@@ -5142,26 +3240,6 @@ return_ne:
     #endif
     return (equals == Py_NE);
 #endif
-}
-
-/* GetVTable */
-    static void* __Pyx_GetVtable(PyObject *dict) {
-    void* ptr;
-    PyObject *ob = PyObject_GetItem(dict, __pyx_n_s_pyx_vtable);
-    if (!ob)
-        goto bad;
-#if PY_VERSION_HEX >= 0x02070000
-    ptr = PyCapsule_GetPointer(ob, 0);
-#else
-    ptr = PyCObject_AsVoidPtr(ob);
-#endif
-    if (!ptr && !PyErr_Occurred())
-        PyErr_SetString(PyExc_RuntimeError, "invalid vtable found for imported type");
-    Py_DECREF(ob);
-    return ptr;
-bad:
-    Py_XDECREF(ob);
-    return NULL;
 }
 
 /* Import */
@@ -6664,89 +4742,6 @@ static CYTHON_INLINE int __Pyx_PyErr_GivenExceptionMatches2(PyObject *err, PyObj
     }
     return 0;
 }
-
-/* ModuleImport */
-    #ifndef __PYX_HAVE_RT_ImportModule
-#define __PYX_HAVE_RT_ImportModule
-static PyObject *__Pyx_ImportModule(const char *name) {
-    PyObject *py_name = 0;
-    PyObject *py_module = 0;
-    py_name = __Pyx_PyIdentifier_FromString(name);
-    if (!py_name)
-        goto bad;
-    py_module = PyImport_Import(py_name);
-    Py_DECREF(py_name);
-    return py_module;
-bad:
-    Py_XDECREF(py_name);
-    return 0;
-}
-#endif
-
-/* TypeImport */
-    #ifndef __PYX_HAVE_RT_ImportType
-#define __PYX_HAVE_RT_ImportType
-static PyTypeObject *__Pyx_ImportType(const char *module_name, const char *class_name,
-    size_t size, int strict)
-{
-    PyObject *py_module = 0;
-    PyObject *result = 0;
-    PyObject *py_name = 0;
-    char warning[200];
-    Py_ssize_t basicsize;
-#ifdef Py_LIMITED_API
-    PyObject *py_basicsize;
-#endif
-    py_module = __Pyx_ImportModule(module_name);
-    if (!py_module)
-        goto bad;
-    py_name = __Pyx_PyIdentifier_FromString(class_name);
-    if (!py_name)
-        goto bad;
-    result = PyObject_GetAttr(py_module, py_name);
-    Py_DECREF(py_name);
-    py_name = 0;
-    Py_DECREF(py_module);
-    py_module = 0;
-    if (!result)
-        goto bad;
-    if (!PyType_Check(result)) {
-        PyErr_Format(PyExc_TypeError,
-            "%.200s.%.200s is not a type object",
-            module_name, class_name);
-        goto bad;
-    }
-#ifndef Py_LIMITED_API
-    basicsize = ((PyTypeObject *)result)->tp_basicsize;
-#else
-    py_basicsize = PyObject_GetAttrString(result, "__basicsize__");
-    if (!py_basicsize)
-        goto bad;
-    basicsize = PyLong_AsSsize_t(py_basicsize);
-    Py_DECREF(py_basicsize);
-    py_basicsize = 0;
-    if (basicsize == (Py_ssize_t)-1 && PyErr_Occurred())
-        goto bad;
-#endif
-    if (!strict && (size_t)basicsize > size) {
-        PyOS_snprintf(warning, sizeof(warning),
-            "%s.%s size changed, may indicate binary incompatibility. Expected %zd, got %zd",
-            module_name, class_name, basicsize, size);
-        if (PyErr_WarnEx(NULL, warning, 0) < 0) goto bad;
-    }
-    else if ((size_t)basicsize != size) {
-        PyErr_Format(PyExc_ValueError,
-            "%.200s.%.200s has the wrong size, try recompiling. Expected %zd, got %zd",
-            module_name, class_name, basicsize, size);
-        goto bad;
-    }
-    return (PyTypeObject *)result;
-bad:
-    Py_XDECREF(py_module);
-    Py_XDECREF(result);
-    return NULL;
-}
-#endif
 
 /* InitStrings */
     static int __Pyx_InitStrings(__Pyx_StringTabEntry *t) {

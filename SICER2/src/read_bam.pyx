@@ -32,7 +32,8 @@ ctypedef map[key, intvec] genome_map
 import pysam
 
 
-from pysam.libcalignedsegment cimport AlignedSegment
+# from pysam.libcalignmentfile cimport AlignmentFile, AlignedSegment
+
 
 # ctypedef struct Alignment:
 #     int32_t start
@@ -58,12 +59,8 @@ cpdef read_bam(filename):
         uint32_t five_end
         genome_map_int genome
         genome_map genome_fixed
-        AlignedSegment a
 
-    if filename.endswith(".bam"):
-        samfile = pysam.AlignmentFile(filename, "rb")
-    else:
-        samfile = pysam.AlignmentFile(filename, "r")
+    samfile = pysam.AlignmentFile(filename, "rb")
 
 
     for a in samfile:

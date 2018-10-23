@@ -228,6 +228,8 @@ cpdef files_to_bin_counts(files, args, datatype):
 
         if f.endswith(".bed"):
             cpp_tags = cr.read_bed(c_string)
+        elif f.endswith(".bedpe"):
+            cpp_tags = cr.read_bedpe(c_string)
         elif f.endswith(".bam") or f.endswith(".sam"):
             cpp_tags = read_bam(f)
 
