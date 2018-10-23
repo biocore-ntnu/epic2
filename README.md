@@ -1,5 +1,17 @@
 # SICER2
 
+SICER2 is an ultraperformant reimplementation of SICER. It focuses on speed and
+low memory overhead.
+
+#### Features
+
+* reads sam, single-end bam, bed and bedpe
+* extremely fast
+* low memory requirements
+* works both with and without input
+* metadata for ~80 UCSC genomes built in
+* easily use custom genomes and assemblies with --chromsizes and --effective-genome-fraction args
+
 #### Quick Start
 
 ```

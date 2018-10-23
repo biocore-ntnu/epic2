@@ -7,7 +7,7 @@ from setuptools import find_packages, Extension, Command
 from Cython.Build import cythonize
 macros = []
 
-install_requires = ["scipy", "numpy", "natsort", "cython"]
+install_requires = ["scipy", "numpy", "natsort", "cython", "pysam"]
 
 
 try:
