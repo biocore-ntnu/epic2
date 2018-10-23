@@ -1,10 +1,10 @@
 # SICER2
 
-SICER2 is an ultraperformant reimplementation of SICER. It focuses on speed and
-low memory overhead.
+SICER2 is an ultraperformant reimplementation of SICER. It focuses on speed, low memory overhead and ease of use.
 
 #### Features
 
+* easy to install and use
 * reads sam, single-end bam, bed and bedpe
 * extremely fast
 * low memory requirements
