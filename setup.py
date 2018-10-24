@@ -10,11 +10,8 @@ macros = []
 install_requires = ["scipy", "numpy", "natsort", "cython", "pysam"]
 
 
-try:
-    os.getenv("TRAVIS")
+if os.getenv("TRAVIS"):
     install_requires.append("coveralls")
-except:
-    pass
 
 
 if sys.version_info[0] == 2:
