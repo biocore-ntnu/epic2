@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/rhiRox1.trimmed.fa
+Genome length:  2899552139
+Number unique 36-mers:  2545410349
+Effective genome size:  0.8778632792158941

@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/balAcu1.trimmed.fa
+Genome length:  2431687698
+Number unique 36-mers:  2073944623
+Effective genome size:  0.8528828042785945

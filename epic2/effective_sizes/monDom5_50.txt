@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/monDom5.trimmed.fa
+Genome length:  3605631728
+Number unique 50-mers:  3180758017
+Effective genome size:  0.8821638639075122

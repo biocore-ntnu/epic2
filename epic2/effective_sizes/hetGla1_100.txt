@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/hetGla1.trimmed.fa
+Genome length:  2643978223
+Number unique 100-mers:  2303858321
+Effective genome size:  0.8713605509147947

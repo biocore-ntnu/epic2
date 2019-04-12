@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/sacCer1.trimmed.fa
+Genome length:  12156302
+Number unique 36-mers:  11510444
+Effective genome size:  0.9468705203276457

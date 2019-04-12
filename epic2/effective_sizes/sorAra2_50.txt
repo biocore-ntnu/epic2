@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/sorAra2.trimmed.fa
+Genome length:  2423158183
+Number unique 50-mers:  2098945978
+Effective genome size:  0.8662026246265905

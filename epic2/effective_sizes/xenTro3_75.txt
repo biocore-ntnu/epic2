@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/xenTro3.trimmed.fa
+Genome length:  1511735326
+Number unique 75-mers:  1156351554
+Effective genome size:  0.7649166716634629

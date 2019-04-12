@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/cerSim1.trimmed.fa
+Genome length:  2464367180
+Number unique 100-mers:  2350188917
+Effective genome size:  0.9536683234841652

@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/calJac3.trimmed.fa
+Genome length:  2770219215
+Number unique 36-mers:  2390933907
+Effective genome size:  0.8630847313648425

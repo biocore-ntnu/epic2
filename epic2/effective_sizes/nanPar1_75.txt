@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/nanPar1.trimmed.fa
+Genome length:  2053849526
+Number unique 75-mers:  1828411423
+Effective genome size:  0.89023630984347

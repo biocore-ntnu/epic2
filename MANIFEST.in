@@ -1,0 +1,5 @@
+global-include *.pyx
+global-include *.pxd
+global-include *.hpp
+global-include *.cpp
+global-include epic2/src/*.

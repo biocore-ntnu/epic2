@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/ochPri3.trimmed.fa
+Genome length:  2229835716
+Number unique 100-mers:  1915190366
+Effective genome size:  0.8588930351495007

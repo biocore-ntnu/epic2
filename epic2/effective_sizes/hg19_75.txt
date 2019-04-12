@@ -1,0 +1,5 @@
+File analyzed:  trimmed_fasta/hg19.trimmed.fa
+Genome length:  3095693983
+jellyfish count -t 4 -m 75 -s 3095693983 -L 1 -U 1 --out-counter-len 1 --counter-len 1 trimmed_fasta/hg19.trimmed.fa -o /tmp/hg19.trimmed.fa.jf
+Number unique 75-mers:  2762988899
+Effective genome size:  0.8925264946

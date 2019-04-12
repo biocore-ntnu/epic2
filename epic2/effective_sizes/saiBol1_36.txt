@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/saiBol1.trimmed.fa
+Genome length:  2608572064
+Number unique 36-mers:  2321851950
+Effective genome size:  0.8900854157119426

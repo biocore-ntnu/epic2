@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/rheMac8.trimmed.fa
+Genome length:  2835979954
+Number unique 100-mers:  2721031962
+Effective genome size:  0.9594679814863035

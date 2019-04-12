@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/oviAri1.trimmed.fa
+Genome length:  2784765100
+Number unique 50-mers:  1060490057
+Effective genome size:  0.3808184959657818

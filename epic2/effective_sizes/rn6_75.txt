@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/rn6.trimmed.fa
+Genome length:  2782028915
+Number unique 75-mers:  2342153242
+Effective genome size:  0.8418867357458792

@@ -1,0 +1,5 @@
+File analyzed:  trimmed_fasta/mm10.trimmed.fa
+Genome length:  2725537669
+jellyfish count -t 4 -m 75 -s 2725537669 -L 1 -U 1 --out-counter-len 1 --counter-len 1 trimmed_fasta/mm10.trimmed.fa -o /tmp/mm10.trimmed.fa.jf
+Number unique 75-mers:  1363985883
+Effective genome size:  0.500446535197

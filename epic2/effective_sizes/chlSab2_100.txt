@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/chlSab2.trimmed.fa
+Genome length:  2744131861
+Number unique 100-mers:  2668457752
+Effective genome size:  0.9724232971179368

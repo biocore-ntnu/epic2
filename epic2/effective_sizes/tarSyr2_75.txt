@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/tarSyr2.trimmed.fa
+Genome length:  3453864774
+Number unique 75-mers:  3107184790
+Effective genome size:  0.899625490085849

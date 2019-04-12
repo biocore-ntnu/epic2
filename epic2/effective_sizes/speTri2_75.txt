@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/speTri2.trimmed.fa
+Genome length:  2478393770
+Number unique 75-mers:  2280400801
+Effective genome size:  0.9201123843205916

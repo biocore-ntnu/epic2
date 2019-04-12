@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/gorGor5.trimmed.fa
+Genome length:  3080431298
+Number unique 50-mers:  2740770916
+Effective genome size:  0.8897360956498112

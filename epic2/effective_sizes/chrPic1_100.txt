@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/chrPic1.trimmed.fa
+Genome length:  2589745704
+Number unique 100-mers:  2074482683
+Effective genome size:  0.8010372137294605

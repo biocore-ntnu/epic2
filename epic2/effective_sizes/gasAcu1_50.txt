@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/gasAcu1.trimmed.fa
+Genome length:  463354448
+Number unique 50-mers:  412470096
+Effective genome size:  0.8901826620643556

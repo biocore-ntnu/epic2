@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/oryCun2.trimmed.fa
+Genome length:  2737490501
+Number unique 100-mers:  2512617073
+Effective genome size:  0.9178541704828367

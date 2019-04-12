@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/myoLuc2.trimmed.fa
+Genome length:  2034575300
+Number unique 50-mers:  1800805644
+Effective genome size:  0.885101497103597

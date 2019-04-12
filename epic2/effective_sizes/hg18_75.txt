@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/hg18.trimmed.fa
+Genome length:  3080436051
+Number unique 75-mers:  2760175468
+Effective genome size:  0.8960340102187695

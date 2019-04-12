@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/eriEur1.trimmed.fa
+Genome length:  17447
+Number unique 100-mers:  17132
+Effective genome size:  0.9819453201123403

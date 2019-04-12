@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/geoFor1.trimmed.fa
+Genome length:  1065292181
+Number unique 75-mers:  1009659515
+Effective genome size:  0.9477770822012632

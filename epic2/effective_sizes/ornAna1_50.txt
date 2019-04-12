@@ -1,0 +1,4 @@
+File analyzed:  trimmed_fasta/ornAna1.trimmed.fa
+Genome length:  1996811212
+Number unique 50-mers:  1610859283
+Effective genome size:  0.8067158644339583
