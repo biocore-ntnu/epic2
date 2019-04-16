@@ -24,6 +24,24 @@ believe that was (among other things) because it was easy to install and use. We
 wish to make epic2 similarly easy to install and use, so please report any
 issues you have.
 
+#### Cite
+
+[epic2 efficiently finds diffuse domains in ChIP-seq data (Bioinformatics, 2019)](https://doi.org/10.1093/bioinformatics/btz232)
+
+```
+# bibtex format
+@article{10.1093/bioinformatics/btz232,
+    author = {Sætrom, Pål and Stovner, Endre Bakken},
+    title = "{epic2 efficiently finds diffuse domains in ChIP-seq data}",
+    year = {2019},
+    month = {03},
+    abstract = "{Data from chromatin immunoprecipitation (ChIP) followed by high throughput sequencing (ChIP-seq) generally contain either narrow peaks or broad and diffusely enriched domains. The SICER ChIP-seq caller has proven adept at finding diffuse domains in ChIP-seq data, but it is slow, requires much memory, needs manual installation steps and is hard to use. epic2 is a complete rewrite of SICER that is focused on speed, low memory overhead and ease-of-use.The MIT-licensed code is available at https://github.com/biocore-ntnu/epic2}",
+    doi = {10.1093/bioinformatics/btz232},
+    url = {https://doi.org/10.1093/bioinformatics/btz232},
+    eprint = {http://oup.prod.sis.lan/bioinformatics/advance-article-pdf/doi/10.1093/bioinformatics/btz232/28377147/btz232.pdf},
+}
+```
+
 #### Features
 
 * easy to install and use
