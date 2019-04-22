@@ -20,7 +20,8 @@ __version__ = open("epic2/version.py").readline().split(" = ")[1].replace(
 macros = []
 
 install_requires = [
-    "scipy", "numpy", "natsort", "cython", "pysam", "pandas", "pyranges"
+    "scipy", "numpy", "natsort", "cython", "pysam", "pandas",
+    "pyranges>=0.0.27"
 ]
 
 if sys.version_info[0] == 2:

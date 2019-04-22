@@ -1,0 +1,9 @@
+# 12.04.19 (0.0.29)
+- fix potential importerrors in epic2-df
+
+# 12.04.19 (0.0.28)
+- add --experimental-statistics flag to epic2-df also
+
+# 12.04.19 (0.0.27)
+- changelog introduced!
+- add flag --experimental-statistics that avoids a bug in the original SICER algorithm on large datasets.

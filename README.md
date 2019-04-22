@@ -9,13 +9,8 @@ It also contains a reimplementation of the SICER-df scripts for differential enr
 #### Changelog
 
 ```
-# 12.04.19 (0.0.29)
-- fix potential importerrors in epic2-df
-# 12.04.19 (0.0.28)
-- add --experimental-statistics flag to epic2-df also
-# 12.04.19 (0.0.27)
-- changelog introduced!
-- add flag --experimental-statistics that avoids a bug in the original SICER algorithm on large datasets.
+# 22.04.19 (0.0.29)
+- update pyranges requirements to 0.0.27
 ```
 
 #### Under active development
