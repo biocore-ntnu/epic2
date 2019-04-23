@@ -39,7 +39,10 @@ compile_options = [
 
 from subprocess import check_output
 
-conda_path = check_output("which conda", shell=True).decode().strip()
+try:
+    conda_path = check_output("which conda", shell=True).decode().strip()
+except:
+    conda_path = ""
 
 conda_include = []
 conda_lib = []
