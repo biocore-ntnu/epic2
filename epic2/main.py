@@ -44,7 +44,7 @@ def _main(args):
         "\nValid ChIP reads: {} ({} before out of bounds removal)\n".format(
             chip_count, chip_count_before))
 
-    if not args["experimental_statistics"]:
+    if args["original_statistics"]:
         from epic2.src.SICER_stats import compute_score_threshold
     else:
         from epic2.src.SICER_stats2 import compute_score_threshold

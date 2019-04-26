@@ -1,3 +1,10 @@
+# 26.04.19 (0.0.33)
+- use new way to compute statistics which works on large datasets (previous way available as --original-statistics)
+
+# 22.04.19 (0.0.30-32)
+- update pyranges requirements to 0.0.27
+- various epic2-df import weirdness fixed
+
 # 12.04.19 (0.0.29)
 - fix potential importerrors in epic2-df
 

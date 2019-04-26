@@ -9,8 +9,8 @@ It also contains a reimplementation of the SICER-df scripts for differential enr
 #### Changelog
 
 ```
-# 22.04.19 (0.0.29)
-- update pyranges requirements to 0.0.27
+# 26.04.19 (0.0.33)
+- use new way to compute statistics which works on large datasets (previous way available as --original-statistics)
 ```
 
 #### Under active development
@@ -227,6 +227,36 @@ chr1    26401200        26401399        2       14.983145713806152      .
 ```
 
 Here Score is merely the score the island got (SICER internal really).
+
+#### epic2-df Output
+
+The output from epic2-df contains one row for each region tested for differential enrichment between two conditions:
+
+```
+Chromosome	Start	End	KO	WT	FC_KO	FC_WT	P_KO	P_WT	FDR_KO	FDR_WT
+chr1	23568400	23568599	2	0	2.8140145395799676	0.3553641908862576	0.09285120415065423	1.0	0.23131352612970002	1.0
+chr1	26401200	26401399	2	0	2.8140145395799676	0.3553641908862576	0.09285120415065423	1.0	0.23131352612970002	1.0
+...
+```
+
+KO and WT is the number of reads from the KO and WT conditions in the region. FC_KO is just
+
+```
+scaling_factor = sum_ko / sum_wt
+((KO + 1) / (WT + 1)) * scaling_factor
+```
+
+while FC_WT is
+
+```
+scaling_factor = sum_ko / sum_wt
+((WT + 1) / (KO + 1)) / scaling_factor
+```
+
+so a FC_KO > 1 means that the knockout condition is overrepresented in the region.
+
+The FDR_KO and FDR_WT tells whether the overrepresentation actually is
+statistically significant after controlling for multiple testing.
 
 #### FAQ:
 

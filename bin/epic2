@@ -67,6 +67,7 @@ parser.add_argument(
     '''Use the original SICER algorithm, without the epic2 fix. This will use all reads in your files to compute the p-values, including those falling outside the genome boundaries.'''
 )
 
+
 parser.add_argument(
     '--bin-size',
     '-bin',
@@ -189,13 +190,6 @@ parser.add_argument(
                    removed with this flag, otherwise they will make the
                    statistical analysis too stringent.''')
 
-parser.add_argument(
-    '--experimental-statistics',
-    required=False,
-    action='store_true',
-    help=
-    '''(advanced): Use a sligthly modified way to compute the statistics that avoids a bug in the original SICER on large datasets. Only use if you get an error.'''
-)
 
 parser.add_argument(
     '--output',
@@ -204,6 +198,16 @@ parser.add_argument(
     default=False,
     type=str,
     help='''File to write results to. Default: stdout.''')
+
+
+
+parser.add_argument(
+    '--original-statistics',
+    required=False,
+    action='store_true',
+    help=
+    '''Use the original SICER way of computing the statistics. Like SICER itself, this method raises an error on large datasets. Only included for debugging-purposes.'''
+)
 
 parser.add_argument(
     '--quiet',
@@ -220,6 +224,7 @@ parser.add_argument(
     default=False,
     action="store_true",
     help='''Show the paths of the example data and an example command.''')
+
 
 parser.add_argument('--version', "-v", action='version', version=__version__)
 
