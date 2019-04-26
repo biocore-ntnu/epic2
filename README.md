@@ -32,6 +32,7 @@ issues you have.
 * metadata for ~80 UCSC genomes built in
 * easily use custom genomes and assemblies with --chromsizes and --effective-genome-fraction args
 * differential enrichment for WT vs. KO works with and without input (epic2-df)
+* fixes two bugs in the original SICER
 
 #### Quick Start
 
