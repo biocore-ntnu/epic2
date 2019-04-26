@@ -230,7 +230,7 @@ Here Score is merely the score the island got (SICER internal really).
 
 #### epic2-df Output
 
-The output from epic2-df contains one row for each region tested for differential enrichment between two conditions:
+The output from epic2-df contains one row for each region tested for differential enrichment between the two conditions:
 
 ```
 Chromosome	Start	End	KO	WT	FC_KO	FC_WT	P_KO	P_WT	FDR_KO	FDR_WT
