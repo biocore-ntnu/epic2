@@ -101,7 +101,7 @@ setup(
     name="epic2",
     packages=find_packages(),
     ext_modules=cythonize(extensions, annotate=True, language_level='2'),
-    scripts=["bin/epic2", "bin/epic2-df"],
+    scripts=["bin/epic2", "bin/epic2-df", "bin/epic2-bw"],
     package_data={
         'epic2': [
             'effective_sizes/*.txt', 'chromsizes/*chromsizes',

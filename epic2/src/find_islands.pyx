@@ -435,7 +435,7 @@ def differential_count_reads_on_islands(dfs, c_bins_counts):
         int j = 0
         uint32_t[::1] bins = np.ones(1, dtype=np.uint32)
         uint16_t[::1] counts = np.ones(1, dtype=np.uint16)
-        uint32_t[::1] starts 
+        uint32_t[::1] starts
         uint32_t[::1] ends
 
     new_islands = {}
@@ -458,7 +458,7 @@ def differential_count_reads_on_islands(dfs, c_bins_counts):
         bins, counts = c_bins_counts[chromosome]
         number_bins = len(bins)
 
-        for i in range(number_islands): 
+        for i in range(number_islands):
             # _island = &_islands.wrapped_vector[i]
 
             # not overlapping
@@ -481,4 +481,3 @@ def differential_count_reads_on_islands(dfs, c_bins_counts):
         #     del c_bins_counts[chromosome]
 
     return new_islands
-
