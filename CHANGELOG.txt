@@ -1,3 +1,9 @@
+# unreleased
+- add epic2-bw script
+
+# 27.05.19 (0.0.34)
+- fix missing flag in epic2-df
+
 # 26.04.19 (0.0.33)
 - use new way to compute statistics which works on large datasets (previous way available as --original-statistics)
 
