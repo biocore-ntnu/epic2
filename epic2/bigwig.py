@@ -3,10 +3,10 @@ import pyranges as pr
 from epic2.src.genome_info import sniff
 from epic2.src.reads_to_bins import files_to_bin_counts
 
+# note that
+
 
 def file_to_unbinned_ranges(f, args, _):
-
-    chromosome_data = {}
 
     file_format = sniff(f)
 
@@ -20,13 +20,18 @@ def file_to_unbinned_ranges(f, args, _):
     else:
         gr = pr.read_bam(f)
 
-    return gr
+    if args["drop_duplicates"]:
+        gr = gr.drop_duplicate_positions()
+
+    # print("args", args)# ["chromsizes"])
+    return gr #.remove_out_of_genome_bounds_intervals()
 
 
 
 def file_to_binned_ranges(f, args, datatype):
 
     chromosome_data = {}
+    # counts = 0
     bin_counts, _ = files_to_bin_counts([f], args, datatype)
 
     for c, v in bin_counts.items():
@@ -35,6 +40,7 @@ def file_to_binned_ranges(f, args, datatype):
         df = pd.DataFrame({"Start": starts, "End": ends, "Score": scores})
         df.insert(0, "Chromosome", c)
         chromosome_data[c] = df
+        # counts += len(df)
 
     return pr.PyRanges(chromosome_data)
 
@@ -56,8 +62,8 @@ def files_to_coverage(files, args):
     # read data and make ranges of coverage
     file_ranges = {}
     for f in files:
-        # cr = file_to_coverage_ranges(f)
-        file_ranges[f] = file_to_ranges(f, args, "ChIP")
+        ranges = file_to_ranges(f, args, "ChIP")
+        file_ranges[f] = ranges
 
 
     # create coverage
@@ -74,7 +80,6 @@ def main(args):
     # else cluster Scores of binned
 
     treatment_ranges = files_to_coverage(args["treatment"], args)
-    print(treatment_ranges)
 
     if args.get("control"):
         control_ranges = files_to_coverage(args["control"], args)
@@ -82,4 +87,4 @@ def main(args):
 
     treatment_sum = pr.concat(treatment_ranges.values())
 
-    print(treatment_sum)
+    print("treatment_sum", treatment_sum)

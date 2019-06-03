@@ -1,5 +1,5 @@
-# unreleased
-- add epic2-bw script
+# (unreleased 0.0.35)
+- epic2-df bugfix
 
 # 27.05.19 (0.0.34)
 - fix missing flag in epic2-df
