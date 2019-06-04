@@ -2,7 +2,8 @@
 
 epic2 is an ultraperformant reimplementation of SICER. It focuses on speed, low memory overhead and ease of use.
 
-It also contains a reimplementation of the SICER-df scripts for differential enrichment.
+It also contains a reimplementation of the SICER-df scripts for differential
+enrichment and a script to create many kinds of bigwigs from your data.
 
 [epic2 efficiently finds diffuse domains in ChIP-seq data (Bioinformatics, 2019)](https://doi.org/10.1093/bioinformatics/btz232)
 
@@ -32,7 +33,8 @@ issues you have.
 * metadata for ~80 UCSC genomes built in
 * easily use custom genomes and assemblies with --chromsizes and --effective-genome-fraction args
 * differential enrichment for WT vs. KO works with and without input (epic2-df)
-* fixes two bugs in the original SICER
+* fixes two bugs in the original SICER and one bug in epic
+* create many types of useful bigwigs for visualization in genome browsers
 
 #### Quick Start
 
