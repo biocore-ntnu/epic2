@@ -1,0 +1,174 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+
+import sys
+
+import argparse
+import os
+from epic2.version import __version__
+from epic2.bigwig import main
+from epic2.src.genome_info import egl_and_chromsizes
+
+parser = argparse.ArgumentParser(
+    description="""epic2-bw, version: {}
+(Visit github.com/endrebak/epic2 for examples and help. Run epic2-bw --example for a simple example command.)
+    """.format(__version__),
+    prog=os.path.basename(__file__))
+
+
+parser.add_argument(
+    '--treatment',
+    '-t',
+    required=True
+    if not ("--version" in sys.argv or "-v" in sys.argv or "-ex" in sys.argv
+            or "--example" in sys.argv) else False,
+    type=str,
+    nargs='+',
+    help=
+    '''Treatment (pull-down) file(s) in one of these formats: bed, bedpe, bed.gz, bedpe.gz or (single-end) bam, sam. Mixing file formats is allowed.'''
+)
+
+parser.add_argument(
+    '--control',
+    '-c',
+    required=False,
+    type=str,
+    nargs='+',
+    help=
+    '''Control (input) file(s) in one of these formats: bed, bedpe, bed.gz, bedpe.gz or (single-end) bam, sam. Mixing file formats is allowed.'''
+)
+
+
+parser.add_argument(
+    '--raw',
+    '-r',
+    required=False,
+    action='store_true',
+    help='''Create bigwigs at nucleotide resolution (it still respects the drop-duplicates flag.)''')
+
+parser.add_argument(
+    '--bigwig',
+    '-bw',
+    required=False,
+    type=str,
+    help=
+    '''For each file, store a bigwig of both enriched and non-enriched regions to folder <BIGWIG>. Requires different basenames for each file.''')
+
+parser.add_argument(
+    '--individual-log2fc-bigwigs',
+    '-i2bw',
+    required=False,
+    type=str,
+    help=
+    '''For each file, store a bigwig of the log2fc of ChIP/(Sum Input) to folder <INDIVIDUAL-LOG2FC-BIGWIGS>. Requires different basenames for each file.''')
+
+parser.add_argument(
+    '--chip-bigwig',
+    '-cbw',
+    required=False,
+    type=str,
+    help=
+    '''Store an RPKM-normalized summed bigwig for all ChIP files in file <CHIP-BIGWIG>.''')
+
+parser.add_argument(
+    '--input-bigwig',
+    '-ibw',
+    required=False,
+    type=str,
+    help=
+    '''Store an RPKM-normalized summed bigwig for all Input files in file <INPUT-BIGWIG>.''')
+
+parser.add_argument(
+    '--log2fc-bigwig',
+    '-2bw',
+    required=False,
+    type=str,
+    help=
+    '''Store an log2(ChIP/Input) bigwig in file <LOG2FC-BIGWIG>. (Both ChIP and
+Input are RPKM-normalized before dividing.)''')
+
+
+parser.add_argument(
+    '--genome',
+    '-gn',
+    required=False,
+    default="hg19",
+    type=str,
+    help=
+    '''Which genome to analyze. Default: hg19. If --chromsizes and --egf flag is given, --genome is not required.'''
+)
+
+parser.add_argument(
+    '--keep-duplicates',
+    '-kd',
+    required=False,
+    default=False,
+    action='store_true',
+    help=
+    '''Keep reads mapping to the same position on the same strand within a library. Default: False.
+                   ''')
+
+parser.add_argument(
+    '--bin-size',
+    '-bin',
+    required=False,
+    default=200,
+    type=int,
+    help='''Size of the windows to scan the genome. BIN-SIZE is the smallest possible island. Default 200.''')
+
+parser.add_argument(
+    '--fragment-size',
+    '-fs',
+    required=False,
+    default=150,
+    type=int,
+    help=
+    '''(Single end reads only) Size of the sequenced fragment. Each read is extended half the fragment size from the 5' end. Default 150 (i.e. extend by 75).'''
+)
+
+parser.add_argument(
+    '--chromsizes',
+    '-cs',
+    required=False,
+    type=str,
+    help=
+    '''Set the chromosome lengths yourself in a file with two columns: chromosome names and sizes. Useful to analyze custom genomes, assemblies or simulated data. Only chromosomes included in the file will be analyzed.'''
+)
+
+
+
+parser.add_argument(
+    '--example',
+    '-ex',
+    required=False,
+    default=False,
+    action="store_true",
+    help='''Show the paths of the example data and an example command.''')
+
+parser.add_argument('--version', "-v", action='version', version=__version__)
+
+if __name__ == "__main__":
+
+    args = vars(parser.parse_args())
+
+    if args["example"]:
+
+        import pkg_resources
+        treatment = pkg_resources.resource_filename("epic2",
+                                                    "examples/test.bed.gz")
+        control = pkg_resources.resource_filename("epic2",
+                                                  "examples/control.bed.gz")
+        print("Example command: epic2-bw -t {} -c {} -bw bigwigs/ -i2bw log2fc_bigwigs/ -cbw chip.bw -ibw input.bw -2bw log2_chip_input.bw".format(
+            treatment, control))
+        sys.exit(0)
+
+
+    args["autodetect_chroms"] = None
+    args["effective_genome_fraction"] = None
+
+    args["drop_duplicates"] = not args["keep_duplicates"]
+    effective_genome_length, chromsizes = egl_and_chromsizes(args)
+    args["chromsizes_"] = chromsizes
+
+    main(args)

@@ -21,7 +21,7 @@ macros = []
 
 install_requires = [
     "scipy", "numpy", "natsort", "cython", "pysam", "pandas",
-    "pyranges>=0.0.27"
+    "pyranges"
 ]
 
 if sys.version_info[0] == 2:
