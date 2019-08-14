@@ -75,8 +75,10 @@ def find_readlength(args):
 
     cdef:
         int i = 0
-        uint32_t start
-        uint32_t end
+        uint32_t _start
+        uint32_t _end
+        uint32_t _start2
+        uint32_t _end2
 
     if file_format == "bed":
         for line in open(_file):
@@ -100,9 +102,18 @@ def find_readlength(args):
     elif file_format == "bedpe":
         for line in open(_file):
             ls = line.split()
-            _start = ls[1]
-            _end = ls[5]
-            arr[i] = int(_end) - int(_start)
+
+            _start = int(ls[1])
+            _start2 = int(ls[4])
+            _end = int(ls[2])
+            _end2 = int(ls[5])
+
+            if _start > _start2:
+                _start = _start2
+            if _end < _end2:
+                _end = _end2
+
+            arr[i] = _end - _start
             i += 1
             if i == 100:
                 break
@@ -111,8 +122,17 @@ def find_readlength(args):
         for line in gzip.open(_file):
             line = line.decode()
             ls = line.split()
-            _start = ls[1]
-            _end = ls[5]
+
+            _start = int(ls[1])
+            _start2 = int(ls[4])
+            _end = int(ls[2])
+            _end2 = int(ls[5])
+
+            if _start > _start2:
+                _start = _start2
+            if _end < _end2:
+                _end = _end2
+
             arr[i] = int(_end) - int(_start)
             i += 1
             if i == 100:
@@ -139,9 +159,12 @@ def find_readlength(args):
     else:
         raise IOError("Cannot recognize file extension of: " + _file + ". Must be bed, bedpe, bam, sam, bed.gz or bedpe.gz")
 
-        # print(arr)
+    arr = arr[arr != 0]
     median = np.median(arr)
-    logging.info("Found a median readlength of {}\n".format(median))
+    if not file_format == "bedpe":
+        logging.info("Found a median readlength of {}\n".format(median))
+    else:
+        logging.info("Found a median fragment size of {}\n".format(median))
 
 
     return get_closest_readlength(median)
@@ -253,10 +276,12 @@ def egl_and_chromsizes(args):
     read_length = find_readlength(args)
 
     if args["autodetect_chroms"]:
-        chromsizes = get_chroms_from_bam([f for f in args["treatment"] if f.endswith(".bam")][0], args["discard_chromosomes_pattern"])
+        bam = [f for f in args["treatment"] if f.endswith(".bam")][0]
+        chromsizes = get_chroms_from_bam(bam, args["discard_chromosomes_pattern"])
         egf = get_effective_genome_fraction(args["genome"], read_length)
         genome_length = sum(chromsizes.values())
         egl = egf * genome_length
+        logging.info("Using chromosome sizes found in {}.\n".format(bam))
 
     else:
 
@@ -264,9 +289,6 @@ def egl_and_chromsizes(args):
         have_effective_genome_fraction = args["effective_genome_fraction"] != None
 
         if have_chromsizes and have_effective_genome_fraction:
-            # assert have_chromsizes
-            # assert have_effective_genome_fraction
-
             chromsizes = create_genome_size_dict_custom_genome(args["chromsizes"])
             egf = args["effective_genome_fraction"]
             egl = egf * sum(chromsizes.values())
@@ -288,7 +310,11 @@ def egl_and_chromsizes(args):
             genome_length = sum(chromsizes.values())
             egl = egf * genome_length
 
-    logging.info("Using genome {}.\n".format(args["genome"]))
+        if args["chromsizes"]:
+                logging.info("Using chromosome sizes found in {}.\n".format(args["chromsizes"]))
+        else:
+            logging.info("Using genome {}.\n".format(args["genome"]))
+
     logging.info("Using an effective genome length of ~{} * 1e6\n".format(int(egl/1e6)))
 
     return egl, chromsizes

@@ -294,6 +294,7 @@ cpdef files_to_bin_counts(files, args, datatype):
     sys.stderr.flush()
 
     bins_counts = count_reads_per_bin(sum_tags)
+    # print(bins_counts)
 
     # import pandas as pd
     # bins, counts = [pd.Series(s) for s in bins_counts["chrY"]]
