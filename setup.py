@@ -4,7 +4,7 @@ try:
 except ImportError:
     raise Exception(
         '\n\n' +
-        'pysam not found; please install pysam first (pip install pysam)' * 5 +
+      	 'pysam not found; pysam needs to be installed before epic2 can be installed (pip install pysam)' +
         '\n\n')
 
 import os
@@ -33,9 +33,17 @@ if os.getenv("TRAVIS"):
 if sys.version_info[0] == 2:
     install_requires.append("functools32")
 
+from sys import platform
+
 compile_options = [
-    "-Ofast", "-Wall", "-std=c++11"
+    "-Ofast", "-Wall"
 ]  #, "-frename-registers", "-funroll-loops"] # , "-lgzstream", "-lz"
+
+if platform == "linux" or platform == "linux2":
+    compile_options.append("-std=c++11")
+elif platform == "darwin":
+    compile_options.extend("-stdlib=libc++ -std=c++11".split())
+
 
 from subprocess import check_output
 

@@ -82,7 +82,9 @@ def find_readlength(args):
 
     if file_format == "bed":
         for line in open(_file):
-            _start, _end = line.split()[1:3]
+            ls = line.split()[1:3]
+            _start = int(ls[0])
+            _end = int(ls[1])
             arr[i] = int(_end) - int(_start)
             i += 1
             if i == 100:
@@ -92,7 +94,9 @@ def find_readlength(args):
     elif file_format == "bed.gz":
         for line in gzip.open(_file):
             line = line.decode()
-            _start, _end = line.split()[1:3]
+            ls = line.split()[1:3]
+            _start = int(ls[0])
+            _end = int(ls[1])
             arr[i] = int(_end) - int(_start)
             i += 1
             if i == 100:

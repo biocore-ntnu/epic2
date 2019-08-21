@@ -3,9 +3,9 @@ from cython.operator import dereference, postincrement
 from libc.stdint cimport uint32_t, uint16_t, int32_t, int64_t, uint64_t
 
 from cython.operator import dereference
-from libcpp.algorithm cimport sort as stdsort
+# from libcpp.algorithm cimport sort as stdsort
 from libcpp.map cimport map as cppmap
-from libcpp.algorithm cimport unique
+# from libcpp.algorithm cimport unique
 from libcpp.vector cimport vector
 from libcpp.string cimport string
 from libcpp.pair cimport pair
@@ -27,6 +27,13 @@ ctypedef map[key, intvec] genome_map
 ctypedef map[intkey, interval_vector] genome_intervals_int
 ctypedef map[key, intvec] genome_intervals
 
+
+
+# https://stackoverflow.com/questions/57584909/unable-to-use-cdef-function-in-stdsort-as-comparison-function/57586789#57586789
+# https://stackoverflow.com/questions/57586516/cython-giving-cdef-extern-functions-the-type-iterator-from-c?noredirect=1&lq=1
+cdef extern from "<algorithm>" namespace "std":
+    void sort(...)
+    Iter unique[Iter](Iter, Iter, ...)
 
 # include "<htslib>"
 
@@ -156,7 +163,7 @@ cpdef read_bam(filename, uint32_t drop_duplicates, uint32_t mapq, uint64_t requi
 
         if drop_duplicates:
 
-            stdsort(intervals.begin(), intervals.end(), compare_start_end)
+            sort(intervals.begin(), intervals.end(), compare_start_end)
             intervals.erase(unique(intervals.begin(), intervals.end(), start_end_equal), intervals.end())
 
         if chr(strand) == "+":
