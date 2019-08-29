@@ -10,8 +10,8 @@ enrichment and a script to create many kinds of bigwigs from your data.
 #### Changelog
 
 ```
-# 26.04.19 (0.0.33)
-- use new way to compute statistics which works on large datasets (previous way available as --original-statistics)
+# 29.08.19 (0.0.40)
+- make easier to install and compile
 ```
 
 #### Under active development

@@ -88,7 +88,6 @@ cdef uint32_t start_end_equal(interval lhs, interval rhs):
 import pysam
 
 
-from pysam.libcalignmentfile cimport AlignmentFile, AlignedSegment
 
 
 cpdef read_bam(filename, uint32_t drop_duplicates, uint32_t mapq, uint64_t required_flag, uint64_t filter_flag):

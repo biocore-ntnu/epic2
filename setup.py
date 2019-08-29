@@ -1,12 +1,3 @@
-# require pysam is pre-installed
-try:
-    import pysam
-except ImportError:
-    raise Exception(
-        '\n\n' +
-      	 'pysam not found; pysam needs to be installed before epic2 can be installed (pip install pysam)' +
-        '\n\n')
-
 import os
 import sys
 
@@ -20,8 +11,7 @@ __version__ = open("epic2/version.py").readline().split(" = ")[1].replace(
 macros = []
 
 install_requires = [
-    "scipy", "numpy", "natsort", "cython", "pysam", "pandas",
-    "pyranges"
+    "scipy", "numpy", "natsort", "cython", "pysam", "pandas", "pyranges"
 ]
 
 if sys.version_info[0] == 2:
@@ -43,7 +33,6 @@ if platform == "linux" or platform == "linux2":
     compile_options.append("-std=c++11")
 elif platform == "darwin":
     compile_options.extend("-stdlib=libc++ -std=c++11".split())
-
 
 from subprocess import check_output
 
@@ -92,12 +81,13 @@ extensions = [
         language="c++",
         extra_compile_args=compile_options),
     Extension(
-        "epic2.src.read_bam", ["epic2/src/read_bam.pyx"],
+        "epic2.src.read_bam",
+        ["epic2/src/read_bam.pyx"],
         language="c++",
         extra_compile_args=compile_options,
-        include_dirs=pysam.get_include() + conda_include,
+        include_dirs=conda_include,
         library_dirs=conda_lib,
-        define_macros=pysam.get_defines(),
+        # define_macros=pysam.get_defines(),
         libraries=["z"]),
     Extension(
         "epic2.src.genome_info", ["epic2/src/genome_info.pyx"],
