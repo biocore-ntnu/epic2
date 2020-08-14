@@ -111,6 +111,7 @@ genome_map intervals_to_midpoint(genome_intervals genome, uint32_t drop_duplicat
     i = 0;
     for (i = 0; i < intervals.size(); i++){
       midpoint = static_cast<uint32_t> (intervals[i].start + (intervals[i].end - intervals[i].start)/2);
+      // std::cout << "Midpoint " << midpoint << "\n";
       genome_tags[chrom_strand].push_back(midpoint);
     }
     genome.erase(chrom_strand);
@@ -189,6 +190,8 @@ genome_map read_bedpe(char const* fileName, uint32_t drop_duplicates)
       if (end < end2){
         end = end2;
       }
+
+      // std::cout << "Start " << start << " End " << end << "\n";
 
       chrom_strand = std::make_pair(chromosome, strand);
 

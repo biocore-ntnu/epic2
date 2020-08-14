@@ -235,8 +235,6 @@ parser.add_argument(
                    removed with this flag, otherwise they will make the
                    statistical analysis too stringent.''')
 
-
-
 parser.add_argument(
     '--original-statistics',
     required=False,
@@ -347,6 +345,7 @@ if __name__ == "__main__":
     counts_knockout = sum(sum(counts) for _, counts in bins_counts_ko.values())
 
     names = "Chromosome	Start	End	ChIPCount	Score".split()
+    dtypes = {"Chromosome": "category", "Start": int, "End": int}
     cols = [0, 1, 2, 3, 4]
     ko = pd.read_csv(
         args["output_knockout"],
@@ -354,6 +353,7 @@ if __name__ == "__main__":
         names=names,
         usecols=cols,
         skiprows=1,
+        dtype=dtypes,
         header=None)
     wt = pd.read_csv(
         args["output_wildtype"],
@@ -361,6 +361,7 @@ if __name__ == "__main__":
         usecols=cols,
         names=names,
         skiprows=1,
+        dtype=dtypes,
         header=None)
 
     ko = pr.PyRanges(ko)

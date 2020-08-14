@@ -55,14 +55,20 @@ cpdef remove_out_of_bounds_bins(count_dict, chromsizes, bin_size):
 
         chromsize = chromsizes[chromosome]
 
+        try:
+            i = len(bins) - 1
+            while (i >= 0 and (bins[i]) > chromsize):
+                # print("For {} bin {} is out of bounds ({})\n".format(chromosome, bins[i], chromsize))
+                # print("It has a count of ({})\n".format(counts[i]))
+                # 52280 - 51862 = 418
+                i -= 1
+        except OverflowError as e:
+            print(e)
+            print("\nAdditional info:\n")
+            print("Chromosome:", chromosome)
+            print("Chromsize:", chromsize)
         # sys.stderr.write(chromosome + "\n")
         # sys.stderr.write("{} {}\n".format(bins[len(bins) - 1], chromsize))
-        i = len(bins) - 1
-        while (i >= 0 and (bins[i]) > chromsize):
-            # print("For {} bin {} is out of bounds ({})\n".format(chromosome, bins[i], chromsize))
-            # print("It has a count of ({})\n".format(counts[i]))
-            # 52280 - 51862 = 418
-            i -= 1
 
         if i != len(bins) - 1:
             # print("-----")
@@ -235,6 +241,7 @@ cpdef files_to_bin_counts(files, args, datatype):
             chromosome = dereference(it).first.first.decode()
 
             if chromosome not in args["chromsizes_"].keys():
+                print("Chromosome", chromosome, "not in the chromosome sizes:", ", ".join(args["chromsizes_"]))
                 postincrement(it)
                 continue
 
@@ -245,6 +252,9 @@ cpdef files_to_bin_counts(files, args, datatype):
             tags[chromosome, strand] = v
 
             postincrement(it)
+
+        if not tags:
+            raise Exception("No tags found. The error is likely that the chromosome names in the chromosome sizes and your alignment files do not match.")
 
         if not paired_end:
             for (chromosome, strand), v in tags.items():
@@ -278,10 +288,10 @@ cpdef files_to_bin_counts(files, args, datatype):
         else:
 
             for (chromosome, strand), v in tags.items():
-
                 v.sort() # needs to be done again, since extracting the 5' end might make tags wrong order
 
                 for i in range(len(v)):
+                    # print(v.wrapped_vector[i] - (v.wrapped_vector[i] % bin_size))
                     v.wrapped_vector[i] = v.wrapped_vector[i] - (v.wrapped_vector[i] % bin_size)
 
                 if chromosome not in sum_tags:

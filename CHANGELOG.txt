@@ -1,3 +1,10 @@
+# 14.08.20 (0.0.42)
+- better error message for bug in issue 36
+
+# 10.09.19 (0.0.41)
+- print warning if chromosome not in chromsizes
+- fix bug in epic2-df if chromosomes were gencode-style and data too large
+
 # 29.08.19 (0.0.40)
 - make easier to install and compile
 
