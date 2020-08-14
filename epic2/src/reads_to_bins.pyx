@@ -63,10 +63,10 @@ cpdef remove_out_of_bounds_bins(count_dict, chromsizes, bin_size):
                 # 52280 - 51862 = 418
                 i -= 1
         except OverflowError as e:
-            print(e)
             print("\nAdditional info:\n")
             print("Chromosome:", chromosome)
             print("Chromsize:", chromsize)
+            raise e
         # sys.stderr.write(chromosome + "\n")
         # sys.stderr.write("{} {}\n".format(bins[len(bins) - 1], chromsize))
 

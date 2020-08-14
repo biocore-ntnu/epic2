@@ -1,3 +1,6 @@
+# 14.08.20 (0.0.43)
+- hotfix 0.0.42
+
 # 14.08.20 (0.0.42)
 - better error message for bug in issue 36
 
