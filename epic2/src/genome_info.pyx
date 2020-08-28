@@ -16,8 +16,25 @@ def sniff(f):
 
     try:
         import pysam
-        pysam.AlignmentFile(f, "rb")
-        return "bam"
+        bamfile = pysam.AlignmentFile(f, "rb")
+        iterator = iter(bamfile)
+
+        paired = 0
+        to_sniff = 100
+        for ind in range(to_sniff):
+            try:
+                read = next(iterator)
+            except StopIteration:
+                to_sniff = ind
+                break
+            paired += read.is_paired
+        bamfile.close()
+
+        # Conservatively process the file as a bampe only if all fetched reads are paired
+        if to_sniff == paired:
+            return "bampe"
+        else:
+            return "bam"
     except:
         pass
 
@@ -63,7 +80,7 @@ def get_closest_readlength(estimated_readlength):
 
 def find_readlength(args):
     # type: (Namespace) -> int
-    """Estimate length of reads based on 1000 first."""
+    """Estimate length of reads based on 100 first."""
 
     # from subprocess import check_output
     # import pandas as pd
@@ -144,7 +161,6 @@ def find_readlength(args):
 
 
     elif file_format == "bam":
-
         import pysam
 
         if _file.endswith(".bam"):
@@ -153,23 +169,38 @@ def find_readlength(args):
             samfile = pysam.AlignmentFile(_file, "r")
 
         for a in samfile:
-            if a.alen == None: continue
+            if a.alen is None: continue
 
             arr[i] = a.alen
             i += 1
             if i == 100:
                 break
 
+    elif file_format == "bampe":
+        import pysam
+
+        mode = "rb" if _file.endswith(".bam") else "r"
+        samfile = pysam.AlignmentFile(_file, mode)
+
+        # take into account only 5` reads
+        for a in samfile:
+            if a.template_length is None or a.template_length < 0:
+                continue
+
+            arr[i] = a.template_length
+            i += 1
+            if i == 100:
+                break
+
     else:
-        raise IOError("Cannot recognize file extension of: " + _file + ". Must be bed, bedpe, bam, sam, bed.gz or bedpe.gz")
+        raise IOError("Cannot recognize file extension of: " + _file + ". Must be bed, bedpe, bam, bampe, sam, bed.gz or bedpe.gz")
 
     arr = arr[arr != 0]
     median = np.median(arr)
-    if not file_format == "bedpe":
-        logging.info("Found a median readlength of {}\n".format(median))
-    else:
+    if file_format in ("bedpe", "bedpe.gz", "bampe"):
         logging.info("Found a median fragment size of {}\n".format(median))
-
+    else:
+        logging.info("Found a median readlength of {}\n".format(median))
 
     return get_closest_readlength(median)
 

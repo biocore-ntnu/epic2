@@ -1,5 +1,6 @@
 import os
 import sys
+import pysam
 
 from distutils.core import setup
 
@@ -26,8 +27,12 @@ if sys.version_info[0] == 2:
 from sys import platform
 
 compile_options = [
-    "-Ofast", "-Wall"
+    "-Ofast", "-Wall", "-flto"
 ]  #, "-frename-registers", "-funroll-loops"] # , "-lgzstream", "-lz"
+
+link_options = [
+    "-flto"
+]
 
 if platform == "linux" or platform == "linux2":
     compile_options.append("-std=c++11")
@@ -54,45 +59,60 @@ include_dirs = [dir_path + "/epic2/src", dir_path]
 
 extensions = [
     Extension(
-        "epic2.src.reads_to_bins",
-        ["epic2/src/reads_to_bins.pyx", "epic2/src/gzstream.cpp"],
+        "epic2.src.cpp_read_files",
+        ["epic2/src/cpp_read_files.pyx", "epic2/src/gzstream.cpp"],
         language="c++",
         include_dirs=conda_include + include_dirs,
         library_dirs=conda_lib,
         extra_compile_args=compile_options,
+        extra_link_args=link_options,
         libraries=["z"]),
+    Extension(
+        "epic2.src.reads_to_bins",
+        ["epic2/src/reads_to_bins.pyx"],
+        language="c++",
+        include_dirs=conda_include,
+        library_dirs=conda_lib,
+        extra_compile_args=compile_options,
+        extra_link_args=link_options),
     Extension(
         "epic2.src.SICER_stats", ["epic2/src/SICER_stats.pyx"],
         language="c++",
-        extra_compile_args=compile_options),
+        extra_compile_args=compile_options,
+        extra_link_args=link_options),
     Extension(
         "epic2.src.SICER_stats2", ["epic2/src/SICER_stats2.pyx"],
         language="c++",
-        extra_compile_args=compile_options),
+        extra_compile_args=compile_options,
+        extra_link_args=link_options),
     Extension(
         "epic2.src.statistics", ["epic2/src/statistics.pyx"],
         language="c++",
-        extra_compile_args=compile_options),
+        extra_compile_args=compile_options,
+        extra_link_args=link_options),
     # Extension("epic2.src.differential",
     #           ["epic2/src/differential.pyx"], language="c++",
     #           extra_compile_args=compile_options),
     Extension(
         "epic2.src.find_islands", ["epic2/src/find_islands.pyx"],
         language="c++",
-        extra_compile_args=compile_options),
+        extra_compile_args=compile_options,
+        extra_link_args=link_options),
     Extension(
         "epic2.src.read_bam",
         ["epic2/src/read_bam.pyx"],
         language="c++",
-        extra_compile_args=compile_options,
-        include_dirs=conda_include,
+        include_dirs=conda_include + pysam.get_include(),
         library_dirs=conda_lib,
-        # define_macros=pysam.get_defines(),
+        extra_compile_args=compile_options,
+        extra_link_args=link_options + pysam.get_libraries(),
+        define_macros=pysam.get_defines(),
         libraries=["z"]),
     Extension(
         "epic2.src.genome_info", ["epic2/src/genome_info.pyx"],
         language="c++",
-        extra_compile_args=compile_options)
+        extra_compile_args=compile_options,
+        extra_link_args=link_options)
 ]
 
 setup(
