@@ -282,7 +282,7 @@ cpdef files_to_bin_counts(files, args, datatype):
         py_bytes = f.encode()
         c_string = py_bytes
 
-        file_format = sniff(f)
+        file_format = sniff(f, args['guess_bampe'])
         paired_end = file_format in ("bedpe", "bedpe.gz", "bampe")
 
         if file_format == "bed":

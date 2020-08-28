@@ -146,4 +146,4 @@ cpdef cr.genome_map read_bam(filename, uint32_t drop_duplicates, uint32_t mapq, 
             chrom_strand = make_pair(<int>chromosome_id, <char>forward)
             genome[chrom_strand].push_back(interval)
 
-    return cr.intervals_to_midpoint(map_chromosome_id_to_name(genome, samfile), drop_duplicates)
+    return cr.intervals_to_five_end(map_chromosome_id_to_name(genome, samfile), drop_duplicates)

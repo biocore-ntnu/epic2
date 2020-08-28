@@ -12,15 +12,19 @@ import pkg_resources
 
 
 
-def sniff(f):
+def sniff(f, guess_bampe=False):
 
     try:
         import pysam
         bamfile = pysam.AlignmentFile(f, "rb")
-        iterator = iter(bamfile)
 
+        if not guess_bampe:
+            return "bam"
+
+        iterator = iter(bamfile)
         paired = 0
         to_sniff = 100
+
         for ind in range(to_sniff):
             try:
                 read = next(iterator)
@@ -86,7 +90,7 @@ def find_readlength(args):
     # import pandas as pd
     # from io import BytesIO
     _file = args["treatment"][0]
-    file_format = sniff(_file)
+    file_format = sniff(_file, args['guess_bampe'])
 
     arr = np.zeros(100, dtype=np.uint32)
 
@@ -182,12 +186,12 @@ def find_readlength(args):
         mode = "rb" if _file.endswith(".bam") else "r"
         samfile = pysam.AlignmentFile(_file, mode)
 
-        # take into account only 5` reads
         for a in samfile:
-            if a.template_length is None or a.template_length < 0:
+            if a.template_length is None or a.template_length == 0:
                 continue
 
-            arr[i] = a.template_length
+            # template_length is negative for the 3` reads
+            arr[i] = abs(a.template_length)
             i += 1
             if i == 100:
                 break
