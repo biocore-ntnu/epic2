@@ -21,6 +21,9 @@ def file_to_unbinned_ranges(f, args, _):
     elif file_format == "bedpe":
         df = pd.read_csv(f, sep="\t", header=None, usecols=[0, 1, 5, 9], names=names)
         gr = pr.PyRanges(df)
+    elif file_format == "bampe":
+        # Shouldn't be reachable at the moment, bampe format is not supported here yet.
+        raise NotImplementedError("bampe format is not supported at the moment")
     else:
         gr = pr.read_bam(f)
 

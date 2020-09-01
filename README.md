@@ -118,10 +118,14 @@ optional arguments:
   --treatment TREATMENT [TREATMENT ...], -t TREATMENT [TREATMENT ...]
                         Treatment (pull-down) file(s) in one of these formats:
                         bed, bedpe, bed.gz, bedpe.gz or (single-end) bam, sam.
+                        The --guess-bampe flag enables optional support for 
+                        (paired-end) bampe and sampe formats. 
                         Mixing file formats is allowed.
   --control CONTROL [CONTROL ...], -c CONTROL [CONTROL ...]
-                        Control (input) file(s) in one of these formats: bed,
-                        bedpe, bed.gz, bedpe.gz or (single-end) bam, sam.
+                        Control (input) file(s) in one of these formats:
+                        bed, bedpe, bed.gz, bedpe.gz or (single-end) bam, sam.
+                        The --guess-bampe flag enables optional support for 
+                        (paired-end) bampe and sampe formats. 
                         Mixing file formats is allowed.
   --genome GENOME, -gn GENOME
                         Which genome to analyze. Default: hg19. If
@@ -166,21 +170,21 @@ optional arguments:
                         assumption. Should be used when not using a control
                         library. Default: 1000.
   --required-flag REQUIRED_FLAG, -f REQUIRED_FLAG
-                        (bam only.) Keep reads with these bits set in flag.
+                        (bampe/bam only.) Keep reads with these bits set in flag.
                         Same as `samtools view -f`. Default 0
   --filter-flag FILTER_FLAG, -F FILTER_FLAG
-                        (bam only.) Discard reads with these bits set in flag.
+                        (bampe/bam only.) Discard reads with these bits set in flag.
                         Same as `samtools view -F`. Default 1540 (hex: 0x604).
                         See https://broadinstitute.github.io/picard/explain-
                         flags.html for more info.
-  --mapq MAPQ, -m MAPQ  (bam only.) Discard reads with mapping quality lower
+  --mapq MAPQ, -m MAPQ  (bampe/bam only.) Discard reads with mapping quality lower
                         than this. Default 5.
   --autodetect-chroms, -a
-                        (bam only.) Autodetect chromosomes from bam file. Use
+                        (bampe/bam only.) Autodetect chromosomes from bam file. Use
                         with --discard-chromosomes flag to avoid non-canonical
                         chromosomes.
   --discard-chromosomes-pattern DISCARD_CHROMOSOMES_PATTERN, -d DISCARD_CHROMOSOMES_PATTERN
-                        (bam only.) Discard reads from chromosomes matching
+                        (bampe/bam only.) Discard reads from chromosomes matching
                         this pattern. Default '_'. Note that if you are not
                         interested in the results from non-canonical
                         chromosomes, you should ensure they are removed with
@@ -190,6 +194,11 @@ optional arguments:
                         (advanced): Use a sligthly modified way to compute the
                         statistics that avoids a bug in the original SICER on
                         large datasets. Only use if you get an error.
+  --guess-bampe
+                        Autodetect bampe file format based on flags from the first 
+                        100 reads. If all of them are paired, then the format is 
+                        bampe. Only properly paired reads are processed by default
+                        (0x1 and 0x2 samtools flags).
   --output OUTPUT, -o OUTPUT
                         File to write results to. Default: stdout.
   --quiet, -q           Do not write output messages to stderr.
@@ -263,7 +272,7 @@ statistically significant after controlling for multiple testing.
 
 #### FAQ:
 
-- How are paired end-read handled?
+- How are paired-end read handled?
 
 Paired-end reads (bedpe format only) are handled automatically. They are turned
 into a regular read by taking the leftmost end of the leftmost mate and the
@@ -271,6 +280,8 @@ rightmost end of the rightmost mate. If two intervals have these two coordinates
 in common and are on the same chromosome/strand, they are considered a
 duplicate. Instead of extending from the 5'-end, the midpoint is used when
 counting reads in bins.
+
+To enable bampe format support, use the --guess-bampe flag.
 
 - Can I be sure that epic2 and SICER give the exact same results?
 

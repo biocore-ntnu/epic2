@@ -24,7 +24,7 @@ parser.add_argument(
     type=str,
     nargs='+',
     help=
-    '''Treatment (pull-down) file(s) in one of these formats: bed, bedpe, bed.gz, bedpe.gz or (single-end) bam, sam. Mixing file formats is allowed.'''
+    '''Treatment (pull-down) file(s) in one of these formats: bed, bedpe, bed.gz, bedpe.gz or (single-end) bam, sam. The --guess-bampe flag enables optional support for (paired-end) bampe and sampe formats. Mixing file formats is allowed.'''
 )
 
 parser.add_argument(
@@ -34,7 +34,7 @@ parser.add_argument(
     type=str,
     nargs='+',
     help=
-    '''Control (input) file(s) in one of these formats: bed, bedpe, bed.gz, bedpe.gz or (single-end) bam, sam. Mixing file formats is allowed.'''
+    '''Control (input) file(s) in one of these formats: bed, bedpe, bed.gz, bedpe.gz or (single-end) bam, sam. The --guess-bampe flag enables optional support for (paired-end) bampe and sampe formats. Mixing file formats is allowed.'''
 )
 
 parser.add_argument(
@@ -143,7 +143,7 @@ parser.add_argument(
     default=0,
     type=int,
     help=
-    '''(bam only.) Keep reads with these bits set in flag. Same as `samtools view -f`. Default 0
+    '''(bampe/bam only.) Keep reads with these bits set in flag. Same as `samtools view -f`. Default 0
                    ''')
 
 parser.add_argument(
@@ -153,7 +153,7 @@ parser.add_argument(
     default=1540,
     type=int,
     help=
-    '''(bam only.) Discard reads with these bits set in flag. Same as `samtools view -F`. Default 1540 (hex: 0x604).
+    '''(bampe/bam only.) Discard reads with these bits set in flag. Same as `samtools view -F`. Default 1540 (hex: 0x604).
 See https://broadinstitute.github.io/picard/explain-flags.html for more info.
                    ''')
 
@@ -164,7 +164,7 @@ parser.add_argument(
     default=5,
     type=int,
     help=
-    '''(bam only.) Discard reads with mapping quality lower than this. Default 5.
+    '''(bampe/bam only.) Discard reads with mapping quality lower than this. Default 5.
                    ''')
 
 parser.add_argument(
@@ -174,7 +174,7 @@ parser.add_argument(
     default=False,
     action="store_true",
     help=
-    '''(bam only.) Autodetect chromosomes from bam file. Use with --discard-chromosomes flag to avoid non-canonical chromosomes.'''
+    '''(bampe/bam only.) Autodetect chromosomes from bam file. Use with --discard-chromosomes flag to avoid non-canonical chromosomes.'''
 )
 
 parser.add_argument(
@@ -184,7 +184,7 @@ parser.add_argument(
     default="_",
     type=str,
     help=
-    '''(bam only.) Discard reads from chromosomes matching this pattern. Default
+    '''(bampe/bam only.) Discard reads from chromosomes matching this pattern. Default
                    '_'. Note that if you are not interested in the results from
                    non-canonical chromosomes, you should ensure they are
                    removed with this flag, otherwise they will make the
@@ -207,6 +207,15 @@ parser.add_argument(
     action='store_true',
     help=
     '''Use the original SICER way of computing the statistics. Like SICER itself, this method raises an error on large datasets. Only included for debugging-purposes.'''
+)
+
+parser.add_argument(
+    '--guess-bampe',
+    required=False,
+    default=False,
+    action="store_true",
+    help=
+    '''Autodetect bampe file format based on flags from the first 100 reads. If all of them are paired, then the format is bampe. Only properly paired reads are processed by default (0x1 and 0x2 samtools flags).'''
 )
 
 parser.add_argument(
