@@ -1,3 +1,6 @@
+# 25.09.20 (0.0.46)
+- make dist tar not linux egg on PyPI
+
 # 01.09.20 (0.0.45)
 - optional bampe format support with the --guess-bampe flag(issue 24)
 
