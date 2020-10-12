@@ -1,3 +1,6 @@
+# 12.10.20 (0.0.47)
+- add missing .cpp file
+
 # 25.09.20 (0.0.46)
 - make dist tar not linux egg on PyPI
 

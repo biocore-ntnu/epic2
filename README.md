@@ -9,10 +9,7 @@ enrichment and a script to create many kinds of bigwigs from your data.
 
 #### Changelog
 
-```
-# 29.08.19 (0.0.40)
-- make easier to install and compile
-```
+See CHANGELOG.txt in this directory. 
 
 #### Under active development
 

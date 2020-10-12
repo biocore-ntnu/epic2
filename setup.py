@@ -125,7 +125,7 @@ setup(
             'effective_sizes/*.txt', 'chromsizes/*chromsizes',
             'examples/*.bed.gz'
         ],
-        '': ['*.pyx', '*.pxd', '*.h', '*.c', '*.hpp', "*.bed.gz"]
+        '': ['*.pyx', '*.pxd', '*.h', '*.c', '*.hpp', "*.bed.gz", 'epic2/src/gzstream.cpp']
     },
     version=__version__,
     description="Ultraperformant ChIP-Seq broad peak/domain finder.",
