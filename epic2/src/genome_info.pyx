@@ -90,7 +90,12 @@ def find_readlength(args):
     # import pandas as pd
     # from io import BytesIO
     _file = args["treatment"][0]
-    file_format = sniff(_file, args['guess_bampe'])
+    if "guess_bampe" in args:
+       guess_bampe = args['guess_bampe']
+    else:
+        guess_bampe = False
+
+    file_format = sniff(_file, guess_bampe)
 
     arr = np.zeros(100, dtype=np.uint32)
 
