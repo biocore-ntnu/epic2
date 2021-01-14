@@ -1,5 +1,5 @@
 # 25.10.20 (0.0.48)
-- fix bug in epic2-df
+- fix bugs in epic2-df
 
 # 12.10.20 (0.0.47)
 - add missing .cpp file

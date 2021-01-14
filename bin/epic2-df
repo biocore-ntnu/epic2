@@ -257,6 +257,16 @@ parser.add_argument(
     type=str,
     help='''File to write wildtype results to.''')
 
+
+parser.add_argument(
+    '--guess-bampe',
+    required=False,
+    default=False,
+    action="store_true",
+    help=
+    '''Autodetect bampe file format based on flags from the first 100 reads. If all of them are paired, then the format is bampe. Only properly paired reads are processed by default (0x1 and 0x2 samtools flags).'''
+)
+
 parser.add_argument(
     '--quiet',
     '-q',
