@@ -1,3 +1,6 @@
+# 25.10.20 (0.0.49)
+- add missing guess-bampe-flag to epic2-bw
+
 # 25.10.20 (0.0.48)
 - fix bugs in epic2-df
 
