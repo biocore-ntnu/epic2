@@ -147,6 +147,16 @@ parser.add_argument(
 
 
 parser.add_argument(
+    '--mapq',
+    '-m',
+    required=False,
+    default=5,
+    type=int,
+    help=
+    '''(bampe/bam only.) Discard reads with mapping quality lower than this. Default 5.
+                   ''')
+
+parser.add_argument(
     '--example',
     '-ex',
     required=False,

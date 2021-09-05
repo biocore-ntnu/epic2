@@ -1,4 +1,10 @@
-# 25.10.20 (0.0.49)
+# 17.06.21 (0.0.52)
+- fix version string in setup.py
+
+# 14.05.21 (0.0.50)
+- fix outdated API-calls to pyranges
+
+# 14.05.21 (0.0.49)
 - add missing guess-bampe-flag to epic2-bw
 
 # 25.10.20 (0.0.48)

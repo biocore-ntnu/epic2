@@ -87,6 +87,19 @@ def _create_path(_dirname):
     if _dirname:
         call("mkdir -p {}".format(_dirname), shell=True)
 
+def create_normalized_values(gr):
+
+    total_intervals = len(gr)
+    rle = gr.to_rle()
+    return rle/total_intervals
+
+def divide_chip_control(c, i_n):
+
+    c_n = create_normalized_values(c)
+
+    return (c_n/i_n).apply(np.log2).numbers_only().to_ranges()
+
+
 def main(args):
 
     # TODO: need to create coverage of file if raw
@@ -122,19 +135,26 @@ def main(args):
                 bw_name = join(path, _basename + ".bw")
                 ranges.to_bigwig(bw_name, chromsizes)
 
-    if args["individual_log2fc_bigwigs"]:
+    if args["log2fc_bigwig"] or args["individual_log2fc_bigwigs"]:
+        normalized_control = create_normalized_values(control_sum)
 
-        path = args["individual_log2fc_bigwigs"]
-        _create_path(path)
-        for name, ranges in treatment_ranges.items():
-            _basename = splitext(basename(name))[0]
-            bw_name = join(path, _basename + "_log2fc.bw")
-            ranges.to_bigwig(bw_name, chromsizes, divide_by=control_sum)
+        if args["individual_log2fc_bigwigs"]:
 
-    if args["log2fc_bigwig"]:
-        path = args["log2fc_bigwig"]
-        _create_path(dirname(path))
-        treatment_sum.to_bigwig(path, chromsizes, divide_by=control_sum)
+            path = args["individual_log2fc_bigwigs"]
+            _create_path(path)
+            for name, ranges in treatment_ranges.items():
+                _basename = splitext(basename(name))[0]
+                bw_name = join(path, _basename + "_log2fc.bw")
+                normalized = divide_chip_control(ranges, normalized_control)
+                normalized.to_bigwig(bw_name, chromsizes, divide=False, value_col="Score")
+
+        if args["log2fc_bigwig"]:
+
+            normalized = divide_chip_control(treatment_sum, normalized_control)
+
+            path = args["log2fc_bigwig"]
+            _create_path(dirname(path))
+            normalized.to_bigwig(bw_name, chromsizes, divide=False, value_col="Score")
 
     if args["chip_bigwig"]:
         path = args["chip_bigwig"]

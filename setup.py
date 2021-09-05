@@ -133,7 +133,7 @@ setup(
     author_email="endrebak85@gmail.com",
     url="http://github.com/endrebak/epic2",
     keywords=["ChIP-Seq"],
-    license=["MIT"],
+    license="MIT",
     install_requires=install_requires,
     classifiers=[
         "Programming Language :: Python :: 2.7",
