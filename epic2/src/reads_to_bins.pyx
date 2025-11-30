@@ -276,7 +276,10 @@ cpdef files_to_bin_counts(files, args, datatype):
     # print(bins.tail(), file=sys.stderr)
     # print(counts.tail(), file=sys.stderr)
 
-    count = sum([sum(counts) for _, counts in bins_counts.values()])
+    for _, counts in bins_counts.values():
+        for c in counts:
+            count += int(c)
+
     remove_out_of_bounds_bins(bins_counts, args["chromsizes_"], bin_size)
 
     # bins, counts = [pd.Series(s) for s in bins_counts["chrY"]]

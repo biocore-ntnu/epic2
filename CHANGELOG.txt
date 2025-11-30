@@ -1,3 +1,6 @@
+# 17.06.25 (0.0.53)
+- fix overflow error
+
 # 17.06.21 (0.0.52)
 - fix version string in setup.py
 

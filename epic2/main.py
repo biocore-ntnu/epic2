@@ -38,7 +38,11 @@ def _main(args):
 
     c_bins_counts, chip_count_before = files_to_bin_counts(
         args["treatment"], args, "ChIP")
-    chip_count = sum(sum(counts) for _, counts in c_bins_counts.values())
+    chip_count = sum(
+        int(c)
+        for _, counts in c_bins_counts.values()
+        for c in counts
+    )
 
     logging.info(
         "\nValid ChIP reads: {} ({} before out of bounds removal)\n".format(
@@ -69,7 +73,11 @@ def _main(args):
         b_bins_counts, background_count_before = files_to_bin_counts(
             args["control"], args, "Input")
         background_count = sum(
-            sum(counts) for _, counts in b_bins_counts.values())
+            int(c)
+            for _, counts in b_bins_counts.values()
+            for c in counts
+        )
+
         logging.info(
             "\nValid Background reads: {} ({} before out of bounds removal)\n".
             format(background_count, background_count_before))
