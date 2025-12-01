@@ -276,6 +276,7 @@ cpdef files_to_bin_counts(files, args, datatype):
     # print(bins.tail(), file=sys.stderr)
     # print(counts.tail(), file=sys.stderr)
 
+    count = 0
     for _, counts in bins_counts.values():
         for c in counts:
             count += int(c)
